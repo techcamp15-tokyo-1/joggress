@@ -18,6 +18,9 @@
 		53DA7BBA17C4BE70009CD7A2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53DA7BB917C4BE70009CD7A2 /* Default-568h@2x.png */; };
 		53DA7BBD17C4BE70009CD7A2 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53DA7BBB17C4BE70009CD7A2 /* MainStoryboard.storyboard */; };
 		53DA7BC017C4BE70009CD7A2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DA7BBF17C4BE70009CD7A2 /* ViewController.m */; };
+		53DA7BC717C4BF16009CD7A2 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53DA7BC617C4BF16009CD7A2 /* GameKit.framework */; };
+		53DA7BCA17C4C744009CD7A2 /* ModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DA7BC917C4C744009CD7A2 /* ModalViewController.m */; };
+		53DA7BCD17C4CAE2009CD7A2 /* OinoriViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DA7BCC17C4CAE2009CD7A2 /* OinoriViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +40,11 @@
 		53DA7BBC17C4BE70009CD7A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		53DA7BBE17C4BE70009CD7A2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		53DA7BBF17C4BE70009CD7A2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		53DA7BC617C4BF16009CD7A2 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		53DA7BC817C4C744009CD7A2 /* ModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalViewController.h; sourceTree = "<group>"; };
+		53DA7BC917C4C744009CD7A2 /* ModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalViewController.m; sourceTree = "<group>"; };
+		53DA7BCB17C4CAE2009CD7A2 /* OinoriViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OinoriViewController.h; sourceTree = "<group>"; };
+		53DA7BCC17C4CAE2009CD7A2 /* OinoriViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OinoriViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53DA7BC717C4BF16009CD7A2 /* GameKit.framework in Frameworks */,
 				53DA7BA417C4BE70009CD7A2 /* UIKit.framework in Frameworks */,
 				53DA7BA617C4BE70009CD7A2 /* Foundation.framework in Frameworks */,
 				53DA7BA817C4BE70009CD7A2 /* CoreGraphics.framework in Frameworks */,
@@ -56,6 +65,7 @@
 		53DA7B9717C4BE70009CD7A2 = {
 			isa = PBXGroup;
 			children = (
+				53DA7BC617C4BF16009CD7A2 /* GameKit.framework */,
 				53DA7BA917C4BE70009CD7A2 /* joggress */,
 				53DA7BA217C4BE70009CD7A2 /* Frameworks */,
 				53DA7BA117C4BE70009CD7A2 /* Products */,
@@ -89,6 +99,10 @@
 				53DA7BBE17C4BE70009CD7A2 /* ViewController.h */,
 				53DA7BBF17C4BE70009CD7A2 /* ViewController.m */,
 				53DA7BAA17C4BE70009CD7A2 /* Supporting Files */,
+				53DA7BC817C4C744009CD7A2 /* ModalViewController.h */,
+				53DA7BC917C4C744009CD7A2 /* ModalViewController.m */,
+				53DA7BCB17C4CAE2009CD7A2 /* OinoriViewController.h */,
+				53DA7BCC17C4CAE2009CD7A2 /* OinoriViewController.m */,
 			);
 			path = joggress;
 			sourceTree = "<group>";
@@ -176,6 +190,8 @@
 				53DA7BB017C4BE70009CD7A2 /* main.m in Sources */,
 				53DA7BB417C4BE70009CD7A2 /* AppDelegate.m in Sources */,
 				53DA7BC017C4BE70009CD7A2 /* ViewController.m in Sources */,
+				53DA7BCA17C4C744009CD7A2 /* ModalViewController.m in Sources */,
+				53DA7BCD17C4CAE2009CD7A2 /* OinoriViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
