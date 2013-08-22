@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5331FB2A17C6153F00D90345 /* KGStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5331FB2917C6153F00D90345 /* KGStatusBar.m */; };
 		53C8869217C5A6A500FC535A /* Avater.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C8869117C5A6A500FC535A /* Avater.m */; };
 		53DA7BA417C4BE70009CD7A2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53DA7BA317C4BE70009CD7A2 /* UIKit.framework */; };
 		53DA7BA617C4BE70009CD7A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53DA7BA517C4BE70009CD7A2 /* Foundation.framework */; };
@@ -25,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5331FB2817C6153F00D90345 /* KGStatusBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGStatusBar.h; sourceTree = "<group>"; };
+		5331FB2917C6153F00D90345 /* KGStatusBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGStatusBar.m; sourceTree = "<group>"; };
 		53C8869017C5A6A500FC535A /* Avater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Avater.h; sourceTree = "<group>"; };
 		53C8869117C5A6A500FC535A /* Avater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Avater.m; sourceTree = "<group>"; };
 		53DA7BA017C4BE70009CD7A2 /* joggress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = joggress.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +99,8 @@
 		53DA7BA917C4BE70009CD7A2 /* joggress */ = {
 			isa = PBXGroup;
 			children = (
+				5331FB2817C6153F00D90345 /* KGStatusBar.h */,
+				5331FB2917C6153F00D90345 /* KGStatusBar.m */,
 				53DA7BB217C4BE70009CD7A2 /* AppDelegate.h */,
 				53DA7BB317C4BE70009CD7A2 /* AppDelegate.m */,
 				53DA7BBB17C4BE70009CD7A2 /* MainStoryboard.storyboard */,
@@ -198,6 +203,7 @@
 				53DA7BCA17C4C744009CD7A2 /* ModalViewController.m in Sources */,
 				53DA7BCD17C4CAE2009CD7A2 /* OinoriViewController.m in Sources */,
 				53C8869217C5A6A500FC535A /* Avater.m in Sources */,
+				5331FB2A17C6153F00D90345 /* KGStatusBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "KGStatusBar.h"
 
 @interface ViewController ()
 
@@ -19,7 +20,8 @@
     IBOutlet UIProgressView *HungerBar;//空腹ゲージ
     IBOutlet UILabel *HungertText;
     int p;//空腹ゲージ減少量(仮) ＆ 時間
-
+    int message;
+    NSDate *PrevDate;
 }
 
 
@@ -32,11 +34,15 @@
    [CivicVirtuePointText setText:[NSString stringWithFormat:@"%6d/999999",(int)(CivicVirtuePointBar.progress*999999)]];
    [HungertText setText:[NSString stringWithFormat:@"%3d/100",(int)(HungerBar.progress*100)]];
     p = 100;
-    [NSTimer scheduledTimerWithTimeInterval:0.1f
+    PrevDate = [NSDate date];
+    message = -1;
+    [NSTimer scheduledTimerWithTimeInterval:1.0f
                                      target:self
                                    selector:@selector(doTimer:)
                                    userInfo:nil
                                     repeats:YES];
+    
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,15 +57,30 @@
  */
 - (void)doTimer:(NSTimer *)timer
 {
-    // プログレスバーのバーをのばす
+    NSDate *Date = [NSDate date];
+    float tmp= [Date timeIntervalSinceDate:PrevDate];
+    //NSLog (@"%f" ,tmp);
+    PrevDate = Date;
+    // バーの処理
     HungerBar.progress = (float)p / 100.0;
     [HungertText setText:[NSString stringWithFormat:@"%3d/100",(int)(HungerBar.progress*100)]];
-    p--;
+    p-=(int)(tmp+0.5)/1.0;
+    //p-=10;
+    
+    if(message>=0){
+        message++;
+        if(message==4){
+            [KGStatusBar dismiss];
+            message=-1;
+        }
+    }
+    
     if (p < 0) {
         p=100;
-        // タイマーを止める
-        //[timer invalidate];
+        [KGStatusBar showWithStatus:@"死にました"];
+        message = 0;
     }
 }
+
 
 @end
