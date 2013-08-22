@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		53BAC45D17C5DAFF00161A72 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53BAC45C17C5DAFF00161A72 /* ViewController.m */; };
 		53C8869217C5A6A500FC535A /* Avater.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C8869117C5A6A500FC535A /* Avater.m */; };
 		53DA7BA417C4BE70009CD7A2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53DA7BA317C4BE70009CD7A2 /* UIKit.framework */; };
 		53DA7BA617C4BE70009CD7A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53DA7BA517C4BE70009CD7A2 /* Foundation.framework */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		53BAC45C17C5DAFF00161A72 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		53C8869017C5A6A500FC535A /* Avater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Avater.h; sourceTree = "<group>"; };
 		53C8869117C5A6A500FC535A /* Avater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Avater.m; sourceTree = "<group>"; };
 		53DA7BA017C4BE70009CD7A2 /* joggress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = joggress.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +103,7 @@
 				53DA7BBB17C4BE70009CD7A2 /* MainStoryboard.storyboard */,
 				53DA7BBE17C4BE70009CD7A2 /* ViewController.h */,
 				53DA7BBF17C4BE70009CD7A2 /* ViewController.m */,
+				53BAC45C17C5DAFF00161A72 /* ViewController.m */,
 				53DA7BC817C4C744009CD7A2 /* ModalViewController.h */,
 				53DA7BC917C4C744009CD7A2 /* ModalViewController.m */,
 				53C8869017C5A6A500FC535A /* Avater.h */,
@@ -198,6 +201,7 @@
 				53DA7BCA17C4C744009CD7A2 /* ModalViewController.m in Sources */,
 				53DA7BCD17C4CAE2009CD7A2 /* OinoriViewController.m in Sources */,
 				53C8869217C5A6A500FC535A /* Avater.m in Sources */,
+				53BAC45D17C5DAFF00161A72 /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
