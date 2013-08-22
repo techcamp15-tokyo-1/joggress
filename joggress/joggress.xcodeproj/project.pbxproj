@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		53C8869217C5A6A500FC535A /* Avater.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C8869117C5A6A500FC535A /* Avater.m */; };
 		53DA7BA417C4BE70009CD7A2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53DA7BA317C4BE70009CD7A2 /* UIKit.framework */; };
 		53DA7BA617C4BE70009CD7A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53DA7BA517C4BE70009CD7A2 /* Foundation.framework */; };
 		53DA7BA817C4BE70009CD7A2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53DA7BA717C4BE70009CD7A2 /* CoreGraphics.framework */; };
@@ -24,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		53C8869017C5A6A500FC535A /* Avater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Avater.h; sourceTree = "<group>"; };
+		53C8869117C5A6A500FC535A /* Avater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Avater.m; sourceTree = "<group>"; };
 		53DA7BA017C4BE70009CD7A2 /* joggress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = joggress.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53DA7BA317C4BE70009CD7A2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		53DA7BA517C4BE70009CD7A2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -65,7 +68,6 @@
 		53DA7B9717C4BE70009CD7A2 = {
 			isa = PBXGroup;
 			children = (
-				53DA7BC617C4BF16009CD7A2 /* GameKit.framework */,
 				53DA7BA917C4BE70009CD7A2 /* joggress */,
 				53DA7BA217C4BE70009CD7A2 /* Frameworks */,
 				53DA7BA117C4BE70009CD7A2 /* Products */,
@@ -85,6 +87,7 @@
 			children = (
 				53DA7BA317C4BE70009CD7A2 /* UIKit.framework */,
 				53DA7BA517C4BE70009CD7A2 /* Foundation.framework */,
+				53DA7BC617C4BF16009CD7A2 /* GameKit.framework */,
 				53DA7BA717C4BE70009CD7A2 /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
@@ -98,11 +101,13 @@
 				53DA7BBB17C4BE70009CD7A2 /* MainStoryboard.storyboard */,
 				53DA7BBE17C4BE70009CD7A2 /* ViewController.h */,
 				53DA7BBF17C4BE70009CD7A2 /* ViewController.m */,
-				53DA7BAA17C4BE70009CD7A2 /* Supporting Files */,
 				53DA7BC817C4C744009CD7A2 /* ModalViewController.h */,
 				53DA7BC917C4C744009CD7A2 /* ModalViewController.m */,
+				53C8869017C5A6A500FC535A /* Avater.h */,
+				53C8869117C5A6A500FC535A /* Avater.m */,
 				53DA7BCB17C4CAE2009CD7A2 /* OinoriViewController.h */,
 				53DA7BCC17C4CAE2009CD7A2 /* OinoriViewController.m */,
+				53DA7BAA17C4BE70009CD7A2 /* Supporting Files */,
 			);
 			path = joggress;
 			sourceTree = "<group>";
@@ -192,6 +197,7 @@
 				53DA7BC017C4BE70009CD7A2 /* ViewController.m in Sources */,
 				53DA7BCA17C4C744009CD7A2 /* ModalViewController.m in Sources */,
 				53DA7BCD17C4CAE2009CD7A2 /* OinoriViewController.m in Sources */,
+				53C8869217C5A6A500FC535A /* Avater.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,10 +282,16 @@
 		53DA7BC417C4BE70009CD7A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Hiroyuki Nakazumi (KBM4WH8VVM)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Hiroyuki Nakazumi (KBM4WH8VVM)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "joggress/joggress-Prefix.pch";
 				INFOPLIST_FILE = "joggress/joggress-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "AA929A77-6D15-4A00-B515-133AD8DEB6D2";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "AA929A77-6D15-4A00-B515-133AD8DEB6D2";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -287,10 +299,16 @@
 		53DA7BC517C4BE70009CD7A2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Hiroyuki Nakazumi (KBM4WH8VVM)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Hiroyuki Nakazumi (KBM4WH8VVM)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "joggress/joggress-Prefix.pch";
 				INFOPLIST_FILE = "joggress/joggress-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "AA929A77-6D15-4A00-B515-133AD8DEB6D2";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "AA929A77-6D15-4A00-B515-133AD8DEB6D2";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -314,6 +332,7 @@
 				53DA7BC517C4BE70009CD7A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
