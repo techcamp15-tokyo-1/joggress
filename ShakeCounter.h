@@ -30,6 +30,7 @@
     int countJudgNum_MAX;//カウント判定回数
     CMMotionManager *motionManager;//加速度センサマネージャ
 }
+//コンビニエンスコンストラクタ
 +(ShakeCounter*)everySeconds:(double)timing;//センサの巡回
 -(void)startForSeconds:(int)seconds;//センシング開始・カウント開始
 -(bool)isEnded;
