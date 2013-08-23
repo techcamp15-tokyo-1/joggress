@@ -26,4 +26,5 @@
                list2:(NSMutableArray*) PL list3:(NSMutableArray*) UPL int1:(int) CVPI int2:(int) HD;
 - (NSString *)toString;
 
+-(int)Reincarnation:(bool) flag;
 @end

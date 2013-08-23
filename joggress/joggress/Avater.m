@@ -38,13 +38,13 @@ list2:(NSMutableArray*) PL list3:(NSMutableArray*) UPL int1:(int) CVPI int2:(int
 }
 
 
-//空腹ゲージの減少イベント return+ 転生, return- そのまま
--(int)HungryEvent
-{
-    _Hunger-=_HungerDecrement;
-    if(_Hunger<=0) return [self Reincarnation:FALSE];
-    return -_Hunger;
-}
+////空腹ゲージの減少イベント return+ 転生, return- そのまま
+//-(int)HungryEvent
+//{
+//    _Hunger-=_HungerDecrement;
+//    if(_Hunger<=0) return [self Reincarnation:FALSE];
+//    return -_Hunger;
+//}
 
 
 //転生イベント

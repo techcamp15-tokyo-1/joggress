@@ -32,8 +32,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	// 全アバター設定
     AM = [[AvaterManagement alloc] init];
+    
+    //現在のアバターの設定
     avater = [AM Avater:0];
     [AvaterName setText:[NSString stringWithFormat:@"%@",avater.AvaterName]];
     NSString *ImageName = [NSString stringWithFormat:@"%@.%@",avater.ImageName,@"png"];
@@ -70,10 +72,10 @@
     NSDate *Date = [NSDate date];
     float tmp= [Date timeIntervalSinceDate:PrevDate];
     PrevDate = Date;
+    
     // バーの処理
     HungerBar.progress = (double)avater.Hunger / 100.0;
     [HungertText setText:[NSString stringWithFormat:@"%3d/100",(int)(HungerBar.progress*100)]];
-    avater.Hunger-=(int)(tmp+0.5)/1.0 * avater.HungerDecrement;
     
     if(message>=0){
         message++;
@@ -84,10 +86,16 @@
     }
     
     if (avater.Hunger < 0) {
-        avater.Hunger=100;
         [KGStatusBar showWithStatus:@"死にました"];
         message = 0;
+        int ID = [avater Reincarnation:FALSE];
+        //現在のアバターの設定
+        avater = [AM Avater:ID];
+        [AvaterName setText:[NSString stringWithFormat:@"%@",avater.AvaterName]];
+        NSString *ImageName = [NSString stringWithFormat:@"%@.%@",avater.ImageName,@"png"];
+        ImageView.image = [UIImage imageNamed:ImageName];
     }
+    avater.Hunger-=(int)(tmp+0.5)/1.0 * avater.HungerDecrement;
 }
 
 
