@@ -86,7 +86,7 @@
     }
     
     if (avater.Hunger < 0) {
-        [KGStatusBar showWithStatus:@"死にました"];
+        [KGStatusBar showWithStatus:@"餓死しました"];
         message = 0;
         int ID = [avater Reincarnation:FALSE];
         //現在のアバターの設定
@@ -94,8 +94,12 @@
         [AvaterName setText:[NSString stringWithFormat:@"%@",avater.AvaterName]];
         NSString *ImageName = [NSString stringWithFormat:@"%@.%@",avater.ImageName,@"png"];
         ImageView.image = [UIImage imageNamed:ImageName];
+        HungerBar.progress = (double)avater.Hunger/100;
+        [CivicVirtuePointText setText:[NSString stringWithFormat:@"%6d/999999",(int)(CivicVirtuePointBar.progress*999999)]];
+        [HungertText setText:[NSString stringWithFormat:@"%3d/100",(int)(HungerBar.progress*100)]];
+    } else {
+        avater.Hunger-=(int)(tmp+0.5)/1.0 * avater.HungerDecrement;
     }
-    avater.Hunger-=(int)(tmp+0.5)/1.0 * avater.HungerDecrement;
 }
 
 
