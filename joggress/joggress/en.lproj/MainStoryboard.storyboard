@@ -40,8 +40,8 @@
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hNy-Ss-Msl">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="6Je-AQ-SvJ"/>
-                                    <constraint firstAttribute="height" constant="128" id="s2x-zf-lGt"/>
+                                    <constraint firstAttribute="height" constant="180" id="WFJ-BA-3mB"/>
+                                    <constraint firstAttribute="width" constant="250" id="bOB-Za-uiB"/>
                                 </constraints>
                             </imageView>
                             <progressView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="buF-vA-8iF">
@@ -80,22 +80,22 @@
                             <constraint firstItem="zwe-oH-1xB" firstAttribute="baseline" secondItem="W8F-2i-rXt" secondAttribute="baseline" type="default" id="12i-0G-Mp3"/>
                             <constraint firstItem="BJ0-mc-Q9D" firstAttribute="leading" secondItem="buF-vA-8iF" secondAttribute="leading" type="default" id="3nS-Yj-dFQ"/>
                             <constraint firstAttribute="bottom" secondItem="PyY-gS-dw3" secondAttribute="bottom" constant="33" id="BZC-34-5vU"/>
-                            <constraint firstAttribute="trailing" secondItem="iwD-GK-nyg" secondAttribute="trailing" constant="28" id="Chu-Lx-Jn9"/>
-                            <constraint firstItem="iwD-GK-nyg" firstAttribute="centerX" secondItem="p0w-0T-SRn" secondAttribute="centerX" type="default" id="HkN-RF-EAN"/>
+                            <constraint firstItem="hNy-Ss-Msl" firstAttribute="top" secondItem="3" secondAttribute="top" constant="34" id="Pdu-Ms-R0L"/>
+                            <constraint firstItem="W8F-2i-rXt" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="58" id="PvX-Cp-jAt"/>
+                            <constraint firstItem="buF-vA-8iF" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="81" id="Txu-gM-rtp"/>
+                            <constraint firstItem="DU6-f4-na6" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="40" id="U5I-YO-rhr"/>
+                            <constraint firstAttribute="bottom" secondItem="BJ0-mc-Q9D" secondAttribute="bottom" constant="109" id="W7i-lO-Ttc"/>
                             <constraint firstItem="buF-vA-8iF" firstAttribute="top" secondItem="DU6-f4-na6" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="WaB-Nq-pIg"/>
-                            <constraint firstItem="zwe-oH-1xB" firstAttribute="trailing" secondItem="p0w-0T-SRn" secondAttribute="trailing" type="default" id="YTE-Ar-v49"/>
+                            <constraint firstItem="hNy-Ss-Msl" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="Zp3-g4-Ch3"/>
                             <constraint firstItem="p0w-0T-SRn" firstAttribute="baseline" secondItem="PyY-gS-dw3" secondAttribute="baseline" type="default" id="ZtE-AK-Bx4"/>
-                            <constraint firstItem="hNy-Ss-Msl" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="b38-x4-x7G"/>
-                            <constraint firstAttribute="bottom" secondItem="BJ0-mc-Q9D" secondAttribute="bottom" constant="167" id="b5u-Ln-0OK"/>
                             <constraint firstItem="BJ0-mc-Q9D" firstAttribute="top" secondItem="W8F-2i-rXt" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="do7-RP-Ypp"/>
-                            <constraint firstItem="hNy-Ss-Msl" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="etE-EC-tQl"/>
                             <constraint firstItem="iwD-GK-nyg" firstAttribute="baseline" secondItem="DU6-f4-na6" secondAttribute="baseline" type="default" id="ff1-ho-uNO"/>
                             <constraint firstItem="BJ0-mc-Q9D" firstAttribute="trailing" secondItem="buF-vA-8iF" secondAttribute="trailing" type="default" id="iWB-Io-e5D"/>
-                            <constraint firstItem="DU6-f4-na6" firstAttribute="centerX" secondItem="PyY-gS-dw3" secondAttribute="centerX" type="default" id="nqT-dh-8e7"/>
-                            <constraint firstItem="DU6-f4-na6" firstAttribute="top" secondItem="3" secondAttribute="top" constant="189" id="pmn-28-he5"/>
-                            <constraint firstItem="W8F-2i-rXt" firstAttribute="trailing" secondItem="PyY-gS-dw3" secondAttribute="trailing" type="default" id="q8T-Sf-gPa"/>
-                            <constraint firstItem="buF-vA-8iF" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="79" id="qzl-xT-EnC"/>
-                            <constraint firstItem="DU6-f4-na6" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="38" id="voD-pL-ueN"/>
+                            <constraint firstAttribute="bottom" secondItem="buF-vA-8iF" secondAttribute="bottom" constant="175" id="ibO-Kf-qm6"/>
+                            <constraint firstAttribute="trailing" secondItem="p0w-0T-SRn" secondAttribute="trailing" constant="64" id="mTL-vk-YQ7"/>
+                            <constraint firstItem="PyY-gS-dw3" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="54" id="rkz-CA-sha"/>
+                            <constraint firstAttribute="trailing" secondItem="zwe-oH-1xB" secondAttribute="trailing" constant="62" id="rtl-m4-Oyr"/>
+                            <constraint firstAttribute="trailing" secondItem="iwD-GK-nyg" secondAttribute="trailing" constant="26" id="uJT-p9-tBX"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
@@ -104,6 +104,7 @@
                         <outlet property="CivicVirtuePointText" destination="iwD-GK-nyg" id="fGV-7x-tbg"/>
                         <outlet property="HungerBar" destination="BJ0-mc-Q9D" id="mGe-Ax-Rwc"/>
                         <outlet property="HungertText" destination="zwe-oH-1xB" id="zZo-3a-aFC"/>
+                        <outlet property="ImageView" destination="hNy-Ss-Msl" id="qNF-2V-U3t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
@@ -217,6 +218,7 @@
                 <relationship kind="outlet" name="CivicVirtuePointText" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="HungerBar" candidateClass="UIProgressView"/>
                 <relationship kind="outlet" name="HungertText" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="ImageView" candidateClass="UIImageView"/>
             </relationships>
         </class>
     </classes>

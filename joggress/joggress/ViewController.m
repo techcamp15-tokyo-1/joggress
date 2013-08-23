@@ -22,6 +22,9 @@
     int p;//空腹ゲージ減少量(仮) ＆ 時間
     int message;
     NSDate *PrevDate;
+    IBOutlet UIImageView *ImageView;//アバター画像表示
+    NSString *ImagePath;
+    
 }
 
 
@@ -29,10 +32,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-   
+    NSString *ImageName = @"akaichi.png";
+    ImageView.image = [UIImage imageNamed:ImageName];
+
     // タイマーを生成（0.1秒おきにdoTimer:メソッドを呼び出す）
-   [CivicVirtuePointText setText:[NSString stringWithFormat:@"%6d/999999",(int)(CivicVirtuePointBar.progress*999999)]];
-   [HungertText setText:[NSString stringWithFormat:@"%3d/100",(int)(HungerBar.progress*100)]];
+    [CivicVirtuePointText setText:[NSString stringWithFormat:@"%6d/999999",(int)(CivicVirtuePointBar.progress*999999)]];
+    [HungertText setText:[NSString stringWithFormat:@"%3d/100",(int)(HungerBar.progress*100)]];
     p = 100;
     PrevDate = [NSDate date];
     message = -1;
