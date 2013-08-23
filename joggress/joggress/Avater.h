@@ -11,14 +11,19 @@
 @interface Avater : NSObject
 
 @property int ID;//アバターID
-@property NSString *AvaterName;//アバター名
-@property NSString *ImageName;//アバター画像名(ファイルパス)
-@property NSMutableArray *EvolutionList;//進化先リスト:3分岐で固定
-@property NSMutableArray *PredationList;//捕食対象リスト
-@property NSMutableArray *UnPredationList;//被食対象リスト
+//@property (copy) NSString *AvaterName;//アバター名
+@property (nonatomic) NSString *AvaterName;
+@property (nonatomic) NSString *ImageName;//アバター画像名(ファイルパス)
+@property (nonatomic) NSMutableArray *EvolutionList;//進化先リスト:3分岐で固定
+@property (nonatomic) NSMutableArray *PredationList;//捕食対象リスト
+@property (nonatomic) NSMutableArray *UnPredationList;//被食対象リスト
 @property int CivicVirtuePoint;//公徳ポイント0~999999
 @property int CivicVirtuePointIncrement;//公徳ポイント増加値
 @property int Hunger;//空腹ゲージ0〜100？
 @property int HungerDecrement;//空腹ゲージ減少量
+
+- (id)initWithAvater:(int)_ID string1:(NSString*)AName string2:(NSString*)INanme list1:(NSMutableArray*) EL
+               list2:(NSMutableArray*) PL list3:(NSMutableArray*) UPL int1:(int) CVPI int2:(int) HD;
+- (NSString *)toString;
 
 @end

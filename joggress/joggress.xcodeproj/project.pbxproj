@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5331FB2A17C6153F00D90345 /* KGStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5331FB2917C6153F00D90345 /* KGStatusBar.m */; };
 		5361671417C6FE21000E9B43 /* akaichi.png in Resources */ = {isa = PBXBuildFile; fileRef = 5361671317C6FE21000E9B43 /* akaichi.png */; };
+		5361671817C70195000E9B43 /* AvaterManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = 5361671717C70195000E9B43 /* AvaterManagement.m */; };
+		5361672017C71CBE000E9B43 /* test.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5361671F17C71CBE000E9B43 /* test.csv */; };
 		53C8869217C5A6A500FC535A /* Avater.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C8869117C5A6A500FC535A /* Avater.m */; };
 		53DA7BA417C4BE70009CD7A2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53DA7BA317C4BE70009CD7A2 /* UIKit.framework */; };
 		53DA7BA617C4BE70009CD7A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53DA7BA517C4BE70009CD7A2 /* Foundation.framework */; };
@@ -30,6 +32,9 @@
 		5331FB2817C6153F00D90345 /* KGStatusBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGStatusBar.h; sourceTree = "<group>"; };
 		5331FB2917C6153F00D90345 /* KGStatusBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGStatusBar.m; sourceTree = "<group>"; };
 		5361671317C6FE21000E9B43 /* akaichi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = akaichi.png; sourceTree = "<group>"; };
+		5361671617C70194000E9B43 /* AvaterManagement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvaterManagement.h; sourceTree = "<group>"; };
+		5361671717C70195000E9B43 /* AvaterManagement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvaterManagement.m; sourceTree = "<group>"; };
+		5361671F17C71CBE000E9B43 /* test.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.csv; sourceTree = "<group>"; };
 		53C8869017C5A6A500FC535A /* Avater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Avater.h; sourceTree = "<group>"; };
 		53C8869117C5A6A500FC535A /* Avater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Avater.m; sourceTree = "<group>"; };
 		53DA7BA017C4BE70009CD7A2 /* joggress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = joggress.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,12 +121,15 @@
 				53DA7BBB17C4BE70009CD7A2 /* MainStoryboard.storyboard */,
 				53DA7BBE17C4BE70009CD7A2 /* ViewController.h */,
 				53DA7BBF17C4BE70009CD7A2 /* ViewController.m */,
+				5361671617C70194000E9B43 /* AvaterManagement.h */,
+				5361671717C70195000E9B43 /* AvaterManagement.m */,
 				53DA7BC817C4C744009CD7A2 /* ModalViewController.h */,
 				53DA7BC917C4C744009CD7A2 /* ModalViewController.m */,
 				53C8869017C5A6A500FC535A /* Avater.h */,
 				53C8869117C5A6A500FC535A /* Avater.m */,
 				53DA7BCB17C4CAE2009CD7A2 /* OinoriViewController.h */,
 				53DA7BCC17C4CAE2009CD7A2 /* OinoriViewController.m */,
+				5361671F17C71CBE000E9B43 /* test.csv */,
 				5361671517C6FE75000E9B43 /* Image */,
 				53DA7BAA17C4BE70009CD7A2 /* Supporting Files */,
 			);
@@ -199,6 +207,7 @@
 				53DA7BBA17C4BE70009CD7A2 /* Default-568h@2x.png in Resources */,
 				53DA7BBD17C4BE70009CD7A2 /* MainStoryboard.storyboard in Resources */,
 				5361671417C6FE21000E9B43 /* akaichi.png in Resources */,
+				5361672017C71CBE000E9B43 /* test.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +225,7 @@
 				53DA7BCD17C4CAE2009CD7A2 /* OinoriViewController.m in Sources */,
 				53C8869217C5A6A500FC535A /* Avater.m in Sources */,
 				5331FB2A17C6153F00D90345 /* KGStatusBar.m in Sources */,
+				5361671817C70195000E9B43 /* AvaterManagement.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

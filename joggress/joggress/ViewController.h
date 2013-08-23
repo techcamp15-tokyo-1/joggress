@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AvaterManagement.h"
+#import "Avater.h"
 
 @interface ViewController : UIViewController
 
