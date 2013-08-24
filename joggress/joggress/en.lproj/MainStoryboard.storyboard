@@ -148,27 +148,33 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="回数" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0fS-bI-ES4">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="70" id="Abl-qc-Jri"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" progress="0.30000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="y7W-FH-SFk">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="186" id="bkv-Ia-en2"/>
+                                </constraints>
+                                <color key="progressTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="0fS-bI-ES4" firstAttribute="top" secondItem="bku-Zs-e2w" secondAttribute="top" constant="190" id="6Kc-jv-b5x"/>
+                            <constraint firstItem="0fS-bI-ES4" firstAttribute="centerX" secondItem="kTE-8K-qgx" secondAttribute="centerX" type="default" id="2hq-mo-ePs"/>
+                            <constraint firstItem="y7W-FH-SFk" firstAttribute="top" secondItem="bku-Zs-e2w" secondAttribute="top" constant="212" id="9ty-YS-qoj"/>
                             <constraint firstItem="3C3-Sx-LAg" firstAttribute="leading" secondItem="bku-Zs-e2w" secondAttribute="leading" constant="104" id="LIw-0l-EOx"/>
+                            <constraint firstItem="y7W-FH-SFk" firstAttribute="leading" secondItem="bku-Zs-e2w" secondAttribute="leading" constant="72" id="QnF-lH-Nvc"/>
+                            <constraint firstItem="y7W-FH-SFk" firstAttribute="centerX" secondItem="0fS-bI-ES4" secondAttribute="centerX" type="default" id="aAF-sb-ocN"/>
                             <constraint firstItem="3C3-Sx-LAg" firstAttribute="top" secondItem="bku-Zs-e2w" secondAttribute="top" constant="31" id="hWQ-7E-aod"/>
                             <constraint firstAttribute="bottom" secondItem="kTE-8K-qgx" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="qsJ-qk-kid"/>
-                            <constraint firstItem="kTE-8K-qgx" firstAttribute="leading" secondItem="bku-Zs-e2w" secondAttribute="leading" constant="130" id="vvi-Fd-GxL"/>
-                            <constraint firstItem="0fS-bI-ES4" firstAttribute="centerX" secondItem="bku-Zs-e2w" secondAttribute="centerX" type="default" id="wJd-QL-u7i"/>
+                            <constraint firstAttribute="bottom" secondItem="0fS-bI-ES4" secondAttribute="bottom" constant="107" id="raw-ea-Dpu"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="ShakeCountLabel" destination="0fS-bI-ES4" id="fGS-Ta-JuH"/>
+                        <outlet property="bar" destination="y7W-FH-SFk" id="6nC-sg-9Mt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="faA-X3-z1s" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -233,6 +239,7 @@
             <relationships>
                 <relationship kind="action" name="respondToButtonClick:"/>
                 <relationship kind="outlet" name="ShakeCountLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="bar" candidateClass="UIProgressView"/>
             </relationships>
         </class>
         <class className="ViewController" superclassName="UIViewController">

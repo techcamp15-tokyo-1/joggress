@@ -19,6 +19,7 @@
 
 @property int ShakeCount;
 @property int nowPoint;
+@property int PointIncrement;
 @property (nonatomic) id delegate;
 - (IBAction)respondToButtonClick:(id)sender;
 

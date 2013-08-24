@@ -80,6 +80,7 @@
         OinoriViewController *viewCon = segue.destinationViewController;
         viewCon.delegate = self;
         viewCon.nowPoint = avater.CivicVirtuePoint;
+        viewCon.PointIncrement = avater.CivicVirtuePointIncrement;
     }
 }
 
