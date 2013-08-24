@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		5331FB2A17C6153F00D90345 /* KGStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5331FB2917C6153F00D90345 /* KGStatusBar.m */; };
 		5361671817C70195000E9B43 /* AvaterManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = 5361671717C70195000E9B43 /* AvaterManagement.m */; };
-		5361672017C71CBE000E9B43 /* test.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5361671F17C71CBE000E9B43 /* test.csv */; };
+		537CEAA217C868DF009CFCCC /* avaterdata.csv in Resources */ = {isa = PBXBuildFile; fileRef = 537CEAA117C868DF009CFCCC /* avaterdata.csv */; };
+		537CEAA617C86C9E009CFCCC /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 537CEAA517C86C9D009CFCCC /* CoreMotion.framework */; };
+		537CEAAB17C8788A009CFCCC /* ShakeCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = 537CEAAA17C8788A009CFCCC /* ShakeCounter.m */; };
 		53B7F5D617C74F140002FDF1 /* ameba.png in Resources */ = {isa = PBXBuildFile; fileRef = 53B7F5D517C74F140002FDF1 /* ameba.png */; };
 		53B7F5DA17C751F00002FDF1 /* daphnia.png in Resources */ = {isa = PBXBuildFile; fileRef = 53B7F5D917C751F00002FDF1 /* daphnia.png */; };
 		53B7F5DC17C755A00002FDF1 /* dog.png in Resources */ = {isa = PBXBuildFile; fileRef = 53B7F5DB17C755A00002FDF1 /* dog.png */; };
@@ -39,7 +41,11 @@
 		5331FB2917C6153F00D90345 /* KGStatusBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGStatusBar.m; sourceTree = "<group>"; };
 		5361671617C70194000E9B43 /* AvaterManagement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvaterManagement.h; sourceTree = "<group>"; };
 		5361671717C70195000E9B43 /* AvaterManagement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvaterManagement.m; sourceTree = "<group>"; };
-		5361671F17C71CBE000E9B43 /* test.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.csv; sourceTree = "<group>"; };
+		537CEAA117C868DF009CFCCC /* avaterdata.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = avaterdata.csv; sourceTree = "<group>"; };
+		537CEAA517C86C9D009CFCCC /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		537CEAA717C86FC6009CFCCC /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		537CEAA917C8788A009CFCCC /* ShakeCounter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShakeCounter.h; sourceTree = "<group>"; };
+		537CEAAA17C8788A009CFCCC /* ShakeCounter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShakeCounter.m; sourceTree = "<group>"; };
 		53B7F5D517C74F140002FDF1 /* ameba.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ameba.png; sourceTree = "<group>"; };
 		53B7F5D917C751F00002FDF1 /* daphnia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = daphnia.png; sourceTree = "<group>"; };
 		53B7F5DB17C755A00002FDF1 /* dog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dog.png; sourceTree = "<group>"; };
@@ -77,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				537CEAA617C86C9E009CFCCC /* CoreMotion.framework in Frameworks */,
 				53DA7BC717C4BF16009CD7A2 /* GameKit.framework in Frameworks */,
 				53DA7BA417C4BE70009CD7A2 /* UIKit.framework in Frameworks */,
 				53DA7BA617C4BE70009CD7A2 /* Foundation.framework in Frameworks */,
@@ -104,6 +111,7 @@
 		53DA7B9717C4BE70009CD7A2 = {
 			isa = PBXGroup;
 			children = (
+				537CEAA717C86FC6009CFCCC /* SenTestingKit.framework */,
 				53DA7BA917C4BE70009CD7A2 /* joggress */,
 				53DA7BA217C4BE70009CD7A2 /* Frameworks */,
 				53DA7BA117C4BE70009CD7A2 /* Products */,
@@ -121,6 +129,7 @@
 		53DA7BA217C4BE70009CD7A2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				537CEAA517C86C9D009CFCCC /* CoreMotion.framework */,
 				53DA7BA317C4BE70009CD7A2 /* UIKit.framework */,
 				53DA7BA517C4BE70009CD7A2 /* Foundation.framework */,
 				53DA7BC617C4BF16009CD7A2 /* GameKit.framework */,
@@ -139,6 +148,8 @@
 				53C8869117C5A6A500FC535A /* Avater.m */,
 				5361671617C70194000E9B43 /* AvaterManagement.h */,
 				5361671717C70195000E9B43 /* AvaterManagement.m */,
+				537CEAA917C8788A009CFCCC /* ShakeCounter.h */,
+				537CEAAA17C8788A009CFCCC /* ShakeCounter.m */,
 				5331FB2817C6153F00D90345 /* KGStatusBar.h */,
 				5331FB2917C6153F00D90345 /* KGStatusBar.m */,
 				53DA7BC817C4C744009CD7A2 /* ModalViewController.h */,
@@ -147,7 +158,7 @@
 				53DA7BCC17C4CAE2009CD7A2 /* OinoriViewController.m */,
 				53DA7BBE17C4BE70009CD7A2 /* ViewController.h */,
 				53DA7BBF17C4BE70009CD7A2 /* ViewController.m */,
-				5361671F17C71CBE000E9B43 /* test.csv */,
+				537CEAA117C868DF009CFCCC /* avaterdata.csv */,
 				53DA7BAA17C4BE70009CD7A2 /* Supporting Files */,
 				5361671517C6FE75000E9B43 /* Image */,
 			);
@@ -224,7 +235,6 @@
 				53DA7BB817C4BE70009CD7A2 /* Default@2x.png in Resources */,
 				53DA7BBA17C4BE70009CD7A2 /* Default-568h@2x.png in Resources */,
 				53DA7BBD17C4BE70009CD7A2 /* MainStoryboard.storyboard in Resources */,
-				5361672017C71CBE000E9B43 /* test.csv in Resources */,
 				53B7F5D617C74F140002FDF1 /* ameba.png in Resources */,
 				53B7F5DA17C751F00002FDF1 /* daphnia.png in Resources */,
 				53B7F5DC17C755A00002FDF1 /* dog.png in Resources */,
@@ -232,6 +242,7 @@
 				53B7F5E017C75CEB0002FDF1 /* pig.png in Resources */,
 				53B7F5E217C762C40002FDF1 /* penguin.png in Resources */,
 				53B7F5E417C767610002FDF1 /* snake.png in Resources */,
+				537CEAA217C868DF009CFCCC /* avaterdata.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +261,7 @@
 				53C8869217C5A6A500FC535A /* Avater.m in Sources */,
 				5331FB2A17C6153F00D90345 /* KGStatusBar.m in Sources */,
 				5361671817C70195000E9B43 /* AvaterManagement.m in Sources */,
+				537CEAAB17C8788A009CFCCC /* ShakeCounter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +348,10 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Hiroyuki Nakazumi (KBM4WH8VVM)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Hiroyuki Nakazumi (KBM4WH8VVM)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "joggress/joggress-Prefix.pch";
 				INFOPLIST_FILE = "joggress/joggress-Info.plist";
@@ -353,6 +369,10 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Hiroyuki Nakazumi (KBM4WH8VVM)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Hiroyuki Nakazumi (KBM4WH8VVM)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "joggress/joggress-Prefix.pch";
 				INFOPLIST_FILE = "joggress/joggress-Info.plist";

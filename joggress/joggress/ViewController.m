@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "KGStatusBar.h"
+#import "OinoriViewController.h"
 
 @interface ViewController ()
 
@@ -26,6 +27,7 @@
     NSString *ImagePath;
     AvaterManagement *AM;
     Avater *avater;
+    NSTimer *MainTimer;
 }
 
 
@@ -48,19 +50,52 @@
     [HungertText setText:[NSString stringWithFormat:@"%3d/100",(int)(HungerBar.progress*100)]];
     PrevDate = [NSDate date];
     message = -1;
-    [NSTimer scheduledTimerWithTimeInterval:1.0f
+    MainTimer = [NSTimer scheduledTimerWithTimeInterval:1.0f
                                      target:self
                                    selector:@selector(doTimer:)
                                    userInfo:nil
                                     repeats:YES];
     
-
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(IBAction)oinoriPush:(id)sender
+{
+    [MainTimer invalidate];
+    [self performSegueWithIdentifier:@"oinoriSegue" sender:self];
+}
+
+-(IBAction)zissekiPush:(id)sender
+{
+    [self performSegueWithIdentifier:@"zissekiSegue" sender:self];    
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"oinoriSegue"]) {
+        OinoriViewController *viewCon = segue.destinationViewController;
+        viewCon.delegate = self;
+        viewCon.nowPoint = avater.CivicVirtuePoint;
+    }
+}
+
+- (void)finishView:(int)returnValue{
+    avater.CivicVirtuePoint += returnValue;
+    if(avater.CivicVirtuePoint>999999) avater.CivicVirtuePoint += 999999;
+    CivicVirtuePointBar.progress = (double)avater.CivicVirtuePoint/999999.0;
+    [CivicVirtuePointText setText:[NSString stringWithFormat:@"%6d/999999",(int)(CivicVirtuePointBar.progress*999999)]];
+    NSLog(@"returnValue %d" , returnValue);
+    
+    MainTimer = [NSTimer scheduledTimerWithTimeInterval:1.0f
+                                     target:self
+                                   selector:@selector(doTimer:)
+                                   userInfo:nil
+                                    repeats:YES];
+    
 }
 
 /**
@@ -94,6 +129,7 @@
         [AvaterName setText:[NSString stringWithFormat:@"%@",avater.AvaterName]];
         NSString *ImageName = [NSString stringWithFormat:@"%@.%@",avater.ImageName,@"png"];
         ImageView.image = [UIImage imageNamed:ImageName];
+        CivicVirtuePointBar.progress = (double)avater.CivicVirtuePoint/999999;
         HungerBar.progress = (double)avater.Hunger/100;
         [CivicVirtuePointText setText:[NSString stringWithFormat:@"%6d/999999",(int)(CivicVirtuePointBar.progress*999999)]];
         [HungertText setText:[NSString stringWithFormat:@"%3d/100",(int)(HungerBar.progress*100)]];

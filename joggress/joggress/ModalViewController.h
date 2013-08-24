@@ -6,6 +6,8 @@
 //  Copyright (c) 2013年 0673nC. All rights reserved.
 //
 
+// 実績一覧
+
 #import <UIKit/UIKit.h>
 
 @interface ModalViewController : UIViewController

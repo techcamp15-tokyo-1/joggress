@@ -22,7 +22,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="y7g-2z-cuw" kind="modal" id="DZr-5X-2vP"/>
+                                    <action selector="oinoriPush:" destination="2" eventType="touchUpInside" id="u2b-lB-aH0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p0w-0T-SRn">
@@ -35,7 +35,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="cMX-Fx-pCo" kind="modal" id="tVj-7S-4Fv"/>
+                                    <action selector="zissekiPush:" destination="2" eventType="touchUpInside" id="zL0-EL-aRe"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hNy-Ss-Msl">
@@ -113,6 +113,8 @@
                         <outlet property="HungerBar" destination="BJ0-mc-Q9D" id="mGe-Ax-Rwc"/>
                         <outlet property="HungertText" destination="zwe-oH-1xB" id="zZo-3a-aFC"/>
                         <outlet property="ImageView" destination="hNy-Ss-Msl" id="qNF-2V-U3t"/>
+                        <segue destination="y7g-2z-cuw" kind="modal" identifier="oinoriSegue" id="qNV-4O-EM3"/>
+                        <segue destination="cMX-Fx-pCo" kind="modal" identifier="zissekiSegue" id="fmh-44-9WQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
@@ -145,16 +147,29 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="回数" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0fS-bI-ES4">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="Abl-qc-Jri"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="kTE-8K-qgx" firstAttribute="leading" secondItem="bku-Zs-e2w" secondAttribute="leading" constant="130" id="1yb-zr-Uxk"/>
+                            <constraint firstItem="0fS-bI-ES4" firstAttribute="top" secondItem="bku-Zs-e2w" secondAttribute="top" constant="190" id="6Kc-jv-b5x"/>
                             <constraint firstItem="3C3-Sx-LAg" firstAttribute="leading" secondItem="bku-Zs-e2w" secondAttribute="leading" constant="104" id="LIw-0l-EOx"/>
                             <constraint firstItem="3C3-Sx-LAg" firstAttribute="top" secondItem="bku-Zs-e2w" secondAttribute="top" constant="31" id="hWQ-7E-aod"/>
                             <constraint firstAttribute="bottom" secondItem="kTE-8K-qgx" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="qsJ-qk-kid"/>
+                            <constraint firstItem="kTE-8K-qgx" firstAttribute="leading" secondItem="bku-Zs-e2w" secondAttribute="leading" constant="130" id="vvi-Fd-GxL"/>
+                            <constraint firstItem="0fS-bI-ES4" firstAttribute="centerX" secondItem="bku-Zs-e2w" secondAttribute="centerX" type="default" id="wJd-QL-u7i"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="ShakeCountLabel" destination="0fS-bI-ES4" id="fGS-Ta-JuH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="faA-X3-z1s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -217,11 +232,14 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/OinoriViewController.h"/>
             <relationships>
                 <relationship kind="action" name="respondToButtonClick:"/>
+                <relationship kind="outlet" name="ShakeCountLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
             <relationships>
+                <relationship kind="action" name="oinoriPush:"/>
+                <relationship kind="action" name="zissekiPush:"/>
                 <relationship kind="outlet" name="AvaterName" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="CivicVirtuePointBar" candidateClass="UIProgressView"/>
                 <relationship kind="outlet" name="CivicVirtuePointText" candidateClass="UILabel"/>

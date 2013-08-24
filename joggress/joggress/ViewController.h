@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "AvaterManagement.h"
 #import "Avater.h"
+#import "OinoriViewController.h"
 
-@interface ViewController : UIViewController
-
+@interface ViewController : UIViewController<OinoriViewDelegate>
+-(IBAction)oinoriPush:(id)sender;
+-(IBAction)zissekiPush:(id)sender;
 @end

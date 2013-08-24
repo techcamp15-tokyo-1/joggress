@@ -18,7 +18,7 @@
     AvaterList = [[NSMutableArray alloc]init];
     @autoreleasepool {       
         // UTF8 エンコードされた CSV ファイル
-        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"csv"];
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"avaterdata" ofType:@"csv"];
         NSString *text = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
         
         // 改行文字で区切って配列に格納する
