@@ -28,6 +28,8 @@
     AvaterManagement *AM;
     Avater *avater;
     NSTimer *MainTimer;
+    bool Dead;
+    NSDate *DeadTime;
 }
 
 
@@ -39,15 +41,16 @@
     
     //現在のアバターの設定
     avater = [AM Avater:0];
-    [AvaterName setText:[NSString stringWithFormat:@"%@",avater.AvaterName]];
+    AvaterName.text = [NSString stringWithFormat:@"%@",avater.AvaterName];
     NSString *ImageName = [NSString stringWithFormat:@"%@.%@",avater.ImageName,@"png"];
     ImageView.image = [UIImage imageNamed:ImageName];
+    Dead = false;
 
     // タイマーを生成（0.1秒おきにdoTimer:メソッドを呼び出す）
-    CivicVirtuePointBar.progress = (double)avater.CivicVirtuePoint/999999;
+    CivicVirtuePointBar.progress = (double)avater.CivicVirtuePoint/999;
     HungerBar.progress = (double)avater.Hunger/100;
-    [CivicVirtuePointText setText:[NSString stringWithFormat:@"%6d/999999",(int)(CivicVirtuePointBar.progress*999999)]];
-    [HungertText setText:[NSString stringWithFormat:@"%3d/100",(int)(HungerBar.progress*100)]];
+    CivicVirtuePointText.text = [NSString stringWithFormat:@"%3d/999",(int)(CivicVirtuePointBar.progress*999)];
+    HungertText.text = [NSString stringWithFormat:@"%3d/100",(int)(HungerBar.progress*100)];
     PrevDate = [NSDate date];
     message = -1;
     MainTimer = [NSTimer scheduledTimerWithTimeInterval:1.0f
@@ -64,12 +67,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+//お祈りボタンを押した時
 -(IBAction)oinoriPush:(id)sender
 {
+    if(Dead){
+        [KGStatusBar showWithStatus:@"現在お祈り出来ません"];
+        message = 0;
+        return;
+    }
     [MainTimer invalidate];
     [self performSegueWithIdentifier:@"oinoriSegue" sender:self];
 }
 
+//実績ボタンを押した時
 -(IBAction)zissekiPush:(id)sender
 {
     [self performSegueWithIdentifier:@"zissekiSegue" sender:self];    
@@ -86,9 +96,9 @@
 
 - (void)finishView:(int)returnValue{
     avater.CivicVirtuePoint += returnValue;
-    if(avater.CivicVirtuePoint>999999) avater.CivicVirtuePoint += 999999;
-    CivicVirtuePointBar.progress = (double)avater.CivicVirtuePoint/999999.0;
-    [CivicVirtuePointText setText:[NSString stringWithFormat:@"%6d/999999",(int)(CivicVirtuePointBar.progress*999999)]];
+    if(avater.CivicVirtuePoint>999) avater.CivicVirtuePoint = 999;
+    CivicVirtuePointBar.progress = (double)avater.CivicVirtuePoint/999.0;
+    CivicVirtuePointText.text = [NSString stringWithFormat:@"%3d/999",(int)(CivicVirtuePointBar.progress*999)];
     NSLog(@"returnValue %d" , returnValue);
     
     MainTimer = [NSTimer scheduledTimerWithTimeInterval:1.0f
@@ -109,9 +119,42 @@
     float tmp= [Date timeIntervalSinceDate:PrevDate];
     PrevDate = Date;
     
-    // バーの処理
-    HungerBar.progress = (double)avater.Hunger / 100.0;
-    [HungertText setText:[NSString stringWithFormat:@"%3d/100",(int)(HungerBar.progress*100)]];
+    if(!Dead){//生きている場合
+        //餓死判定
+        if (avater.Hunger < 0) {
+            [KGStatusBar showWithStatus:@"餓死しました"];
+            Dead = true;
+            DeadTime = [NSDate date];
+            message = 0;
+            int ID = [avater Reincarnation:FALSE];
+            //現在のアバターの設定
+            avater = [AM Avater:ID];
+            AvaterName.text = [NSString stringWithFormat:@"ユウレイ"];
+            NSString *ImageName = [NSString stringWithFormat:@"ghost.%@",@"png"];
+            ImageView.image = [UIImage imageNamed:ImageName];
+            CivicVirtuePointBar.progress = 0;
+            HungerBar.progress = 100;
+            CivicVirtuePointText.text = [NSString stringWithFormat:@"%3d/999",(int)(CivicVirtuePointBar.progress*999)];
+            HungertText.text = [NSString stringWithFormat:@"%3d/100",(int)(HungerBar.progress*100)];
+        } else {
+            avater.Hunger-=(int)(tmp+0.5)/1.0 * avater.HungerDecrement;
+        }
+        
+        // バーの処理
+        HungerBar.progress = (double)avater.Hunger / 100.0;
+        HungertText.text = [NSString stringWithFormat:@"%3d/100",(int)(HungerBar.progress*100)];
+    } else {//死んでいる場合
+        tmp = [Date timeIntervalSinceDate:DeadTime];
+        if(tmp > 10){
+            [KGStatusBar showWithStatus:[NSString stringWithFormat:@"%@に転生しました",avater.AvaterName]];
+            Dead = false;
+            message = 0;
+            //現在のアバターの設定
+            AvaterName.text = [NSString stringWithFormat:@"%@",avater.AvaterName];
+            NSString *ImageName = [NSString stringWithFormat:@"%@.%@",avater.ImageName,@"png"];
+            ImageView.image = [UIImage imageNamed:ImageName];
+        }
+    }
     
     if(message>=0){
         message++;
@@ -119,23 +162,6 @@
             [KGStatusBar dismiss];
             message=-1;
         }
-    }
-    
-    if (avater.Hunger < 0) {
-        [KGStatusBar showWithStatus:@"餓死しました"];
-        message = 0;
-        int ID = [avater Reincarnation:FALSE];
-        //現在のアバターの設定
-        avater = [AM Avater:ID];
-        [AvaterName setText:[NSString stringWithFormat:@"%@",avater.AvaterName]];
-        NSString *ImageName = [NSString stringWithFormat:@"%@.%@",avater.ImageName,@"png"];
-        ImageView.image = [UIImage imageNamed:ImageName];
-        CivicVirtuePointBar.progress = (double)avater.CivicVirtuePoint/999999;
-        HungerBar.progress = (double)avater.Hunger/100;
-        [CivicVirtuePointText setText:[NSString stringWithFormat:@"%6d/999999",(int)(CivicVirtuePointBar.progress*999999)]];
-        [HungertText setText:[NSString stringWithFormat:@"%3d/100",(int)(HungerBar.progress*100)]];
-    } else {
-        avater.Hunger-=(int)(tmp+0.5)/1.0 * avater.HungerDecrement;
     }
 }
 

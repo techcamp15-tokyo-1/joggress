@@ -12,6 +12,7 @@
 {
     IBOutlet UIProgressView * bar;
     IBOutlet UILabel *ShakeCountLabel;
+    IBOutlet UILabel *InfoLabel;
     NSTimer *timer;
     NSTimer *Viewtimer;
     bool ButtonFlag;
@@ -31,11 +32,16 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    bar.progress = (double)(_ShakeCount = _nowPoint)/999999.0;
+    double point = (_ShakeCount = _nowPoint);
+    bar.progress = point/999.0;
     ButtonFlag = true;
     sc=[ShakeCounter everySeconds:0.1];
-    [ShakeCountLabel setText:[NSString stringWithFormat:@""]];
+    ShakeCountLabel.text = [NSString stringWithFormat:@""];
+    ShakeCountLabel.textAlignment = NSTextAlignmentCenter;//中央揃え
+    InfoLabel.text = @"5";
+    InfoLabel.textAlignment = NSTextAlignmentCenter;
 
+    //回数描画用タイマー
     Viewtimer = [NSTimer scheduledTimerWithTimeInterval:0.1f
                                                  target:self
                                                selector:@selector(ViewTimer:)
@@ -43,7 +49,7 @@
                                                 repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer: Viewtimer forMode:NSDefaultRunLoopMode];
     
-    
+    //カウントダウン用タイマー
     Count=5;    
     NSTimer *CountDownTimer = [NSTimer scheduledTimerWithTimeInterval:1.0f
                                      target:self
@@ -52,16 +58,16 @@
                                     repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer: CountDownTimer forMode:NSDefaultRunLoopMode];
     
+    //お祈りイベント用タイマー
     timer = [NSTimer scheduledTimerWithTimeInterval:5.0f
                                              target:self
                                            selector:@selector(doTimer:)
                                            userInfo:nil
                                             repeats:NO];
-    
     [[NSRunLoop currentRunLoop] addTimer: timer forMode:NSDefaultRunLoopMode];
     
     
-    
+    //お祈り終了用タイマー
     NSTimer *timerB = [NSTimer scheduledTimerWithTimeInterval:17.0f
                                                        target:self
                                                      selector:@selector(CloseTimer:)
@@ -96,37 +102,36 @@
 
 -(void)CountDown:(NSTimer*)_timer
 {
-    if(Count==0){
-        [_timer invalidate];
-        return;
-    }
-    Count--;
-    //[ShakeCountLabel setText:[NSString stringWithFormat:@"%d",Count--]];
+    InfoLabel.text = [NSString stringWithFormat:@"%d",--Count];
     NSLog(@"%d",Count);
+    if(Count==0) [_timer invalidate];
 }
 
 -(void)doTimer:(NSTimer*)_timer
 {
     ButtonFlag = false;
     double time=10;
-    
-    [ShakeCountLabel setText:[NSString stringWithFormat:@"0"]];
+    InfoLabel.text = @"祈れ!!!";
+    ShakeCountLabel.text = [NSString stringWithFormat:@"0"];
     [sc startForSeconds:time];
     NSLog(@"Start!");
 }
 
 -(void)CloseTimer:(NSTimer*)_timer
 {
+    InfoLabel.text = @"終了";
     ShakeCountLabel.text = [NSString stringWithFormat:@"%d",[sc getCount]];
+    double point = [sc getCount]*_PointIncrement + _nowPoint;
+    bar.progress = point/999.0;
     NSLog(@"mag:%3d",[sc getCount]);
-    
     [sc stop];
     ButtonFlag = true;
 }
 
 -(void)ViewTimer:(NSTimer*)_timer
 {
-    bar.progress = (double)([sc getCount]*_PointIncrement + _nowPoint)/999999.0;
+    double point = [sc getCount]*_PointIncrement + _nowPoint;
+    bar.progress = point/999.0;
     ShakeCountLabel.text = [NSString stringWithFormat:@"%d",[sc getCount]];
 //    NSLog(@"mag:%3d",[sc getCount]);
 }

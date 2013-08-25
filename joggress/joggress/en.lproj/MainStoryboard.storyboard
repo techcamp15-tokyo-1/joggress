@@ -125,7 +125,7 @@
         <scene sceneID="Bse-Ts-faJ">
             <objects>
                 <viewController id="y7g-2z-cuw" customClass="OinoriViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="bku-Zs-e2w" customClass="OinoriViewClass">
+                    <view key="view" contentMode="scaleToFill" id="bku-Zs-e2w">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -158,21 +158,33 @@
                                 </constraints>
                                 <color key="progressTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </progressView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" text="カウントダウン" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWQ-VY-JpK">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="224" id="ekt-e1-nz8"/>
+                                    <constraint firstAttribute="height" constant="61" id="qWB-7O-b64"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="0fS-bI-ES4" firstAttribute="centerX" secondItem="kTE-8K-qgx" secondAttribute="centerX" type="default" id="2hq-mo-ePs"/>
-                            <constraint firstItem="y7W-FH-SFk" firstAttribute="top" secondItem="bku-Zs-e2w" secondAttribute="top" constant="212" id="9ty-YS-qoj"/>
-                            <constraint firstItem="3C3-Sx-LAg" firstAttribute="leading" secondItem="bku-Zs-e2w" secondAttribute="leading" constant="104" id="LIw-0l-EOx"/>
-                            <constraint firstItem="y7W-FH-SFk" firstAttribute="leading" secondItem="bku-Zs-e2w" secondAttribute="leading" constant="72" id="QnF-lH-Nvc"/>
-                            <constraint firstItem="y7W-FH-SFk" firstAttribute="centerX" secondItem="0fS-bI-ES4" secondAttribute="centerX" type="default" id="aAF-sb-ocN"/>
-                            <constraint firstItem="3C3-Sx-LAg" firstAttribute="top" secondItem="bku-Zs-e2w" secondAttribute="top" constant="31" id="hWQ-7E-aod"/>
+                            <constraint firstItem="0fS-bI-ES4" firstAttribute="centerX" secondItem="kTE-8K-qgx" secondAttribute="centerX" type="default" id="0xa-Bc-Idk"/>
+                            <constraint firstItem="y7W-FH-SFk" firstAttribute="top" secondItem="bku-Zs-e2w" secondAttribute="top" constant="212" id="2xE-NZ-aLt"/>
+                            <constraint firstItem="y7W-FH-SFk" firstAttribute="centerX" secondItem="3C3-Sx-LAg" secondAttribute="centerX" type="default" id="6im-TU-SLI"/>
+                            <constraint firstItem="3C3-Sx-LAg" firstAttribute="centerX" secondItem="bku-Zs-e2w" secondAttribute="centerX" type="default" id="G1Q-Vl-hhC"/>
+                            <constraint firstAttribute="bottom" secondItem="0fS-bI-ES4" secondAttribute="bottom" constant="108" id="e1a-UT-BQ1"/>
+                            <constraint firstItem="3C3-Sx-LAg" firstAttribute="top" secondItem="bku-Zs-e2w" secondAttribute="top" constant="31" id="hiV-Ik-BJt"/>
+                            <constraint firstItem="XWQ-VY-JpK" firstAttribute="leading" secondItem="bku-Zs-e2w" secondAttribute="leading" constant="52" id="k4p-r8-Itv"/>
                             <constraint firstAttribute="bottom" secondItem="kTE-8K-qgx" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="qsJ-qk-kid"/>
-                            <constraint firstAttribute="bottom" secondItem="0fS-bI-ES4" secondAttribute="bottom" constant="107" id="raw-ea-Dpu"/>
+                            <constraint firstItem="XWQ-VY-JpK" firstAttribute="top" secondItem="bku-Zs-e2w" secondAttribute="top" constant="97" id="vC1-bL-EX9"/>
+                            <constraint firstItem="kTE-8K-qgx" firstAttribute="leading" secondItem="bku-Zs-e2w" secondAttribute="leading" constant="130" id="wDH-T5-ri1"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="InfoLabel" destination="XWQ-VY-JpK" id="qGM-Ii-zfr"/>
                         <outlet property="ShakeCountLabel" destination="0fS-bI-ES4" id="fGS-Ta-JuH"/>
                         <outlet property="bar" destination="y7W-FH-SFk" id="6nC-sg-9Mt"/>
                     </connections>
@@ -185,7 +197,7 @@
         <scene sceneID="8Rz-3R-QOf">
             <objects>
                 <viewController id="cMX-Fx-pCo" customClass="ModalViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="rq2-yK-2xY" customClass="ModalviewClass">
+                    <view key="view" contentMode="scaleToFill" id="rq2-yK-2xY">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -238,6 +250,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/OinoriViewController.h"/>
             <relationships>
                 <relationship kind="action" name="respondToButtonClick:"/>
+                <relationship kind="outlet" name="InfoLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="ShakeCountLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="bar" candidateClass="UIProgressView"/>
             </relationships>

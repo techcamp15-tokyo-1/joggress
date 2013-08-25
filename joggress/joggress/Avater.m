@@ -52,9 +52,9 @@ list2:(NSMutableArray*) PL list3:(NSMutableArray*) UPL int1:(int) CVPI int2:(int
 {
     int nextID=-1;
     if(flag){//すれ違い時の処理
-        nextID = [[_EvolutionList objectAtIndex:_CivicVirtuePoint>999999/2?2:1] intValue];
+        nextID = [[_EvolutionList objectAtIndex:_CivicVirtuePoint>999/2?2:1] intValue];
     }else{//被食時の処理
-        nextID = [[_EvolutionList objectAtIndex:_CivicVirtuePoint>999999/2?1:0] intValue];
+        nextID = [[_EvolutionList objectAtIndex:_CivicVirtuePoint>999/2?1:0] intValue];
     }
     return nextID;
 }

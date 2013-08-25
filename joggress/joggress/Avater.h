@@ -17,7 +17,7 @@
 @property (nonatomic) NSMutableArray *EvolutionList;//進化先リスト:3分岐で固定
 @property (nonatomic) NSMutableArray *PredationList;//捕食対象リスト
 @property (nonatomic) NSMutableArray *UnPredationList;//被食対象リスト
-@property int CivicVirtuePoint;//公徳ポイント0~999999
+@property int CivicVirtuePoint;//公徳ポイント0~999
 @property int CivicVirtuePointIncrement;//公徳ポイント増加値
 @property int Hunger;//空腹ゲージ0〜100？
 @property int HungerDecrement;//空腹ゲージ減少量
