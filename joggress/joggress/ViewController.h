@@ -14,4 +14,12 @@
 @interface ViewController : UIViewController<OinoriViewDelegate>
 -(IBAction)oinoriPush:(id)sender;
 -(IBAction)zissekiPush:(id)sender;
+
+#define DeadKey @"isDead"
+#define IDkey @"AvaterID"
+#define PointKey @"NowCivicVirtuePoint"
+#define HungerKey @"NowHunger"
+#define DateKey @"Datekey"
+#define DeadTimeKey @"DeadTime"
+
 @end

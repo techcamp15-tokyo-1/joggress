@@ -32,6 +32,19 @@
     NSDate *DeadTime;
 }
 
++ (void)initialize
+{
+    NSMutableDictionary *defaultValues = [NSMutableDictionary dictionaryWithCapacity:5];
+    [defaultValues setValue:false forKey:DeadKey];
+    [defaultValues setValue:[NSNumber numberWithInteger:0] forKey:IDkey];
+    [defaultValues setValue:[NSNumber numberWithInteger:0] forKey:PointKey];
+    [defaultValues setValue:[NSNumber numberWithInteger:100] forKey:HungerKey];
+    [defaultValues setValue:[NSDate date] forKey:DateKey];
+    [defaultValues setValue:[NSDate date] forKey:DeadTimeKey];
+    
+    NSUserDefaults *savedata = [NSUserDefaults standardUserDefaults];
+    [savedata registerDefaults:defaultValues];
+}
 
 - (void)viewDidLoad
 {
@@ -40,18 +53,32 @@
     AM = [[AvaterManagement alloc] init];
     
     //現在のアバターの設定
-    avater = [AM Avater:0];
-    AvaterName.text = [NSString stringWithFormat:@"%@",avater.AvaterName];
-    NSString *ImageName = [NSString stringWithFormat:@"%@.%@",avater.ImageName,@"png"];
-    ImageView.image = [UIImage imageNamed:ImageName];
-    Dead = false;
+    NSUserDefaults *savedata = [NSUserDefaults standardUserDefaults];
+    avater = [AM Avater:[[savedata stringForKey:IDkey] intValue]];
+    avater.CivicVirtuePoint = [[savedata stringForKey:PointKey] intValue];
+    avater.Hunger = [[savedata stringForKey:HungerKey]intValue];
+    Dead = [savedata boolForKey:DeadKey];
+    NSLog(@"%d",Dead);
+    if(!Dead){
+        AvaterName.text = [NSString stringWithFormat:@"%@",avater.AvaterName];
+        NSString *ImageName = [NSString stringWithFormat:@"%@.%@",avater.ImageName,@"png"];
+        ImageView.image = [UIImage imageNamed:ImageName];
+        CivicVirtuePointBar.progress = (double)avater.CivicVirtuePoint/999;
+        HungerBar.progress = (double)avater.Hunger/100;
+    }else{
+        AvaterName.text = [NSString stringWithFormat:@"ユウレイ"];
+        NSString *ImageName = [NSString stringWithFormat:@"ghost.%@",@"png"];
+        ImageView.image = [UIImage imageNamed:ImageName];
+        CivicVirtuePointBar.progress = 0;
+        HungerBar.progress = 100;
+    }
+
 
     // タイマーを生成（0.1秒おきにdoTimer:メソッドを呼び出す）
-    CivicVirtuePointBar.progress = (double)avater.CivicVirtuePoint/999;
-    HungerBar.progress = (double)avater.Hunger/100;
     CivicVirtuePointText.text = [NSString stringWithFormat:@"%3d/999",(int)(CivicVirtuePointBar.progress*999)];
     HungertText.text = [NSString stringWithFormat:@"%3d/100",(int)(HungerBar.progress*100)];
-    PrevDate = [NSDate date];
+    PrevDate = [savedata objectForKey:DateKey];
+    DeadTime = [savedata objectForKey:DeadTimeKey];
     message = -1;
     MainTimer = [NSTimer scheduledTimerWithTimeInterval:1.0f
                                      target:self
@@ -59,6 +86,25 @@
                                    userInfo:nil
                                     repeats:YES];
     
+}
+
+// save
+-(void) save
+{
+    NSUserDefaults *savedata = [NSUserDefaults standardUserDefaults];
+    [savedata setBool:Dead forKey:DeadKey];
+    [savedata setValue:[NSNumber numberWithInteger:avater.ID] forKey:IDkey];
+    [savedata setValue:[NSNumber numberWithInteger:avater.CivicVirtuePoint] forKey:PointKey];
+    [savedata setValue:[NSNumber numberWithInteger:avater.Hunger] forKey:HungerKey];
+    [savedata setObject:PrevDate forKey:DateKey];
+    [savedata setObject:DeadTime forKey:DeadTimeKey];
+    [savedata synchronize];
+    
+//    NSLog(@"%d",[savedata boolForKey:DeadKey]);
+//    NSLog(@"%d",[[savedata stringForKey:IDkey]intValue]);
+//    NSLog(@"%d",[[savedata stringForKey:PointKey]intValue]);
+//    NSLog(@"%d",[[savedata stringForKey:HungerKey]intValue]);
+//    NSLog([[savedata objectForKey:DateKey] description]);
 }
 
 - (void)didReceiveMemoryWarning
@@ -75,7 +121,7 @@
         message = 0;
         return;
     }
-    [MainTimer invalidate];
+    [MainTimer invalidate];//タイマー一時停止
     [self performSegueWithIdentifier:@"oinoriSegue" sender:self];
 }
 
@@ -85,6 +131,7 @@
     [self performSegueWithIdentifier:@"zissekiSegue" sender:self];    
 }
 
+//ページ遷移が起こった時
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"oinoriSegue"]) {
         OinoriViewController *viewCon = segue.destinationViewController;
@@ -94,6 +141,7 @@
     }
 }
 
+//お祈りモードから帰ってきた時
 - (void)finishView:(int)returnValue{
     avater.CivicVirtuePoint += returnValue;
     if(avater.CivicVirtuePoint>999) avater.CivicVirtuePoint = 999;
@@ -109,10 +157,7 @@
     
 }
 
-/**
- * 指定時間後にタイマーから呼ばれる
- * @param timer 呼び出し元のNSTimerオブジェクト
- */
+// 一定時間ごとに呼ばれるメソッド
 - (void)doTimer:(NSTimer *)timer
 {
     NSDate *Date = [NSDate date];
@@ -120,6 +165,7 @@
     PrevDate = Date;
     
     if(!Dead){//生きている場合
+        //NSLog(@"case1");
         //餓死判定
         if (avater.Hunger < 0) {
             [KGStatusBar showWithStatus:@"餓死しました"];
@@ -144,6 +190,7 @@
         HungerBar.progress = (double)avater.Hunger / 100.0;
         HungertText.text = [NSString stringWithFormat:@"%3d/100",(int)(HungerBar.progress*100)];
     } else {//死んでいる場合
+        //NSLog(@"case2");
         tmp = [Date timeIntervalSinceDate:DeadTime];
         if(tmp > 10){
             [KGStatusBar showWithStatus:[NSString stringWithFormat:@"%@に転生しました",avater.AvaterName]];
@@ -156,6 +203,7 @@
         }
     }
     
+    // メッセージの消去判定
     if(message>=0){
         message++;
         if(message==4){
@@ -163,6 +211,8 @@
             message=-1;
         }
     }
+    
+    [self save];
 }
 
 

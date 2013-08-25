@@ -59,12 +59,12 @@
                             <progressView opaque="NO" contentMode="scaleToFill" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="BJ0-mc-Q9D">
                                 <color key="progressTintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </progressView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="空腹バー" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8F-2i-rXt">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="空腹ゲージ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8F-2i-rXt">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0000000/999999" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwD-GK-nyg">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="000/999" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwD-GK-nyg">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -85,24 +85,24 @@
                             <constraint firstItem="zwe-oH-1xB" firstAttribute="baseline" secondItem="W8F-2i-rXt" secondAttribute="baseline" type="default" id="12i-0G-Mp3"/>
                             <constraint firstItem="BJ0-mc-Q9D" firstAttribute="leading" secondItem="buF-vA-8iF" secondAttribute="leading" type="default" id="3nS-Yj-dFQ"/>
                             <constraint firstItem="DU6-f4-na6" firstAttribute="top" secondItem="hNy-Ss-Msl" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="4iS-OP-r5A"/>
+                            <constraint firstAttribute="trailing" secondItem="iwD-GK-nyg" secondAttribute="trailing" constant="64" id="8ov-Bg-akG"/>
                             <constraint firstAttribute="bottom" secondItem="PyY-gS-dw3" secondAttribute="bottom" constant="33" id="BZC-34-5vU"/>
                             <constraint firstItem="hNy-Ss-Msl" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="31" id="EKO-8Q-cak"/>
                             <constraint firstItem="hNy-Ss-Msl" firstAttribute="top" secondItem="3" secondAttribute="top" constant="59" id="Fi2-LS-dKk"/>
-                            <constraint firstItem="W8F-2i-rXt" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="58" id="PvX-Cp-jAt"/>
+                            <constraint firstItem="DU6-f4-na6" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="46" id="JTf-to-D3h"/>
                             <constraint firstItem="D26-0x-aUK" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="Tvn-xs-n8g"/>
                             <constraint firstAttribute="bottom" secondItem="BJ0-mc-Q9D" secondAttribute="bottom" constant="109" id="W7i-lO-Ttc"/>
                             <constraint firstItem="buF-vA-8iF" firstAttribute="top" secondItem="DU6-f4-na6" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="WaB-Nq-pIg"/>
                             <constraint firstItem="hNy-Ss-Msl" firstAttribute="centerX" secondItem="buF-vA-8iF" secondAttribute="centerX" type="default" id="Yf8-Wi-wFk"/>
                             <constraint firstItem="p0w-0T-SRn" firstAttribute="baseline" secondItem="PyY-gS-dw3" secondAttribute="baseline" type="default" id="ZtE-AK-Bx4"/>
+                            <constraint firstItem="W8F-2i-rXt" firstAttribute="centerX" secondItem="DU6-f4-na6" secondAttribute="centerX" type="default" id="btp-lF-VQe"/>
                             <constraint firstItem="BJ0-mc-Q9D" firstAttribute="top" secondItem="W8F-2i-rXt" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="do7-RP-Ypp"/>
                             <constraint firstItem="iwD-GK-nyg" firstAttribute="baseline" secondItem="DU6-f4-na6" secondAttribute="baseline" type="default" id="ff1-ho-uNO"/>
                             <constraint firstItem="BJ0-mc-Q9D" firstAttribute="trailing" secondItem="buF-vA-8iF" secondAttribute="trailing" type="default" id="iWB-Io-e5D"/>
-                            <constraint firstAttribute="trailing" secondItem="p0w-0T-SRn" secondAttribute="trailing" constant="64" id="mTL-vk-YQ7"/>
                             <constraint firstItem="hNy-Ss-Msl" firstAttribute="centerX" secondItem="D26-0x-aUK" secondAttribute="centerX" type="default" id="raU-do-Srx"/>
                             <constraint firstItem="PyY-gS-dw3" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="54" id="rkz-CA-sha"/>
                             <constraint firstAttribute="trailing" secondItem="zwe-oH-1xB" secondAttribute="trailing" constant="62" id="rtl-m4-Oyr"/>
-                            <constraint firstItem="DU6-f4-na6" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="40" id="tuN-sG-phf"/>
-                            <constraint firstAttribute="trailing" secondItem="iwD-GK-nyg" secondAttribute="trailing" constant="26" id="uJT-p9-tBX"/>
+                            <constraint firstItem="iwD-GK-nyg" firstAttribute="trailing" secondItem="p0w-0T-SRn" secondAttribute="trailing" type="default" id="rxf-cU-3hy"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
@@ -250,9 +250,6 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/OinoriViewController.h"/>
             <relationships>
                 <relationship kind="action" name="respondToButtonClick:"/>
-                <relationship kind="outlet" name="InfoLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="ShakeCountLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="bar" candidateClass="UIProgressView"/>
             </relationships>
         </class>
         <class className="ViewController" superclassName="UIViewController">
@@ -260,12 +257,6 @@
             <relationships>
                 <relationship kind="action" name="oinoriPush:"/>
                 <relationship kind="action" name="zissekiPush:"/>
-                <relationship kind="outlet" name="AvaterName" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="CivicVirtuePointBar" candidateClass="UIProgressView"/>
-                <relationship kind="outlet" name="CivicVirtuePointText" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="HungerBar" candidateClass="UIProgressView"/>
-                <relationship kind="outlet" name="HungertText" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="ImageView" candidateClass="UIImageView"/>
             </relationships>
         </class>
     </classes>

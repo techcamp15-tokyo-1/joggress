@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5316E34A17C9C86F00C54CFA /* chicken.png in Resources */ = {isa = PBXBuildFile; fileRef = 5316E34917C9C86F00C54CFA /* chicken.png */; };
+		5316E34E17C9D61A00C54CFA /* ladybug.png in Resources */ = {isa = PBXBuildFile; fileRef = 5316E34D17C9D61A00C54CFA /* ladybug.png */; };
+		5316E35017C9D72800C54CFA /* frog.png in Resources */ = {isa = PBXBuildFile; fileRef = 5316E34F17C9D72700C54CFA /* frog.png */; };
 		5331FB2A17C6153F00D90345 /* KGStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5331FB2917C6153F00D90345 /* KGStatusBar.m */; };
 		535F87C517C8C46000E55444 /* fish.png in Resources */ = {isa = PBXBuildFile; fileRef = 535F87C417C8C46000E55444 /* fish.png */; };
 		535F87C917C8C4CD00E55444 /* fly.png in Resources */ = {isa = PBXBuildFile; fileRef = 535F87C817C8C4CD00E55444 /* fly.png */; };
@@ -42,6 +44,8 @@
 
 /* Begin PBXFileReference section */
 		5316E34917C9C86F00C54CFA /* chicken.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chicken.png; sourceTree = "<group>"; };
+		5316E34D17C9D61A00C54CFA /* ladybug.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ladybug.png; sourceTree = "<group>"; };
+		5316E34F17C9D72700C54CFA /* frog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frog.png; sourceTree = "<group>"; };
 		5331FB2817C6153F00D90345 /* KGStatusBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGStatusBar.h; sourceTree = "<group>"; };
 		5331FB2917C6153F00D90345 /* KGStatusBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGStatusBar.m; sourceTree = "<group>"; };
 		535F87C417C8C46000E55444 /* fish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fish.png; sourceTree = "<group>"; };
@@ -109,7 +113,9 @@
 				535F87C817C8C4CD00E55444 /* fly.png */,
 				53B7F5DD17C759440002FDF1 /* cat.png */,
 				53B7F5E317C767610002FDF1 /* snake.png */,
+				5316E34D17C9D61A00C54CFA /* ladybug.png */,
 				53B7F5DB17C755A00002FDF1 /* dog.png */,
+				5316E34F17C9D72700C54CFA /* frog.png */,
 				5366CFAB17C8C9A700294ABE /* penguin.png */,
 				53B7F5DF17C75CEB0002FDF1 /* pig.png */,
 				5366CFA717C8C84200294ABE /* ghost.png */,
@@ -259,6 +265,8 @@
 				5366CFA817C8C84200294ABE /* ghost.png in Resources */,
 				5366CFAC17C8C9A700294ABE /* penguin.png in Resources */,
 				5316E34A17C9C86F00C54CFA /* chicken.png in Resources */,
+				5316E34E17C9D61A00C54CFA /* ladybug.png in Resources */,
+				5316E35017C9D72800C54CFA /* frog.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
