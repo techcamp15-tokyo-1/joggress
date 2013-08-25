@@ -10,8 +10,9 @@
 #import "AvaterManagement.h"
 #import "Avater.h"
 #import "OinoriViewController.h"
+#import "StreetPassCommunicator.h"
 
-@interface ViewController : UIViewController<OinoriViewDelegate>
+@interface ViewController : StreetPassCommunicator<OinoriViewDelegate>
 -(IBAction)oinoriPush:(id)sender;
 -(IBAction)zissekiPush:(id)sender;
 

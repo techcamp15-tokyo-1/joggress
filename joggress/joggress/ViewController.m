@@ -86,6 +86,12 @@
                                    userInfo:nil
                                     repeats:YES];
     
+    //通信設定
+    [self SPCsetMyMessage:@"一平のiPhoneだよ"];
+    [self SPCresetConnectedList];
+    [self SPCstart];
+
+    
 }
 
 // save
