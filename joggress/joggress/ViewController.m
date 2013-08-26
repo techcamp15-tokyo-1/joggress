@@ -222,6 +222,7 @@ const float CallTimerSpan = 5.0;
         tmp = [Date timeIntervalSinceDate:DeadTime];
         if((int)(tmp+0.5) > 10){
             [KGStatusBar showWithStatus:[NSString stringWithFormat:@"%@に転生しました",avater.AvaterName]];
+            [self SPCstart];
             Dead = false;
             messageCount = 0;
             //現在のアバターの設定
@@ -260,6 +261,7 @@ const float CallTimerSpan = 5.0;
             HungertText.text = [NSString stringWithFormat:@"%3d/999",(int)(HungerBar.progress*Hunger_MAX)];
         } else if(Eat && [avater UnPredation:SPCAvaterID]){// 被食
             [KGStatusBar showWithStatus:@"捕食されました"];
+            [self SPCstop];
             Dead = true;
             DeadTime = [NSDate date];
             int ID = [avater Reincarnation:TRUE];
