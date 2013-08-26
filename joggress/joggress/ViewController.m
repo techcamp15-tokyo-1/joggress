@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "KGStatusBar.h"
 #import "OinoriViewController.h"
+#import "UIApplication+UIID.h"
 
 const float Hunger_MAX = 999.0;
 const float Point_MAX = 999.0;
@@ -39,13 +40,14 @@ const float CallTimerSpan = 5.0;
 
 + (void)initialize
 {
-    NSMutableDictionary *defaultValues = [NSMutableDictionary dictionaryWithCapacity:5];
+    NSMutableDictionary *defaultValues = [NSMutableDictionary dictionaryWithCapacity:6];
     [defaultValues setValue:false forKey:DeadKey];
     [defaultValues setValue:[NSNumber numberWithInteger:0] forKey:IDkey];
     [defaultValues setValue:[NSNumber numberWithInteger:0] forKey:PointKey];
     [defaultValues setValue:[NSNumber numberWithInteger:Hunger_MAX] forKey:HungerKey];
-    [defaultValues setValue:[NSDate date] forKey:DateKey];
-    [defaultValues setValue:[NSDate date] forKey:DeadTimeKey];
+    [defaultValues setObject:[NSDate date] forKey:DateKey];
+    [defaultValues setObject:[NSDate date] forKey:DeadTimeKey];
+    [defaultValues setObject:[NSDictionary dictionary] forKey:SPCListKey];
     
     NSUserDefaults *savedata = [NSUserDefaults standardUserDefaults];
     [savedata registerDefaults:defaultValues];
@@ -63,7 +65,6 @@ const float CallTimerSpan = 5.0;
     avater.CivicVirtuePoint = [[savedata stringForKey:PointKey] intValue];
     avater.Hunger = [[savedata stringForKey:HungerKey]intValue];
     Dead = [savedata boolForKey:DeadKey];
-    NSLog(@"%d",Dead);
     if(!Dead){
         AvaterName.text = [NSString stringWithFormat:@"%@",avater.AvaterName];
         NSString *ImageName = [NSString stringWithFormat:@"%@.%@",avater.ImageName,@"png"];
@@ -78,7 +79,10 @@ const float CallTimerSpan = 5.0;
         HungerBar.progress = Hunger_MAX;
     }
     
-   
+    //すれ違いログの設定
+    //NSLog(@"%@",[NSKeyedUnarchiver unarchiveObjectWithData:[savedata dataForKey:SPCListKey]]);
+    [self SPCsetConnectedList:[[savedata dictionaryForKey:SPCListKey] mutableCopy]] ;
+    
     //一度呼び出す
     [self subTimer:false];
 
@@ -97,10 +101,7 @@ const float CallTimerSpan = 5.0;
     //通信設定
     SendMessage = [NSString stringWithFormat:@"%d,%d",avater.ID,avater.Hunger!=Hunger_MAX];
     [self SPCsetMyMessage:SendMessage];
-    [self SPCresetConnectedList];
     [self SPCstart];
-
-    
 }
 
 // save
@@ -113,6 +114,7 @@ const float CallTimerSpan = 5.0;
     [savedata setValue:[NSNumber numberWithInteger:avater.Hunger] forKey:HungerKey];
     [savedata setObject:PrevDate forKey:DateKey];
     [savedata setObject:DeadTime forKey:DeadTimeKey];
+    [savedata setObject:[self SPCgetConnectedList] forKey:SPCListKey];
     [savedata synchronize];
     
 //    NSLog(@"%d",[savedata boolForKey:DeadKey]);
@@ -121,6 +123,9 @@ const float CallTimerSpan = 5.0;
 //    NSLog(@"%d",[[savedata stringForKey:HungerKey]intValue]);
 //    NSLog([[savedata objectForKey:DateKey] description]);
 }
+
+
+
 
 - (void)didReceiveMemoryWarning
 {

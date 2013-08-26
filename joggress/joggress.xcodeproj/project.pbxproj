@@ -10,8 +10,13 @@
 		5316E34A17C9C86F00C54CFA /* chicken.png in Resources */ = {isa = PBXBuildFile; fileRef = 5316E34917C9C86F00C54CFA /* chicken.png */; };
 		5316E34E17C9D61A00C54CFA /* ladybug.png in Resources */ = {isa = PBXBuildFile; fileRef = 5316E34D17C9D61A00C54CFA /* ladybug.png */; };
 		5316E35017C9D72800C54CFA /* frog.png in Resources */ = {isa = PBXBuildFile; fileRef = 5316E34F17C9D72700C54CFA /* frog.png */; };
-		5316E35517C9FB3A00C54CFA /* StreetPassCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5316E35417C9FB3900C54CFA /* StreetPassCommunicator.m */; };
 		5331FB2A17C6153F00D90345 /* KGStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5331FB2917C6153F00D90345 /* KGStatusBar.m */; };
+		5345D69117CB2536008D254C /* StreetPassCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5345D69017CB2536008D254C /* StreetPassCommunicator.m */; };
+		5345D69517CB2708008D254C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5345D69417CB2708008D254C /* Security.framework */; };
+		5345D69717CB2CBF008D254C /* UIApplication+UIID.m in Sources */ = {isa = PBXBuildFile; fileRef = 5345D69617CB2CBF008D254C /* UIApplication+UIID.m */; };
+		5345D69917CB4CF5008D254C /* human.png in Resources */ = {isa = PBXBuildFile; fileRef = 5345D69817CB4CF5008D254C /* human.png */; };
+		5345D69D17CB4D09008D254C /* gorilla.png in Resources */ = {isa = PBXBuildFile; fileRef = 5345D69C17CB4D09008D254C /* gorilla.png */; };
+		5345D69F17CB4D4E008D254C /* monkey.png in Resources */ = {isa = PBXBuildFile; fileRef = 5345D69E17CB4D4E008D254C /* monkey.png */; };
 		535F87C517C8C46000E55444 /* fish.png in Resources */ = {isa = PBXBuildFile; fileRef = 535F87C417C8C46000E55444 /* fish.png */; };
 		535F87C917C8C4CD00E55444 /* fly.png in Resources */ = {isa = PBXBuildFile; fileRef = 535F87C817C8C4CD00E55444 /* fly.png */; };
 		5361671817C70195000E9B43 /* AvaterManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = 5361671717C70195000E9B43 /* AvaterManagement.m */; };
@@ -47,10 +52,16 @@
 		5316E34917C9C86F00C54CFA /* chicken.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chicken.png; sourceTree = "<group>"; };
 		5316E34D17C9D61A00C54CFA /* ladybug.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ladybug.png; sourceTree = "<group>"; };
 		5316E34F17C9D72700C54CFA /* frog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frog.png; sourceTree = "<group>"; };
-		5316E35317C9FB3900C54CFA /* StreetPassCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreetPassCommunicator.h; sourceTree = "<group>"; };
-		5316E35417C9FB3900C54CFA /* StreetPassCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreetPassCommunicator.m; sourceTree = "<group>"; };
 		5331FB2817C6153F00D90345 /* KGStatusBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGStatusBar.h; sourceTree = "<group>"; };
 		5331FB2917C6153F00D90345 /* KGStatusBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGStatusBar.m; sourceTree = "<group>"; };
+		5345D68F17CB2536008D254C /* StreetPassCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreetPassCommunicator.h; sourceTree = "<group>"; };
+		5345D69017CB2536008D254C /* StreetPassCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreetPassCommunicator.m; sourceTree = "<group>"; };
+		5345D69217CB253F008D254C /* UIApplication+UIID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIApplication+UIID.h"; sourceTree = "<group>"; };
+		5345D69417CB2708008D254C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		5345D69617CB2CBF008D254C /* UIApplication+UIID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+UIID.m"; sourceTree = "<group>"; };
+		5345D69817CB4CF5008D254C /* human.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = human.png; sourceTree = "<group>"; };
+		5345D69C17CB4D09008D254C /* gorilla.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gorilla.png; sourceTree = "<group>"; };
+		5345D69E17CB4D4E008D254C /* monkey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = monkey.png; sourceTree = "<group>"; };
 		535F87C417C8C46000E55444 /* fish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fish.png; sourceTree = "<group>"; };
 		535F87C817C8C4CD00E55444 /* fly.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fly.png; sourceTree = "<group>"; };
 		5361671617C70194000E9B43 /* AvaterManagement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvaterManagement.h; sourceTree = "<group>"; };
@@ -98,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5345D69517CB2708008D254C /* Security.framework in Frameworks */,
 				537CEAA617C86C9E009CFCCC /* CoreMotion.framework in Frameworks */,
 				53DA7BC717C4BF16009CD7A2 /* GameKit.framework in Frameworks */,
 				53DA7BA417C4BE70009CD7A2 /* UIKit.framework in Frameworks */,
@@ -117,10 +129,13 @@
 				5316E34917C9C86F00C54CFA /* chicken.png */,
 				53B7F5D917C751F00002FDF1 /* daphnia.png */,
 				53B7F5DB17C755A00002FDF1 /* dog.png */,
+				5345D69E17CB4D4E008D254C /* monkey.png */,
 				535F87C417C8C46000E55444 /* fish.png */,
+				5345D69C17CB4D09008D254C /* gorilla.png */,
 				535F87C817C8C4CD00E55444 /* fly.png */,
 				5316E34F17C9D72700C54CFA /* frog.png */,
 				5366CFA717C8C84200294ABE /* ghost.png */,
+				5345D69817CB4CF5008D254C /* human.png */,
 				5316E34D17C9D61A00C54CFA /* ladybug.png */,
 				5366CFAB17C8C9A700294ABE /* penguin.png */,
 				53B7F5DF17C75CEB0002FDF1 /* pig.png */,
@@ -150,6 +165,7 @@
 		53DA7BA217C4BE70009CD7A2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5345D69417CB2708008D254C /* Security.framework */,
 				537CEAA517C86C9D009CFCCC /* CoreMotion.framework */,
 				53DA7BA317C4BE70009CD7A2 /* UIKit.framework */,
 				53DA7BA517C4BE70009CD7A2 /* Foundation.framework */,
@@ -179,8 +195,10 @@
 				537CEAAA17C8788A009CFCCC /* ShakeCounter.m */,
 				53DA7BBE17C4BE70009CD7A2 /* ViewController.h */,
 				53DA7BBF17C4BE70009CD7A2 /* ViewController.m */,
-				5316E35317C9FB3900C54CFA /* StreetPassCommunicator.h */,
-				5316E35417C9FB3900C54CFA /* StreetPassCommunicator.m */,
+				5345D68F17CB2536008D254C /* StreetPassCommunicator.h */,
+				5345D69017CB2536008D254C /* StreetPassCommunicator.m */,
+				5345D69217CB253F008D254C /* UIApplication+UIID.h */,
+				5345D69617CB2CBF008D254C /* UIApplication+UIID.m */,
 				537CEAA117C868DF009CFCCC /* avaterdata.csv */,
 				5361671517C6FE75000E9B43 /* Image */,
 				53DA7BAA17C4BE70009CD7A2 /* Supporting Files */,
@@ -272,6 +290,9 @@
 				5316E34A17C9C86F00C54CFA /* chicken.png in Resources */,
 				5316E34E17C9D61A00C54CFA /* ladybug.png in Resources */,
 				5316E35017C9D72800C54CFA /* frog.png in Resources */,
+				5345D69917CB4CF5008D254C /* human.png in Resources */,
+				5345D69D17CB4D09008D254C /* gorilla.png in Resources */,
+				5345D69F17CB4D4E008D254C /* monkey.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,7 +312,8 @@
 				5331FB2A17C6153F00D90345 /* KGStatusBar.m in Sources */,
 				5361671817C70195000E9B43 /* AvaterManagement.m in Sources */,
 				537CEAAB17C8788A009CFCCC /* ShakeCounter.m in Sources */,
-				5316E35517C9FB3A00C54CFA /* StreetPassCommunicator.m in Sources */,
+				5345D69117CB2536008D254C /* StreetPassCommunicator.m in Sources */,
+				5345D69717CB2CBF008D254C /* UIApplication+UIID.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

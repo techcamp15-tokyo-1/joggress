@@ -22,7 +22,7 @@
 #define HungerKey @"NowHunger"
 #define DateKey @"Datekey"
 #define DeadTimeKey @"DeadTime"
-
+#define SPCListKey @"StreetPassCommunicatorKey"
 
 extern const float Hunger_MAX;
 extern const float Point_MAX;

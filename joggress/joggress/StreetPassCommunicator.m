@@ -1,6 +1,6 @@
 //
 //  StreetPassCommunicator.m
-//  huga_ippei
+//  joggress
 //
 //  Created by techcamp on 2013/08/23.
 //  Copyright (c) 2013年 techcamp. All rights reserved.
@@ -86,7 +86,9 @@
 -(void)SPCsetMyMessage:(NSString*)mes{
     dispatch_semaphore_wait(SPCsemMyMessage, DISPATCH_TIME_FOREVER);// セマフォを使用宣言
     // クリティカルセクション
-    self->SPCmessage=mes;//値のコピー
+    NSString *uiid=[[UIApplication sharedApplication] uniqueInstallationIdentifier];
+    NSString *mesStr=[[NSString alloc] initWithFormat:@"%@<>%@",mes,uiid];
+    self->SPCmessage=mesStr;//値のコピー
     dispatch_semaphore_signal(SPCsemMyMessage);// セマフォの開放
 }
 
@@ -94,10 +96,27 @@
 -(NSString*)SPCgetMyMessage{
     NSString *str;
     dispatch_semaphore_wait(SPCsemMyMessage, DISPATCH_TIME_FOREVER);// セマフォを使用宣言
-    // クリティカルセクション
-    str=self->SPCmessage;//値のコピー
+    
+    // クリティカルセクション    
+    str = self->SPCmessage;
     dispatch_semaphore_signal(SPCsemMyMessage);// セマフォの開放
     return str;
+}
+
+//接続済みリストを返す
+-(NSMutableDictionary*)SPCgetConnectedList{
+    NSMutableDictionary *dic;
+    dispatch_semaphore_wait(SPCsemConnected, DISPATCH_TIME_FOREVER);// セマフォを使用宣言
+    dic=SPCconnectedList;
+    dispatch_semaphore_signal(SPCsemConnected);// セマフォの開放
+    return dic;
+}
+
+//接続済みリストにセット
+-(void)SPCsetConnectedList:(NSMutableDictionary *)dic{
+    dispatch_semaphore_wait(SPCsemConnected, DISPATCH_TIME_FOREVER);
+    SPCconnectedList = dic;
+    dispatch_semaphore_signal(SPCsemConnected);
 }
 
 //受信したメッセージをリストmessageListから一つpopし返す
@@ -219,8 +238,8 @@
 
 
 /*********************************************************************
-for private methods
-**********************************************************************/
+ for private methods
+ **********************************************************************/
 
 
 //pop commMessage
@@ -303,7 +322,7 @@ for private methods
     SPCreceiveCount=count;
     dispatch_semaphore_signal(SPCsemReceiveCount);// セマフォの開放
     NSLog(@"受信カウント:%2d",count);
-
+    
 }
 
 //get isStart status
@@ -339,14 +358,24 @@ for private methods
         NSString *str=[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         NSLog(@"%@ からメッセージを受け取った！ 「%@」",peer,str);
         
+        NSArray *strArray=[str componentsSeparatedByString:@"<>"];
+        if(strArray.count!=2){
+            NSLog(@"メッセージのフォーマットが違います。");
+            return;
+        }
+        NSString *mesStr=[strArray objectAtIndex:0];
+        NSString *uiid=[strArray objectAtIndex:1];
+        
+        
         //check connect allowable
-        NSDate *date=[self SPCgetConnectedList:peer];
+        NSDate *date=[self SPCgetConnectedList:uiid];
         NSDate *now=[NSDate date];
         
         if(date!=nil){
             NSTimeInterval elapseTime = [now timeIntervalSinceDate:date];
             NSInteger elapseMinutes = elapseTime/60;
             if(elapseMinutes<[self SPCgetRejectTimeForMinutes]){
+                NSLog(@"しかしすでに接続済みだ。");
                 return;
             }
         }
@@ -355,8 +384,8 @@ for private methods
         //NSString *str=[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         //NSLog(@"%@ からメッセージを受け取った！ 「%@」",peer,str);
         [self SPCsetReceiveCount:[self SPCgetReceiveCount]+1];
-        [self SPCaddCommMessage:str];
-        [self SPCaddConnectedList:peer];//renew connectedList
+        [self SPCaddCommMessage:mesStr];
+        [self SPCaddConnectedList:uiid];//renew connectedList
     }
 }
 

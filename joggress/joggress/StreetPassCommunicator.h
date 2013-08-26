@@ -1,6 +1,6 @@
 //
 //  StreetPassCommunicator.h
-//  huga_ippei
+//  joggress
 //
 //  Created by techcamp on 2013/08/23.
 //  Copyright (c) 2013年 techcamp. All rights reserved.
@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <GameKit/GameKit.h>
+#import "UIApplication+UIID.h"
 
 @interface StreetPassCommunicator : UIViewController <GKSessionDelegate>{
 @private
@@ -44,7 +45,7 @@
     
     // 接続済みリストReceiveのsetとgetを管理するセマフォ
     dispatch_semaphore_t SPCsemConnected;
-
+    
     // メッセージ送信回数sendCountのsetとgetを管理するセマフォ
     dispatch_semaphore_t SPCsemSendCount;
     
@@ -83,4 +84,7 @@
 -(void)SPCstop;//送受信の停止・一時停止
 -(void)SPCsetRejectTimeForMinutes:(int)minutes;//一度接続してから接続禁止解除までの時間を設定(分)
 -(int)SPCgetRejectTimeForMinutes;//一度接続してから接続禁止解除までの時間を返す
+-(NSMutableDictionary*)SPCgetConnectedList;//接続済みリストを返す
+-(void)SPCsetConnectedList:(NSMutableDictionary*) dic;//接続済みリストにセット
+
 @end
