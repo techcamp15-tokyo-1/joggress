@@ -19,7 +19,7 @@
 @property (nonatomic) NSMutableArray *UnPredationList;//被食対象リスト
 @property int CivicVirtuePoint;//公徳ポイント0~999
 @property int CivicVirtuePointIncrement;//公徳ポイント増加値
-@property int Hunger;//空腹ゲージ0〜100？
+@property int Hunger;//空腹ゲージ0〜999？
 @property int HungerDecrement;//空腹ゲージ減少量
 
 - (id)initWithAvater:(int)_ID string1:(NSString*)AName string2:(NSString*)INanme list1:(NSMutableArray*) EL
@@ -27,4 +27,6 @@
 - (NSString *)toString;
 
 -(int)Reincarnation:(bool) flag;
+-(bool) Predation:(int)SPCID;
+-(bool) UnPredation:(int)SPCID;
 @end

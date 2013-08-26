@@ -7,6 +7,7 @@
 //
 
 #import "AvaterManagement.h"
+#import "ViewController.h"
 
 @implementation AvaterManagement
 {
@@ -63,7 +64,7 @@
 -(Avater*) Avater:(int)index
 {
     Avater *avater = AvaterList[index];
-    avater.Hunger = 100;
+    avater.Hunger = Hunger_MAX;
     avater.CivicVirtuePoint = 0;
     return avater;
 }

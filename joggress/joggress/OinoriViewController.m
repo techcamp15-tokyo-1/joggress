@@ -7,6 +7,7 @@
 //
 
 #import "OinoriViewController.h"
+#import "ViewController.h"
 
 @implementation OinoriViewController
 {
@@ -33,7 +34,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     double point = (_ShakeCount = _nowPoint);
-    bar.progress = point/999.0;
+    bar.progress = point/Point_MAX;
     ButtonFlag = true;
     sc=[ShakeCounter everySeconds:0.1];
     ShakeCountLabel.text = [NSString stringWithFormat:@""];
@@ -122,7 +123,7 @@
     InfoLabel.text = @"終了";
     ShakeCountLabel.text = [NSString stringWithFormat:@"%d",[sc getCount]];
     double point = [sc getCount]*_PointIncrement + _nowPoint;
-    bar.progress = point/999.0;
+    bar.progress = point/Point_MAX;
     NSLog(@"mag:%3d",[sc getCount]);
     [sc stop];
     ButtonFlag = true;
@@ -131,7 +132,7 @@
 -(void)ViewTimer:(NSTimer*)_timer
 {
     double point = [sc getCount]*_PointIncrement + _nowPoint;
-    bar.progress = point/999.0;
+    bar.progress = point/Point_MAX;
     ShakeCountLabel.text = [NSString stringWithFormat:@"%d",[sc getCount]];
 //    NSLog(@"mag:%3d",[sc getCount]);
 }

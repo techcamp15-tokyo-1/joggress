@@ -23,4 +23,8 @@
 #define DateKey @"Datekey"
 #define DeadTimeKey @"DeadTime"
 
+
+extern const float Hunger_MAX;
+extern const float Point_MAX;
+
 @end

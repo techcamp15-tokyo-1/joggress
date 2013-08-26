@@ -7,6 +7,7 @@
 //
 
 #import "Avater.h"
+#import "ViewController.h"
 
 @implementation Avater
 
@@ -28,11 +29,12 @@ list2:(NSMutableArray*) PL list3:(NSMutableArray*) UPL int1:(int) CVPI int2:(int
     _CivicVirtuePointIncrement = CVPI;
     _HungerDecrement = HD;
     _CivicVirtuePoint=0;
-    _Hunger=100;
+    _Hunger=Hunger_MAX;
 	return self;
 }
 
--(NSString*) toString{
+- (NSString*) toString
+{
     return [NSString stringWithFormat:@"%d:%@ %@ %d %d", _ID, self.AvaterName, _ImageName,_CivicVirtuePointIncrement
             ,_HungerDecrement];
 }
@@ -48,19 +50,32 @@ list2:(NSMutableArray*) PL list3:(NSMutableArray*) UPL int1:(int) CVPI int2:(int
 
 
 //転生イベント
--(int)Reincarnation:(bool) flag
+- (int)Reincarnation:(bool) flag
 {
     int nextID=-1;
     if(flag){//すれ違い時の処理
-        nextID = [[_EvolutionList objectAtIndex:_CivicVirtuePoint>999/2?2:1] intValue];
+        nextID = [[_EvolutionList objectAtIndex:_CivicVirtuePoint>Point_MAX/2?2:1] intValue];
     }else{//被食時の処理
-        nextID = [[_EvolutionList objectAtIndex:_CivicVirtuePoint>999/2?1:0] intValue];
+        nextID = [[_EvolutionList objectAtIndex:_CivicVirtuePoint>Point_MAX/2?1:0] intValue];
     }
     return nextID;
 }
 
+- (bool) Predation:(int) SPCID
+{
+    for(NSString *ID in _PredationList){
+        if(SPCID == [ID intValue]) return true;
+    }
+    return  false;
+}
 
-
+- (bool) UnPredation:(int) SPCID
+{
+    for(NSString *ID in _UnPredationList){
+        if(SPCID == [ID intValue]) return true;
+    }
+    return  false;
+}
 
 
 @end
