@@ -86,7 +86,7 @@ const float CallTimerSpan = 5.0;
     //一度呼び出す
     [self subTimer:false];
 
-    // タイマーを生成（0.1秒おきにdoTimer:メソッドを呼び出す）
+    // タイマーを生成（CallTimerSpan秒おきにdoTimer:メソッドを呼び出す）
     CivicVirtuePointText.text = [NSString stringWithFormat:@"%3d/999",(int)(CivicVirtuePointBar.progress*Point_MAX)];
     HungertText.text = [NSString stringWithFormat:@"%3d/999",(int)(HungerBar.progress*Hunger_MAX)];
     PrevDate = [savedata objectForKey:DateKey];
@@ -163,13 +163,13 @@ const float CallTimerSpan = 5.0;
 
 //お祈りモードから帰ってきた時
 - (void)finishView:(int)returnValue{
-    avater.CivicVirtuePoint += returnValue;
+    avater.CivicVirtuePoint = returnValue;
     if(avater.CivicVirtuePoint>Point_MAX) avater.CivicVirtuePoint = Point_MAX;
     CivicVirtuePointBar.progress = (double)avater.CivicVirtuePoint/Point_MAX;
     CivicVirtuePointText.text = [NSString stringWithFormat:@"%3d/999",(int)(CivicVirtuePointBar.progress*Point_MAX)];
     NSLog(@"returnValue %d" , returnValue);
     
-    MainTimer = [NSTimer scheduledTimerWithTimeInterval:1.0f
+    MainTimer = [NSTimer scheduledTimerWithTimeInterval:CallTimerSpan
                                      target:self
                                    selector:@selector(doTimer:)
                                    userInfo:nil
@@ -185,7 +185,7 @@ const float CallTimerSpan = 5.0;
 
 - (void) subTimer:(bool) flag{
     NSDate *Date = [NSDate date];
-    float tmp= [Date timeIntervalSinceDate:PrevDate];
+    NSTimeInterval tmp= [Date timeIntervalSinceDate:PrevDate];
     PrevDate = Date;
     
     // 通信が起きていた場合

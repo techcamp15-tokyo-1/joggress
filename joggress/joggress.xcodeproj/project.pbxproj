@@ -17,6 +17,7 @@
 		5345D69917CB4CF5008D254C /* human.png in Resources */ = {isa = PBXBuildFile; fileRef = 5345D69817CB4CF5008D254C /* human.png */; };
 		5345D69D17CB4D09008D254C /* gorilla.png in Resources */ = {isa = PBXBuildFile; fileRef = 5345D69C17CB4D09008D254C /* gorilla.png */; };
 		5345D69F17CB4D4E008D254C /* monkey.png in Resources */ = {isa = PBXBuildFile; fileRef = 5345D69E17CB4D4E008D254C /* monkey.png */; };
+		5345D6A117CB57BE008D254C /* jellyfish.png in Resources */ = {isa = PBXBuildFile; fileRef = 5345D6A017CB57BE008D254C /* jellyfish.png */; };
 		535F87C517C8C46000E55444 /* fish.png in Resources */ = {isa = PBXBuildFile; fileRef = 535F87C417C8C46000E55444 /* fish.png */; };
 		535F87C917C8C4CD00E55444 /* fly.png in Resources */ = {isa = PBXBuildFile; fileRef = 535F87C817C8C4CD00E55444 /* fly.png */; };
 		5361671817C70195000E9B43 /* AvaterManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = 5361671717C70195000E9B43 /* AvaterManagement.m */; };
@@ -62,6 +63,7 @@
 		5345D69817CB4CF5008D254C /* human.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = human.png; sourceTree = "<group>"; };
 		5345D69C17CB4D09008D254C /* gorilla.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gorilla.png; sourceTree = "<group>"; };
 		5345D69E17CB4D4E008D254C /* monkey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = monkey.png; sourceTree = "<group>"; };
+		5345D6A017CB57BE008D254C /* jellyfish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jellyfish.png; sourceTree = "<group>"; };
 		535F87C417C8C46000E55444 /* fish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fish.png; sourceTree = "<group>"; };
 		535F87C817C8C4CD00E55444 /* fly.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fly.png; sourceTree = "<group>"; };
 		5361671617C70194000E9B43 /* AvaterManagement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvaterManagement.h; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 		5361671517C6FE75000E9B43 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				5345D6A017CB57BE008D254C /* jellyfish.png */,
 				53B7F5D517C74F140002FDF1 /* ameba.png */,
 				53B7F5DD17C759440002FDF1 /* cat.png */,
 				5316E34917C9C86F00C54CFA /* chicken.png */,
@@ -293,6 +296,7 @@
 				5345D69917CB4CF5008D254C /* human.png in Resources */,
 				5345D69D17CB4D09008D254C /* gorilla.png in Resources */,
 				5345D69F17CB4D4E008D254C /* monkey.png in Resources */,
+				5345D6A117CB57BE008D254C /* jellyfish.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
