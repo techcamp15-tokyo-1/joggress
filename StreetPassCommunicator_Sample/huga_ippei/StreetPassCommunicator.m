@@ -86,6 +86,7 @@
 -(void)SPCsetMyMessage:(NSString*)mes{
     dispatch_semaphore_wait(SPCsemMyMessage, DISPATCH_TIME_FOREVER);// セマフォを使用宣言
     // クリティカルセクション
+    //NSString *uiid=[[UIApplication sharedApplication] uniqueInstallationIdentifier];
     NSString *uiid=[[UIApplication sharedApplication] uniqueInstallationIdentifier];
     NSString *mesStr=[[NSString alloc] initWithFormat:@"%@<>%@",mes,uiid];
     self->SPCmessage=mesStr;//値のコピー
@@ -98,12 +99,26 @@
     dispatch_semaphore_wait(SPCsemMyMessage, DISPATCH_TIME_FOREVER);// セマフォを使用宣言
     
     // クリティカルセクション
+    /*
     NSArray *sep=[self->SPCmessage componentsSeparatedByString:@"<>"];
     str=[sep objectAtIndex:0];//値のコピー
+    */
+    
+    str=self->SPCmessage;
     
     dispatch_semaphore_signal(SPCsemMyMessage);// セマフォの開放
     return str;
 }
+
+//接続済みリストを返す
+-(NSMutableDictionary*)SPCgetConnectedList{
+    NSMutableDictionary *dic;
+    dispatch_semaphore_wait(SPCsemConnected, DISPATCH_TIME_FOREVER);// セマフォを使用宣言
+    dic=SPCconnectedList;
+    dispatch_semaphore_signal(SPCsemConnected);// セマフォの開放
+    return dic;
+}
+
 
 //受信したメッセージをリストmessageListから一つpopし返す
 -(NSString*)SPCgetCommMessage{

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4300F24117CB20BB0074CB9F /* UIApplication+UIID.m in Sources */ = {isa = PBXBuildFile; fileRef = 4300F24017CB20BB0074CB9F /* UIApplication+UIID.m */; };
+		4300F24317CB27BD0074CB9F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4300F24217CB27BD0074CB9F /* Security.framework */; };
 		43721EE517C7318A0089F627 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43721EE417C7318A0089F627 /* UIKit.framework */; };
 		43721EE717C7318A0089F627 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43721EE617C7318A0089F627 /* Foundation.framework */; };
 		43721EE917C7318A0089F627 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43721EE817C7318A0089F627 /* CoreGraphics.framework */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		4300F23F17CB20BB0074CB9F /* UIApplication+UIID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+UIID.h"; sourceTree = "<group>"; };
 		4300F24017CB20BB0074CB9F /* UIApplication+UIID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+UIID.m"; sourceTree = "<group>"; };
+		4300F24217CB27BD0074CB9F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		43721EE117C7318A0089F627 /* huga_ippei.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = huga_ippei.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43721EE417C7318A0089F627 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		43721EE617C7318A0089F627 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -73,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4300F24317CB27BD0074CB9F /* Security.framework in Frameworks */,
 				43721F2017C731D00089F627 /* GameKit.framework in Frameworks */,
 				43721EE517C7318A0089F627 /* UIKit.framework in Frameworks */,
 				43721EE717C7318A0089F627 /* Foundation.framework in Frameworks */,
@@ -115,6 +118,7 @@
 		43721EE317C7318A0089F627 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4300F24217CB27BD0074CB9F /* Security.framework */,
 				43721F1F17C731D00089F627 /* GameKit.framework */,
 				43721EE417C7318A0089F627 /* UIKit.framework */,
 				43721EE617C7318A0089F627 /* Foundation.framework */,

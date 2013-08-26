@@ -78,6 +78,7 @@
 -(int)SPCgetConnectedListSize;//接続済みリストのサイズを返す
 -(void)SPCresetConnectedList;//接続済みIDリストをリセットする
 -(NSString*)SPCgetSessionPeerID;//セッションPeerIDを返す（セッションPeerIDはアプリ起動ごとに変わるID）
+-(NSMutableDictionary*)SPCgetConnectedList;//接続済みリストを返す
 
 //開始と停止
 -(void)SPCstart;//送受信の開始・再開

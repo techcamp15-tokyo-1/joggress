@@ -33,12 +33,12 @@
 #warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 #endif
 
-
 #if UIID_PERSISTENT
 // Use keychain as a storage
 #import <Security/Security.h>    
 #endif
 
+#import <Security/Security.h>
 
 static NSString * const UIApplication_UIID_Key = @"uniqueInstallationIdentifier";
 static NSString * const UIApplication_UIID_Zero = @"00000000-0000-0000-0000-000000000000";

@@ -15,9 +15,15 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    [self SPCsetMyMessage:@"一平のiPhoneだよ"];
+    NSString *uiid=[[UIApplication sharedApplication] uniqueInstallationIdentifier];
+    NSLog(@"%@",uiid);
+    
+    
+    
+    
+    //[self SPCsetMyMessage:@"一平のiPhoneだよ"];
     //[self SPCresetConnectedList];
-    [self SPCstart];
+    //[self SPCstart];
     //[self SPCstop];
     
 }
