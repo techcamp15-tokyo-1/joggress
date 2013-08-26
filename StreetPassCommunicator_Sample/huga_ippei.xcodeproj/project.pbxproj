@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4300F24117CB20BB0074CB9F /* UIApplication+UIID.m in Sources */ = {isa = PBXBuildFile; fileRef = 4300F24017CB20BB0074CB9F /* UIApplication+UIID.m */; };
 		43721EE517C7318A0089F627 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43721EE417C7318A0089F627 /* UIKit.framework */; };
 		43721EE717C7318A0089F627 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43721EE617C7318A0089F627 /* Foundation.framework */; };
 		43721EE917C7318A0089F627 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43721EE817C7318A0089F627 /* CoreGraphics.framework */; };
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4300F23F17CB20BB0074CB9F /* UIApplication+UIID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+UIID.h"; sourceTree = "<group>"; };
+		4300F24017CB20BB0074CB9F /* UIApplication+UIID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+UIID.m"; sourceTree = "<group>"; };
 		43721EE117C7318A0089F627 /* huga_ippei.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = huga_ippei.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43721EE417C7318A0089F627 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		43721EE617C7318A0089F627 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -124,6 +127,8 @@
 		43721EEA17C7318A0089F627 /* huga_ippei */ = {
 			isa = PBXGroup;
 			children = (
+				4300F23F17CB20BB0074CB9F /* UIApplication+UIID.h */,
+				4300F24017CB20BB0074CB9F /* UIApplication+UIID.m */,
 				43721EF317C7318A0089F627 /* AppDelegate.h */,
 				43721EF417C7318A0089F627 /* AppDelegate.m */,
 				43721EFC17C7318B0089F627 /* MainStoryboard.storyboard */,
@@ -283,6 +288,7 @@
 				43721EF517C7318A0089F627 /* AppDelegate.m in Sources */,
 				43721F0117C7318B0089F627 /* ViewController.m in Sources */,
 				43721F2317C739320089F627 /* StreetPassCommunicator.m in Sources */,
+				4300F24117CB20BB0074CB9F /* UIApplication+UIID.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

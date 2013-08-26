@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "huga_ippei/StreetPassCommunicator.m"
-         timestampString = "399111729.729976"
+         timestampString = "399188793.050661"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "287"
-         endingLineNumber = "287"
+         startingLineNumber = "292"
+         endingLineNumber = "292"
          landmarkName = "-SPCremoveConnectedList:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "huga_ippei/StreetPassCommunicator.m"
-         timestampString = "399111729.729976"
+         timestampString = "399188793.050661"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "272"
-         endingLineNumber = "272"
+         startingLineNumber = "277"
+         endingLineNumber = "277"
          landmarkName = "-SPCgetConnectedList:"
          landmarkType = "5">
       </FileBreakpoint>

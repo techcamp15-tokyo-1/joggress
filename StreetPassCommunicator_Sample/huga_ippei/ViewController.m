@@ -1,6 +1,6 @@
 //
 //  ViewController.m
-//  huga_ippei
+//  joggress
 //
 //  Created by techcamp on 2013/08/23.
 //  Copyright (c) 2013年 techcamp. All rights reserved.
@@ -16,7 +16,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     [self SPCsetMyMessage:@"一平のiPhoneだよ"];
-    [self SPCresetConnectedList];
+    //[self SPCresetConnectedList];
     [self SPCstart];
     //[self SPCstop];
     

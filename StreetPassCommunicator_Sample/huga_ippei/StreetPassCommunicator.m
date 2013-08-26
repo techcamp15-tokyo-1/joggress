@@ -1,6 +1,6 @@
 //
 //  StreetPassCommunicator.m
-//  huga_ippei
+//  joggress
 //
 //  Created by techcamp on 2013/08/23.
 //  Copyright (c) 2013年 techcamp. All rights reserved.
@@ -49,34 +49,34 @@
 
 -(void)viewDidLoad{
     [super viewDidLoad];
-    
-    //semaphore
-    SPCsemMyMessage=dispatch_semaphore_create(1);//セマフォ最大値1
-    SPCsemCommMessage=dispatch_semaphore_create(1);//セマフォ最大値1
-    SPCsemConnected=dispatch_semaphore_create(1);//セマフォ最大値1
-    SPCsemSendCount=dispatch_semaphore_create(1);//セマフォ最大値1
-    SPCsemReceiveCount=dispatch_semaphore_create(1);//セマフォ最大値1
-    SPCsemRejectTime=dispatch_semaphore_create(1);//セマフォ最大値1
-    SPCsemStart=dispatch_semaphore_create(1);//セマフォ最大値1
-    
-    //other fields settings
-    SPCmessageList=[NSMutableArray array];
-    [SPCmessageList retain];
-    SPCconnectedList=[NSMutableDictionary dictionary];
-    [SPCconnectedList retain];
-    [self SPCsetSendCount:0];
-    [self SPCsetReceiveCount:0];
-    [self SPCsetMyMessage:SPCmessage];
-    [self SPCsetRejectTimeForMinutes:defaultRejectTime];
-    [self SPCstop];
-    
-    //session settings
-    SPCmySession= [[GKSession alloc] initWithSessionID:GKSessionIDName displayName:nil sessionMode:GKSessionModePeer];
-    SPCmySession.delegate = self;
-	[SPCmySession setDataReceiveHandler:self withContext:nil];
-	SPCmySession.available = NO;
-    SPCsessionPeerID=SPCmySession.peerID;
-    
+    @autoreleasepool {
+        //semaphore
+        SPCsemMyMessage=dispatch_semaphore_create(1);//セマフォ最大値1
+        SPCsemCommMessage=dispatch_semaphore_create(1);//セマフォ最大値1
+        SPCsemConnected=dispatch_semaphore_create(1);//セマフォ最大値1
+        SPCsemSendCount=dispatch_semaphore_create(1);//セマフォ最大値1
+        SPCsemReceiveCount=dispatch_semaphore_create(1);//セマフォ最大値1
+        SPCsemRejectTime=dispatch_semaphore_create(1);//セマフォ最大値1
+        SPCsemStart=dispatch_semaphore_create(1);//セマフォ最大値1
+        
+        //other fields settings
+        SPCmessageList=[NSMutableArray array];
+        //    [SPCmessageList retain];
+        SPCconnectedList=[NSMutableDictionary dictionary];
+        //    [SPCconnectedList retain];
+        [self SPCsetSendCount:0];
+        [self SPCsetReceiveCount:0];
+        [self SPCsetMyMessage:SPCmessage];
+        [self SPCsetRejectTimeForMinutes:defaultRejectTime];
+        [self SPCstop];
+        
+        //session settings
+        SPCmySession= [[GKSession alloc] initWithSessionID:GKSessionIDName displayName:nil sessionMode:GKSessionModePeer];
+        SPCmySession.delegate = self;
+        [SPCmySession setDataReceiveHandler:self withContext:nil];
+        SPCmySession.available = NO;
+        SPCsessionPeerID=SPCmySession.peerID;
+    }
 }
 
 
@@ -86,7 +86,9 @@
 -(void)SPCsetMyMessage:(NSString*)mes{
     dispatch_semaphore_wait(SPCsemMyMessage, DISPATCH_TIME_FOREVER);// セマフォを使用宣言
     // クリティカルセクション
-    self->SPCmessage=mes;//値のコピー
+    NSString *uiid=[[UIApplication sharedApplication] uniqueInstallationIdentifier];
+    NSString *mesStr=[[NSString alloc] initWithFormat:@"%@<>%@",mes,uiid];
+    self->SPCmessage=mesStr;//値のコピー
     dispatch_semaphore_signal(SPCsemMyMessage);// セマフォの開放
 }
 
@@ -94,8 +96,11 @@
 -(NSString*)SPCgetMyMessage{
     NSString *str;
     dispatch_semaphore_wait(SPCsemMyMessage, DISPATCH_TIME_FOREVER);// セマフォを使用宣言
+    
     // クリティカルセクション
-    str=self->SPCmessage;//値のコピー
+    NSArray *sep=[self->SPCmessage componentsSeparatedByString:@"<>"];
+    str=[sep objectAtIndex:0];//値のコピー
+    
     dispatch_semaphore_signal(SPCsemMyMessage);// セマフォの開放
     return str;
 }
@@ -219,8 +224,8 @@
 
 
 /*********************************************************************
-for private methods
-**********************************************************************/
+ for private methods
+ **********************************************************************/
 
 
 //pop commMessage
@@ -303,7 +308,7 @@ for private methods
     SPCreceiveCount=count;
     dispatch_semaphore_signal(SPCsemReceiveCount);// セマフォの開放
     NSLog(@"受信カウント:%2d",count);
-
+    
 }
 
 //get isStart status
@@ -339,14 +344,24 @@ for private methods
         NSString *str=[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         NSLog(@"%@ からメッセージを受け取った！ 「%@」",peer,str);
         
+        NSArray *strArray=[str componentsSeparatedByString:@"<>"];
+        if(strArray.count!=2){
+            NSLog(@"メッセージのフォーマットが違います。");
+            return;
+        }
+        NSString *mesStr=[strArray objectAtIndex:0];
+        NSString *uiid=[strArray objectAtIndex:1];
+        
+        
         //check connect allowable
-        NSDate *date=[self SPCgetConnectedList:peer];
+        NSDate *date=[self SPCgetConnectedList:uiid];
         NSDate *now=[NSDate date];
         
         if(date!=nil){
             NSTimeInterval elapseTime = [now timeIntervalSinceDate:date];
             NSInteger elapseMinutes = elapseTime/60;
             if(elapseMinutes<[self SPCgetRejectTimeForMinutes]){
+                NSLog(@"しかしすでに接続済みだ。");
                 return;
             }
         }
@@ -355,8 +370,8 @@ for private methods
         //NSString *str=[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         //NSLog(@"%@ からメッセージを受け取った！ 「%@」",peer,str);
         [self SPCsetReceiveCount:[self SPCgetReceiveCount]+1];
-        [self SPCaddCommMessage:str];
-        [self SPCaddConnectedList:peer];//renew connectedList
+        [self SPCaddCommMessage:mesStr];
+        [self SPCaddConnectedList:uiid];//renew connectedList
     }
 }
 

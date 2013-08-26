@@ -1,6 +1,6 @@
 //
 //  StreetPassCommunicator.h
-//  huga_ippei
+//  joggress
 //
 //  Created by techcamp on 2013/08/23.
 //  Copyright (c) 2013年 techcamp. All rights reserved.
@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <GameKit/GameKit.h>
+#import "UIApplication+UIID.h"
 
 @interface StreetPassCommunicator : UIViewController <GKSessionDelegate>{
 @private
@@ -44,7 +45,7 @@
     
     // 接続済みリストReceiveのsetとgetを管理するセマフォ
     dispatch_semaphore_t SPCsemConnected;
-
+    
     // メッセージ送信回数sendCountのsetとgetを管理するセマフォ
     dispatch_semaphore_t SPCsemSendCount;
     
