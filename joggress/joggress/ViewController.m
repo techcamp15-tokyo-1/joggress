@@ -15,10 +15,6 @@ const float Hunger_MAX = 999.0;
 const float Point_MAX = 999.0;
 const float CallTimerSpan = 5.0;
 
-@interface ViewController ()
-
-@end
-
 @implementation ViewController
 {
     IBOutlet UILabel *AvaterName;//アバター名
@@ -36,21 +32,21 @@ const float CallTimerSpan = 5.0;
     bool Dead;
     NSDate *DeadTime;
     NSString *SendMessage;
-    bool oinoriFlag;
+    bool OinoriFlag;
 }
 
 + (void)initialize
 {
-    NSMutableDictionary *defaultValues = [NSMutableDictionary dictionaryWithCapacity:7];
+    NSMutableDictionary *defaultValues = [NSMutableDictionary dictionaryWithCapacity:9];
     [defaultValues setValue:[NSNumber numberWithBool:false] forKey:DeadKey];
+    [defaultValues setValue:[NSNumber numberWithBool:true] forKey:OinoriKey];
     [defaultValues setValue:[NSNumber numberWithInteger:0] forKey:IDkey];
     [defaultValues setValue:[NSNumber numberWithInteger:0] forKey:PointKey];
     [defaultValues setValue:[NSNumber numberWithInteger:Hunger_MAX] forKey:HungerKey];
     [defaultValues setObject:[NSDate date] forKey:DateKey];
     [defaultValues setObject:[NSDate date] forKey:DeadTimeKey];
     [defaultValues setObject:[NSDictionary dictionary] forKey:SPCListKey];
-    [defaultValues setValue:[NSNumber numberWithBool:true] forKey:OinoriKey];
-    
+
     NSUserDefaults *savedata = [NSUserDefaults standardUserDefaults];
     [savedata registerDefaults:defaultValues];
 }
@@ -86,8 +82,9 @@ const float CallTimerSpan = 5.0;
     [self SPCsetConnectedList:[[savedata dictionaryForKey:SPCListKey] mutableCopy]] ;
     
     //お祈り可能かどうかのフラグ設定
-    oinoriFlag = [savedata boolForKey:OinoriKey];
-    NSLog(@"DD %d",oinoriFlag);
+    OinoriFlag = [savedata boolForKey:OinoriKey];
+//    AvaterName.text = [NSString stringWithFormat:@"flag %d",oinoriFlag];//debug
+//    NSLog(@"DD %d",oinoriFlag);
     
     //一度呼び出す
     [self subTimer:false];
@@ -115,15 +112,18 @@ const float CallTimerSpan = 5.0;
 {
     NSUserDefaults *savedata = [NSUserDefaults standardUserDefaults];
     [savedata setBool:Dead forKey:DeadKey];
+    [savedata setValue:[NSNumber numberWithBool:OinoriFlag] forKey:OinoriKey];
     [savedata setValue:[NSNumber numberWithInteger:avater.ID] forKey:IDkey];
     [savedata setValue:[NSNumber numberWithInteger:avater.CivicVirtuePoint] forKey:PointKey];
     [savedata setValue:[NSNumber numberWithInteger:avater.Hunger] forKey:HungerKey];
     [savedata setObject:PrevDate forKey:DateKey];
     [savedata setObject:DeadTime forKey:DeadTimeKey];
-    [savedata setBool:oinoriFlag forKey:OinoriKey];
     [savedata setObject:[self SPCgetConnectedList] forKey:SPCListKey];
     [savedata synchronize];
     
+    
+    NSLog(@"%d,",[savedata boolForKey:OinoriKey]);
+//    AvaterName.text = [NSString stringWithFormat:@"flag %d",oinoriFlag];//debug
 //    NSLog(@"%d",[savedata boolForKey:DeadKey]);
 //    NSLog(@"%d",[[savedata stringForKey:IDkey]intValue]);
 //    NSLog(@"%d",[[savedata stringForKey:PointKey]intValue]);
@@ -143,15 +143,22 @@ const float CallTimerSpan = 5.0;
 //お祈りボタンを押した時
 -(IBAction)oinoriPush:(id)sender
 {
-    NSLog(@"flag %d %d",Dead,oinoriFlag);
-    if(Dead || !oinoriFlag){
+    NSLog(@"flag %d %d",Dead,OinoriFlag);
+    
+    if(Dead || !OinoriFlag){
         [KGStatusBar showWithStatus:@"現在お祈り出来ません"];
         messageCount = 0;
         return;
     }
     
+    OinoriFlag = false;
+    
+    //debug
+    [KGStatusBar showWithStatus:@"flag true"];
+    return;
+    //
+    
     [MainTimer invalidate];//タイマー一時停止
-    oinoriFlag = false;
     [self performSegueWithIdentifier:@"oinoriSegue" sender:self];
 }
 
@@ -196,8 +203,8 @@ const float CallTimerSpan = 5.0;
 - (void) subTimer:(bool) flag{
     NSDate *Date = [NSDate date];
     NSTimeInterval tmp= [Date timeIntervalSinceDate:PrevDate];
-    oinoriFlag |= [self oinoriCheck:Date];
-    NSLog(@"DDD %d",oinoriFlag);
+    OinoriFlag |= [self oinoriCheck:Date];
+    NSLog(@"DDD %d",OinoriFlag);
     PrevDate = Date;
     
     // 通信が起きていた場合
@@ -331,16 +338,20 @@ const float CallTimerSpan = 5.0;
 //    NSLog(@"%d %d %d %d",nowdateComps.minute,nowdateComps.second,prevdateComps.minute,prevdateComps.second);
     // 年、月、日をまたいだ場合
     if(prevdateComps.year <  nowdateComps.year) return true;
+    [KGStatusBar showWithStatus:@"現在"];
     if(prevdateComps.month < nowdateComps.month) return true;
+    [KGStatusBar showWithStatus:@"お祈り"];
     if (prevdateComps.day < nowdateComps.day) return true;
+    [KGStatusBar showWithStatus:@"出来ません"];
     
     //一日内の処理
     for(int i=0;i<24;i+=3){
         if(prevdateComps.hour < i && i <= nowdateComps.hour ) return true;
     }
     
+    [KGStatusBar showWithStatus:@"!!!!!!!"];
     //debug用
-    for(int i=0;i<60;i+=3)if(prevdateComps.minute < i && i <= nowdateComps.minute ) return true;
+    //for(int i=0;i<60;i+=3)if(prevdateComps.minute < i && i <= nowdateComps.minute ) return true;
     
     return false;
 }
