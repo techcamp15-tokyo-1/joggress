@@ -18,12 +18,9 @@
     NSString *uiid=[[UIApplication sharedApplication] uniqueInstallationIdentifier];
     NSLog(@"%@",uiid);
     
-    
-    
-    
-    //[self SPCsetMyMessage:@"一平のiPhoneだよ"];
+    [self SPCsetMyMessage:@"080のiPhoneだよ"];
     //[self SPCresetConnectedList];
-    //[self SPCstart];
+    [self SPCstart];
     //[self SPCstop];
     
 }

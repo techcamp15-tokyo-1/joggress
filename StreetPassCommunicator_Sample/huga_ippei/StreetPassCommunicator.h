@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 #import <GameKit/GameKit.h>
 #import "UIApplication+UIID.h"
+#import "AudioPlayer.h"
 
 @interface StreetPassCommunicator : UIViewController <GKSessionDelegate>{
 @private
@@ -79,6 +80,7 @@
 -(void)SPCresetConnectedList;//接続済みIDリストをリセットする
 -(NSString*)SPCgetSessionPeerID;//セッションPeerIDを返す（セッションPeerIDはアプリ起動ごとに変わるID）
 -(NSMutableDictionary*)SPCgetConnectedList;//接続済みリストを返す
+-(void)SPCsetConnectedList:(NSMutableDictionary*)dic;//接続済みリストを設定する
 
 //開始と停止
 -(void)SPCstart;//送受信の開始・再開

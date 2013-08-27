@@ -23,10 +23,11 @@
 		43721F0917C7318B0089F627 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43721F0817C7318B0089F627 /* SenTestingKit.framework */; };
 		43721F0A17C7318B0089F627 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43721EE417C7318A0089F627 /* UIKit.framework */; };
 		43721F0B17C7318B0089F627 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43721EE617C7318A0089F627 /* Foundation.framework */; };
-		43721F1317C7318B0089F627 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 43721F1117C7318B0089F627 /* InfoPlist.strings */; };
-		43721F1617C7318B0089F627 /* huga_ippeiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 43721F1517C7318B0089F627 /* huga_ippeiTests.m */; };
 		43721F2017C731D00089F627 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43721F1F17C731D00089F627 /* GameKit.framework */; };
 		43721F2317C739320089F627 /* StreetPassCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 43721F2217C739320089F627 /* StreetPassCommunicator.m */; };
+		43FDB62A17CC594B001B2D82 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43FDB62917CC594B001B2D82 /* AVFoundation.framework */; };
+		43FDB62D17CC5CCB001B2D82 /* AudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FDB62C17CC5CCB001B2D82 /* AudioPlayer.m */; };
+		43FDB62F17CC5E02001B2D82 /* 01min.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 43FDB62E17CC5E02001B2D82 /* 01min.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,13 +62,13 @@
 		43721F0017C7318B0089F627 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		43721F0717C7318B0089F627 /* huga_ippeiTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = huga_ippeiTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		43721F0817C7318B0089F627 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		43721F1017C7318B0089F627 /* huga_ippeiTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "huga_ippeiTests-Info.plist"; sourceTree = "<group>"; };
-		43721F1217C7318B0089F627 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		43721F1417C7318B0089F627 /* huga_ippeiTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = huga_ippeiTests.h; sourceTree = "<group>"; };
-		43721F1517C7318B0089F627 /* huga_ippeiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = huga_ippeiTests.m; sourceTree = "<group>"; };
 		43721F1F17C731D00089F627 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		43721F2117C739320089F627 /* StreetPassCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreetPassCommunicator.h; sourceTree = "<group>"; };
 		43721F2217C739320089F627 /* StreetPassCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreetPassCommunicator.m; sourceTree = "<group>"; };
+		43FDB62917CC594B001B2D82 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		43FDB62B17CC5CC4001B2D82 /* AudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayer.h; sourceTree = "<group>"; };
+		43FDB62C17CC5CCB001B2D82 /* AudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayer.m; sourceTree = "<group>"; };
+		43FDB62E17CC5E02001B2D82 /* 01min.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 01min.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43FDB62A17CC594B001B2D82 /* AVFoundation.framework in Frameworks */,
 				4300F24317CB27BD0074CB9F /* Security.framework in Frameworks */,
 				43721F2017C731D00089F627 /* GameKit.framework in Frameworks */,
 				43721EE517C7318A0089F627 /* UIKit.framework in Frameworks */,
@@ -100,7 +102,6 @@
 			isa = PBXGroup;
 			children = (
 				43721EEA17C7318A0089F627 /* huga_ippei */,
-				43721F0E17C7318B0089F627 /* huga_ippeiTests */,
 				43721EE317C7318A0089F627 /* Frameworks */,
 				43721EE217C7318A0089F627 /* Products */,
 			);
@@ -118,6 +119,7 @@
 		43721EE317C7318A0089F627 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				43FDB62917CC594B001B2D82 /* AVFoundation.framework */,
 				4300F24217CB27BD0074CB9F /* Security.framework */,
 				43721F1F17C731D00089F627 /* GameKit.framework */,
 				43721EE417C7318A0089F627 /* UIKit.framework */,
@@ -131,7 +133,9 @@
 		43721EEA17C7318A0089F627 /* huga_ippei */ = {
 			isa = PBXGroup;
 			children = (
+				43FDB62C17CC5CCB001B2D82 /* AudioPlayer.m */,
 				4300F23F17CB20BB0074CB9F /* UIApplication+UIID.h */,
+				43FDB62B17CC5CC4001B2D82 /* AudioPlayer.h */,
 				4300F24017CB20BB0074CB9F /* UIApplication+UIID.m */,
 				43721EF317C7318A0089F627 /* AppDelegate.h */,
 				43721EF417C7318A0089F627 /* AppDelegate.m */,
@@ -148,6 +152,7 @@
 		43721EEB17C7318A0089F627 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				43FDB62E17CC5E02001B2D82 /* 01min.mp3 */,
 				43721EEC17C7318A0089F627 /* huga_ippei-Info.plist */,
 				43721EED17C7318A0089F627 /* InfoPlist.strings */,
 				43721EF017C7318A0089F627 /* main.m */,
@@ -155,25 +160,6 @@
 				43721EF617C7318A0089F627 /* Default.png */,
 				43721EF817C7318A0089F627 /* Default@2x.png */,
 				43721EFA17C7318A0089F627 /* Default-568h@2x.png */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		43721F0E17C7318B0089F627 /* huga_ippeiTests */ = {
-			isa = PBXGroup;
-			children = (
-				43721F1417C7318B0089F627 /* huga_ippeiTests.h */,
-				43721F1517C7318B0089F627 /* huga_ippeiTests.m */,
-				43721F0F17C7318B0089F627 /* Supporting Files */,
-			);
-			path = huga_ippeiTests;
-			sourceTree = "<group>";
-		};
-		43721F0F17C7318B0089F627 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				43721F1017C7318B0089F627 /* huga_ippeiTests-Info.plist */,
-				43721F1117C7318B0089F627 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -254,6 +240,7 @@
 				43721EF917C7318A0089F627 /* Default@2x.png in Resources */,
 				43721EFB17C7318A0089F627 /* Default-568h@2x.png in Resources */,
 				43721EFE17C7318B0089F627 /* MainStoryboard.storyboard in Resources */,
+				43FDB62F17CC5E02001B2D82 /* 01min.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,7 +248,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43721F1317C7318B0089F627 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +279,7 @@
 				43721F0117C7318B0089F627 /* ViewController.m in Sources */,
 				43721F2317C739320089F627 /* StreetPassCommunicator.m in Sources */,
 				4300F24117CB20BB0074CB9F /* UIApplication+UIID.m in Sources */,
+				43FDB62D17CC5CCB001B2D82 /* AudioPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,7 +287,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43721F1617C7318B0089F627 /* huga_ippeiTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,14 +315,6 @@
 				43721EFD17C7318B0089F627 /* en */,
 			);
 			name = MainStoryboard.storyboard;
-			sourceTree = "<group>";
-		};
-		43721F1117C7318B0089F627 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				43721F1217C7318B0089F627 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

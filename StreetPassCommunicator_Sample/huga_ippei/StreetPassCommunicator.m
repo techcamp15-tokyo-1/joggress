@@ -61,9 +61,10 @@
         
         //other fields settings
         SPCmessageList=[NSMutableArray array];
-        //    [SPCmessageList retain];
-        SPCconnectedList=[NSMutableDictionary dictionary];
-        //    [SPCconnectedList retain];
+            [SPCmessageList retain];
+        //SPCconnectedList=[NSMutableDictionary dictionary];
+        [self SPCsetConnectedList:[NSMutableDictionary dictionary]];
+            [SPCconnectedList retain];
         [self SPCsetSendCount:0];
         [self SPCsetReceiveCount:0];
         [self SPCsetMyMessage:SPCmessage];
@@ -76,7 +77,9 @@
         [SPCmySession setDataReceiveHandler:self withContext:nil];
         SPCmySession.available = NO;
         SPCsessionPeerID=SPCmySession.peerID;
+        NSLog(@"Bluetoothセンサの状態:%@",([SPCmySession isAvailable]?@"使用可能":@"使用不可"));
     }
+    [AudioPlayer playDummyAudioBackground];//ダミー音楽の再生
 }
 
 
@@ -117,6 +120,13 @@
     dic=SPCconnectedList;
     dispatch_semaphore_signal(SPCsemConnected);// セマフォの開放
     return dic;
+}
+
+//接続済みリストを設定する
+-(void)SPCsetConnectedList:(NSMutableDictionary*)dic{
+    dispatch_semaphore_wait(SPCsemConnected, DISPATCH_TIME_FOREVER);// セマフォを使用宣言
+    SPCconnectedList=dic;
+    dispatch_semaphore_signal(SPCsemConnected);// セマフォの開放
 }
 
 
