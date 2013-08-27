@@ -61,10 +61,10 @@
         
         //other fields settings
         SPCmessageList=[NSMutableArray array];
-            [SPCmessageList retain];
+        //    [SPCmessageList retain];
         //SPCconnectedList=[NSMutableDictionary dictionary];
         [self SPCsetConnectedList:[NSMutableDictionary dictionary]];
-            [SPCconnectedList retain];
+        //    [SPCconnectedList retain];
         [self SPCsetSendCount:0];
         [self SPCsetReceiveCount:0];
         [self SPCsetMyMessage:SPCmessage];
