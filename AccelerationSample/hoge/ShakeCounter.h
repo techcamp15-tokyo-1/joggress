@@ -9,7 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <CoreMotion/CoreMotion.h>
 
-@interface ShakeCounter : NSObject{
+@protocol KillCoreMotionDeligate <NSObject>
+@required
+-(void)stop;
+@end
+
+@interface ShakeCounter : NSObject<KillCoreMotionDeligate>{
 @private
     // 振った回数countのsetとgetを管理するセマフォ
     dispatch_semaphore_t semCount;

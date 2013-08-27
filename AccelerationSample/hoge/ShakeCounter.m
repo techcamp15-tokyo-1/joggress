@@ -63,6 +63,7 @@ const double userAccThreshold=0.1;
         }
         
         [self setNowAcc:magnitude];//現在の加速度にセット
+        NSLog(@"加速度:%3f",magnitude);
     };
     
     // モーションデータの測定を開始

@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ShakeCounter.h"
+
+@protocol KillCoreMotionDeligate;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+// デリゲート先で参照できるようにするためプロパティを定義しておく
+@property (nonatomic, assign) id<KillCoreMotionDeligate> delegate;
 
 @end

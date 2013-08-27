@@ -16,15 +16,11 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     double cycle=0.1;
-    double time=10;
+    double time=100;
     
     ShakeCounter *sc=[ShakeCounter everySeconds:cycle];
     //self->motionManager=(CMMotionManager*)[sc getCMM];
     [sc startForSeconds:time];
-    
-    while(true){
-        NSLog(@"mag:%3f",[sc getAccSize]);
-    }
     
     /*
     //[sc stop];
