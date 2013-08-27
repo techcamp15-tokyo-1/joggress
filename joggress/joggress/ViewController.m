@@ -81,10 +81,11 @@ const float CallTimerSpan = 5.0;
     //NSLog(@"%@",[NSKeyedUnarchiver unarchiveObjectWithData:[savedata dataForKey:SPCListKey]]);
     [self SPCsetConnectedList:[[savedata dictionaryForKey:SPCListKey] mutableCopy]] ;
     
+    
     //お祈り可能かどうかのフラグ設定
+    PrevDate = [savedata objectForKey:DateKey];
+    DeadTime = [savedata objectForKey:DeadTimeKey];    
     OinoriFlag = [savedata boolForKey:OinoriKey];
-//    AvaterName.text = [NSString stringWithFormat:@"flag %d",oinoriFlag];//debug
-//    NSLog(@"DD %d",oinoriFlag);
     
     //一度呼び出す
     [self subTimer:false];
@@ -92,8 +93,6 @@ const float CallTimerSpan = 5.0;
     // タイマーを生成（CallTimerSpan秒おきにdoTimer:メソッドを呼び出す）
     CivicVirtuePointText.text = [NSString stringWithFormat:@"%3d/999",(int)(CivicVirtuePointBar.progress*Point_MAX)];
     HungertText.text = [NSString stringWithFormat:@"%3d/999",(int)(HungerBar.progress*Hunger_MAX)];
-    PrevDate = [savedata objectForKey:DateKey];
-    DeadTime = [savedata objectForKey:DeadTimeKey];
     messageCount = -1;
     MainTimer = [NSTimer scheduledTimerWithTimeInterval:CallTimerSpan
                                      target:self
@@ -152,12 +151,6 @@ const float CallTimerSpan = 5.0;
     }
     
     OinoriFlag = false;
-    
-    //debug
-    [KGStatusBar showWithStatus:@"flag true"];
-    return;
-    //
-    
     [MainTimer invalidate];//タイマー一時停止
     [self performSegueWithIdentifier:@"oinoriSegue" sender:self];
 }
@@ -185,7 +178,7 @@ const float CallTimerSpan = 5.0;
     CivicVirtuePointBar.progress = (double)avater.CivicVirtuePoint/Point_MAX;
     CivicVirtuePointText.text = [NSString stringWithFormat:@"%3d/999",(int)(CivicVirtuePointBar.progress*Point_MAX)];
     NSLog(@"returnValue %d" , returnValue);
-    
+    [self save];
     MainTimer = [NSTimer scheduledTimerWithTimeInterval:CallTimerSpan
                                      target:self
                                    selector:@selector(doTimer:)
@@ -338,12 +331,9 @@ const float CallTimerSpan = 5.0;
 //    NSLog(@"%d %d %d %d",nowdateComps.minute,nowdateComps.second,prevdateComps.minute,prevdateComps.second);
     // 年、月、日をまたいだ場合
     if(prevdateComps.year <  nowdateComps.year) return true;
-    [KGStatusBar showWithStatus:@"現在"];
     if(prevdateComps.month < nowdateComps.month) return true;
-    [KGStatusBar showWithStatus:@"お祈り"];
     if (prevdateComps.day < nowdateComps.day) return true;
-    [KGStatusBar showWithStatus:@"出来ません"];
-    
+
     //一日内の処理
     for(int i=0;i<24;i+=3){
         if(prevdateComps.hour < i && i <= nowdateComps.hour ) return true;
