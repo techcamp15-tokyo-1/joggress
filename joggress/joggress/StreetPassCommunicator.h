@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 #import <GameKit/GameKit.h>
 #import "UIApplication+UIID.h"
+#import "AudioPlayer.h"
 
 @interface StreetPassCommunicator : UIViewController <GKSessionDelegate>{
 @private

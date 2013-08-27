@@ -36,18 +36,20 @@ const float CallTimerSpan = 5.0;
     bool Dead;
     NSDate *DeadTime;
     NSString *SendMessage;
+    bool oinoriFlag;
 }
 
 + (void)initialize
 {
-    NSMutableDictionary *defaultValues = [NSMutableDictionary dictionaryWithCapacity:6];
-    [defaultValues setValue:false forKey:DeadKey];
+    NSMutableDictionary *defaultValues = [NSMutableDictionary dictionaryWithCapacity:7];
+    [defaultValues setValue:[NSNumber numberWithBool:false] forKey:DeadKey];
     [defaultValues setValue:[NSNumber numberWithInteger:0] forKey:IDkey];
     [defaultValues setValue:[NSNumber numberWithInteger:0] forKey:PointKey];
     [defaultValues setValue:[NSNumber numberWithInteger:Hunger_MAX] forKey:HungerKey];
     [defaultValues setObject:[NSDate date] forKey:DateKey];
     [defaultValues setObject:[NSDate date] forKey:DeadTimeKey];
     [defaultValues setObject:[NSDictionary dictionary] forKey:SPCListKey];
+    [defaultValues setValue:[NSNumber numberWithBool:true] forKey:OinoriKey];
     
     NSUserDefaults *savedata = [NSUserDefaults standardUserDefaults];
     [savedata registerDefaults:defaultValues];
@@ -83,6 +85,10 @@ const float CallTimerSpan = 5.0;
     //NSLog(@"%@",[NSKeyedUnarchiver unarchiveObjectWithData:[savedata dataForKey:SPCListKey]]);
     [self SPCsetConnectedList:[[savedata dictionaryForKey:SPCListKey] mutableCopy]] ;
     
+    //お祈り可能かどうかのフラグ設定
+    oinoriFlag = [savedata boolForKey:OinoriKey];
+    NSLog(@"DD %d",oinoriFlag);
+    
     //一度呼び出す
     [self subTimer:false];
 
@@ -114,6 +120,7 @@ const float CallTimerSpan = 5.0;
     [savedata setValue:[NSNumber numberWithInteger:avater.Hunger] forKey:HungerKey];
     [savedata setObject:PrevDate forKey:DateKey];
     [savedata setObject:DeadTime forKey:DeadTimeKey];
+    [savedata setBool:oinoriFlag forKey:OinoriKey];
     [savedata setObject:[self SPCgetConnectedList] forKey:SPCListKey];
     [savedata synchronize];
     
@@ -136,12 +143,15 @@ const float CallTimerSpan = 5.0;
 //お祈りボタンを押した時
 -(IBAction)oinoriPush:(id)sender
 {
-    if(Dead){
+    NSLog(@"flag %d %d",Dead,oinoriFlag);
+    if(Dead || !oinoriFlag){
         [KGStatusBar showWithStatus:@"現在お祈り出来ません"];
         messageCount = 0;
         return;
     }
+    
     [MainTimer invalidate];//タイマー一時停止
+    oinoriFlag = false;
     [self performSegueWithIdentifier:@"oinoriSegue" sender:self];
 }
 
@@ -186,6 +196,8 @@ const float CallTimerSpan = 5.0;
 - (void) subTimer:(bool) flag{
     NSDate *Date = [NSDate date];
     NSTimeInterval tmp= [Date timeIntervalSinceDate:PrevDate];
+    oinoriFlag |= [self oinoriCheck:Date];
+    NSLog(@"DDD %d",oinoriFlag);
     PrevDate = Date;
     
     // 通信が起きていた場合
@@ -293,6 +305,44 @@ const float CallTimerSpan = 5.0;
     SendMessage = [NSString stringWithFormat:@"%d,%d",avater.ID,avater.Hunger!=Hunger_MAX];
     [self SPCsetMyMessage:SendMessage];
     [self save];
+}
+
+// お祈りフラグの取得 0,3,6,12,15,18,24で更新
+- (bool) oinoriCheck:(NSDate*) now
+{
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *nowdateComps = [calendar components:NSYearCalendarUnit |
+                                   NSMonthCalendarUnit  |
+                                   NSDayCalendarUnit    |
+                                   NSHourCalendarUnit   |
+                                   NSMinuteCalendarUnit |
+                                   NSSecondCalendarUnit
+                                              fromDate:now];
+    NSDateComponents *prevdateComps = [calendar components:NSYearCalendarUnit |
+                                      NSMonthCalendarUnit  |
+                                      NSDayCalendarUnit    |
+                                      NSHourCalendarUnit   |
+                                      NSMinuteCalendarUnit |
+                                      NSSecondCalendarUnit
+                                                 fromDate:PrevDate];
+
+
+    
+//    NSLog(@"%d %d %d %d",nowdateComps.minute,nowdateComps.second,prevdateComps.minute,prevdateComps.second);
+    // 年、月、日をまたいだ場合
+    if(prevdateComps.year <  nowdateComps.year) return true;
+    if(prevdateComps.month < nowdateComps.month) return true;
+    if (prevdateComps.day < nowdateComps.day) return true;
+    
+    //一日内の処理
+    for(int i=0;i<24;i+=3){
+        if(prevdateComps.hour < i && i <= nowdateComps.hour ) return true;
+    }
+    
+    //debug用
+    for(int i=0;i<60;i+=3)if(prevdateComps.minute < i && i <= nowdateComps.minute ) return true;
+    
+    return false;
 }
 
 @end

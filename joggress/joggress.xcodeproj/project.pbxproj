@@ -11,6 +11,9 @@
 		5316E34E17C9D61A00C54CFA /* ladybug.png in Resources */ = {isa = PBXBuildFile; fileRef = 5316E34D17C9D61A00C54CFA /* ladybug.png */; };
 		5316E35017C9D72800C54CFA /* frog.png in Resources */ = {isa = PBXBuildFile; fileRef = 5316E34F17C9D72700C54CFA /* frog.png */; };
 		5331FB2A17C6153F00D90345 /* KGStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5331FB2917C6153F00D90345 /* KGStatusBar.m */; };
+		533FB14517CC655600E48EF6 /* AudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 533FB14417CC655600E48EF6 /* AudioPlayer.m */; };
+		533FB14717CC656400E48EF6 /* 01min.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 533FB14617CC656400E48EF6 /* 01min.mp3 */; };
+		533FB14917CC660800E48EF6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 533FB14817CC660800E48EF6 /* AVFoundation.framework */; };
 		5345D69117CB2536008D254C /* StreetPassCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5345D69017CB2536008D254C /* StreetPassCommunicator.m */; };
 		5345D69517CB2708008D254C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5345D69417CB2708008D254C /* Security.framework */; };
 		5345D69717CB2CBF008D254C /* UIApplication+UIID.m in Sources */ = {isa = PBXBuildFile; fileRef = 5345D69617CB2CBF008D254C /* UIApplication+UIID.m */; };
@@ -45,7 +48,7 @@
 		53DA7BBD17C4BE70009CD7A2 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53DA7BBB17C4BE70009CD7A2 /* MainStoryboard.storyboard */; };
 		53DA7BC017C4BE70009CD7A2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DA7BBF17C4BE70009CD7A2 /* ViewController.m */; };
 		53DA7BC717C4BF16009CD7A2 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53DA7BC617C4BF16009CD7A2 /* GameKit.framework */; };
-		53DA7BCA17C4C744009CD7A2 /* ModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DA7BC917C4C744009CD7A2 /* ModalViewController.m */; };
+		53DA7BCA17C4C744009CD7A2 /* ZissekiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DA7BC917C4C744009CD7A2 /* ZissekiViewController.m */; };
 		53DA7BCD17C4CAE2009CD7A2 /* OinoriViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DA7BCC17C4CAE2009CD7A2 /* OinoriViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +58,10 @@
 		5316E34F17C9D72700C54CFA /* frog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frog.png; sourceTree = "<group>"; };
 		5331FB2817C6153F00D90345 /* KGStatusBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGStatusBar.h; sourceTree = "<group>"; };
 		5331FB2917C6153F00D90345 /* KGStatusBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGStatusBar.m; sourceTree = "<group>"; };
+		533FB14317CC653B00E48EF6 /* AudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayer.h; sourceTree = "<group>"; };
+		533FB14417CC655600E48EF6 /* AudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayer.m; sourceTree = "<group>"; };
+		533FB14617CC656400E48EF6 /* 01min.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 01min.mp3; sourceTree = "<group>"; };
+		533FB14817CC660800E48EF6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		5345D68F17CB2536008D254C /* StreetPassCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreetPassCommunicator.h; sourceTree = "<group>"; };
 		5345D69017CB2536008D254C /* StreetPassCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreetPassCommunicator.m; sourceTree = "<group>"; };
 		5345D69217CB253F008D254C /* UIApplication+UIID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIApplication+UIID.h"; sourceTree = "<group>"; };
@@ -100,8 +107,8 @@
 		53DA7BBE17C4BE70009CD7A2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		53DA7BBF17C4BE70009CD7A2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		53DA7BC617C4BF16009CD7A2 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
-		53DA7BC817C4C744009CD7A2 /* ModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalViewController.h; sourceTree = "<group>"; };
-		53DA7BC917C4C744009CD7A2 /* ModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalViewController.m; sourceTree = "<group>"; };
+		53DA7BC817C4C744009CD7A2 /* ZissekiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZissekiViewController.h; sourceTree = "<group>"; };
+		53DA7BC917C4C744009CD7A2 /* ZissekiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZissekiViewController.m; sourceTree = "<group>"; };
 		53DA7BCB17C4CAE2009CD7A2 /* OinoriViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OinoriViewController.h; sourceTree = "<group>"; };
 		53DA7BCC17C4CAE2009CD7A2 /* OinoriViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OinoriViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				533FB14917CC660800E48EF6 /* AVFoundation.framework in Frameworks */,
 				5345D69517CB2708008D254C /* Security.framework in Frameworks */,
 				537CEAA617C86C9E009CFCCC /* CoreMotion.framework in Frameworks */,
 				53DA7BC717C4BF16009CD7A2 /* GameKit.framework in Frameworks */,
@@ -150,6 +158,7 @@
 		53DA7B9717C4BE70009CD7A2 = {
 			isa = PBXGroup;
 			children = (
+				533FB14817CC660800E48EF6 /* AVFoundation.framework */,
 				53DA7BA217C4BE70009CD7A2 /* Frameworks */,
 				53DA7BA917C4BE70009CD7A2 /* joggress */,
 				53DA7BA117C4BE70009CD7A2 /* Products */,
@@ -190,8 +199,8 @@
 				5361671717C70195000E9B43 /* AvaterManagement.m */,
 				5331FB2817C6153F00D90345 /* KGStatusBar.h */,
 				5331FB2917C6153F00D90345 /* KGStatusBar.m */,
-				53DA7BC817C4C744009CD7A2 /* ModalViewController.h */,
-				53DA7BC917C4C744009CD7A2 /* ModalViewController.m */,
+				53DA7BC817C4C744009CD7A2 /* ZissekiViewController.h */,
+				53DA7BC917C4C744009CD7A2 /* ZissekiViewController.m */,
 				53DA7BCB17C4CAE2009CD7A2 /* OinoriViewController.h */,
 				53DA7BCC17C4CAE2009CD7A2 /* OinoriViewController.m */,
 				537CEAA917C8788A009CFCCC /* ShakeCounter.h */,
@@ -202,6 +211,8 @@
 				5345D69017CB2536008D254C /* StreetPassCommunicator.m */,
 				5345D69217CB253F008D254C /* UIApplication+UIID.h */,
 				5345D69617CB2CBF008D254C /* UIApplication+UIID.m */,
+				533FB14317CC653B00E48EF6 /* AudioPlayer.h */,
+				533FB14417CC655600E48EF6 /* AudioPlayer.m */,
 				537CEAA117C868DF009CFCCC /* avaterdata.csv */,
 				5361671517C6FE75000E9B43 /* Image */,
 				53DA7BAA17C4BE70009CD7A2 /* Supporting Files */,
@@ -212,6 +223,7 @@
 		53DA7BAA17C4BE70009CD7A2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				533FB14617CC656400E48EF6 /* 01min.mp3 */,
 				53DA7BAB17C4BE70009CD7A2 /* joggress-Info.plist */,
 				53DA7BAC17C4BE70009CD7A2 /* InfoPlist.strings */,
 				53DA7BAF17C4BE70009CD7A2 /* main.m */,
@@ -297,6 +309,7 @@
 				5345D69D17CB4D09008D254C /* gorilla.png in Resources */,
 				5345D69F17CB4D4E008D254C /* monkey.png in Resources */,
 				5345D6A117CB57BE008D254C /* jellyfish.png in Resources */,
+				533FB14717CC656400E48EF6 /* 01min.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,7 +323,7 @@
 				53DA7BB017C4BE70009CD7A2 /* main.m in Sources */,
 				53DA7BB417C4BE70009CD7A2 /* AppDelegate.m in Sources */,
 				53DA7BC017C4BE70009CD7A2 /* ViewController.m in Sources */,
-				53DA7BCA17C4C744009CD7A2 /* ModalViewController.m in Sources */,
+				53DA7BCA17C4C744009CD7A2 /* ZissekiViewController.m in Sources */,
 				53DA7BCD17C4CAE2009CD7A2 /* OinoriViewController.m in Sources */,
 				53C8869217C5A6A500FC535A /* Avater.m in Sources */,
 				5331FB2A17C6153F00D90345 /* KGStatusBar.m in Sources */,
@@ -318,6 +331,7 @@
 				537CEAAB17C8788A009CFCCC /* ShakeCounter.m in Sources */,
 				5345D69117CB2536008D254C /* StreetPassCommunicator.m in Sources */,
 				5345D69717CB2CBF008D254C /* UIApplication+UIID.m in Sources */,
+				533FB14517CC655600E48EF6 /* AudioPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

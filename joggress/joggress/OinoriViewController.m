@@ -35,7 +35,7 @@
 	// Do any additional setup after loading the view.
     double point = (_ShakeCount = _nowPoint);
     bar.progress = point/Point_MAX;
-    ButtonFlag = true;
+    ButtonFlag = false;
     sc=[ShakeCounter everySeconds:0.1];
     ShakeCountLabel.text = [NSString stringWithFormat:@""];
     ShakeCountLabel.textAlignment = NSTextAlignmentCenter;//中央揃え
@@ -111,7 +111,6 @@
 
 -(void)doTimer:(NSTimer*)_timer
 {
-    ButtonFlag = false;
     double time=10;
     InfoLabel.text = @"祈れ!!!";
     ShakeCountLabel.text = [NSString stringWithFormat:@"0"];

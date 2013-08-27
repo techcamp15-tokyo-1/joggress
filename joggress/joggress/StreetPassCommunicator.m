@@ -77,6 +77,8 @@
         SPCmySession.available = NO;
         SPCsessionPeerID=SPCmySession.peerID;
     }
+    
+    [AudioPlayer playDummyAudioBackground];//ダミー音楽の再生
 }
 
 

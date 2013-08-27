@@ -23,6 +23,7 @@
 #define DateKey @"Datekey"
 #define DeadTimeKey @"DeadTime"
 #define SPCListKey @"StreetPassCommunicatorKey"
+#define OinoriKey @"OinoriFlagKey"
 
 extern const float Hunger_MAX;
 extern const float Point_MAX;

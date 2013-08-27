@@ -1,5 +1,5 @@
 //
-//  ModalViewController.h
+//  ZissekiViewController.h
 //  joggress
 //
 //  Created by 0673nC on 2013/08/21.
@@ -10,7 +10,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ModalViewController : UIViewController
+@interface ZissekiViewController : UIViewController <UIScrollViewDelegate>
+
+@property (strong, nonatomic) UIView *insideView;
 
 - (IBAction)respondToButtonClick:(id)sender;
 
