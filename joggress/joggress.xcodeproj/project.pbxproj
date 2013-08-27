@@ -26,7 +26,6 @@
 		5361671817C70195000E9B43 /* AvaterManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = 5361671717C70195000E9B43 /* AvaterManagement.m */; };
 		5366CFA817C8C84200294ABE /* ghost.png in Resources */ = {isa = PBXBuildFile; fileRef = 5366CFA717C8C84200294ABE /* ghost.png */; };
 		5366CFAC17C8C9A700294ABE /* penguin.png in Resources */ = {isa = PBXBuildFile; fileRef = 5366CFAB17C8C9A700294ABE /* penguin.png */; };
-		537CEAA217C868DF009CFCCC /* avaterdata.csv in Resources */ = {isa = PBXBuildFile; fileRef = 537CEAA117C868DF009CFCCC /* avaterdata.csv */; };
 		537CEAA617C86C9E009CFCCC /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 537CEAA517C86C9D009CFCCC /* CoreMotion.framework */; };
 		537CEAAB17C8788A009CFCCC /* ShakeCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = 537CEAAA17C8788A009CFCCC /* ShakeCounter.m */; };
 		53B7F5D617C74F140002FDF1 /* ameba.png in Resources */ = {isa = PBXBuildFile; fileRef = 53B7F5D517C74F140002FDF1 /* ameba.png */; };
@@ -50,6 +49,15 @@
 		53DA7BC717C4BF16009CD7A2 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53DA7BC617C4BF16009CD7A2 /* GameKit.framework */; };
 		53DA7BCA17C4C744009CD7A2 /* ZissekiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DA7BC917C4C744009CD7A2 /* ZissekiViewController.m */; };
 		53DA7BCD17C4CAE2009CD7A2 /* OinoriViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DA7BCC17C4CAE2009CD7A2 /* OinoriViewController.m */; };
+		53FC7ADC17CC91030056E8DA /* angel.png in Resources */ = {isa = PBXBuildFile; fileRef = 53FC7AD417CC91030056E8DA /* angel.png */; };
+		53FC7ADD17CC91030056E8DA /* cockroach.png in Resources */ = {isa = PBXBuildFile; fileRef = 53FC7AD517CC91030056E8DA /* cockroach.png */; };
+		53FC7ADE17CC91030056E8DA /* lizard.png in Resources */ = {isa = PBXBuildFile; fileRef = 53FC7AD617CC91030056E8DA /* lizard.png */; };
+		53FC7ADF17CC91030056E8DA /* pediastrum.png in Resources */ = {isa = PBXBuildFile; fileRef = 53FC7AD717CC91030056E8DA /* pediastrum.png */; };
+		53FC7AE017CC91030056E8DA /* devil.png in Resources */ = {isa = PBXBuildFile; fileRef = 53FC7AD817CC91030056E8DA /* devil.png */; };
+		53FC7AE117CC91030056E8DA /* owl.png in Resources */ = {isa = PBXBuildFile; fileRef = 53FC7AD917CC91030056E8DA /* owl.png */; };
+		53FC7AE217CC91030056E8DA /* anglerfish.png in Resources */ = {isa = PBXBuildFile; fileRef = 53FC7ADA17CC91030056E8DA /* anglerfish.png */; };
+		53FC7AE317CC91030056E8DA /* spirogyra.png in Resources */ = {isa = PBXBuildFile; fileRef = 53FC7ADB17CC91030056E8DA /* spirogyra.png */; };
+		53FC7AE517CC919C0056E8DA /* avaterdata.csv in Resources */ = {isa = PBXBuildFile; fileRef = 53FC7AE417CC919C0056E8DA /* avaterdata.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,7 +85,6 @@
 		5361671717C70195000E9B43 /* AvaterManagement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvaterManagement.m; sourceTree = "<group>"; };
 		5366CFA717C8C84200294ABE /* ghost.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ghost.png; sourceTree = "<group>"; };
 		5366CFAB17C8C9A700294ABE /* penguin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = penguin.png; sourceTree = "<group>"; };
-		537CEAA117C868DF009CFCCC /* avaterdata.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = avaterdata.csv; sourceTree = "<group>"; };
 		537CEAA517C86C9D009CFCCC /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		537CEAA717C86FC6009CFCCC /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		537CEAA917C8788A009CFCCC /* ShakeCounter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShakeCounter.h; sourceTree = "<group>"; };
@@ -111,6 +118,15 @@
 		53DA7BC917C4C744009CD7A2 /* ZissekiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZissekiViewController.m; sourceTree = "<group>"; };
 		53DA7BCB17C4CAE2009CD7A2 /* OinoriViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OinoriViewController.h; sourceTree = "<group>"; };
 		53DA7BCC17C4CAE2009CD7A2 /* OinoriViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OinoriViewController.m; sourceTree = "<group>"; };
+		53FC7AD417CC91030056E8DA /* angel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = angel.png; sourceTree = "<group>"; };
+		53FC7AD517CC91030056E8DA /* cockroach.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cockroach.png; sourceTree = "<group>"; };
+		53FC7AD617CC91030056E8DA /* lizard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lizard.png; sourceTree = "<group>"; };
+		53FC7AD717CC91030056E8DA /* pediastrum.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pediastrum.png; sourceTree = "<group>"; };
+		53FC7AD817CC91030056E8DA /* devil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = devil.png; sourceTree = "<group>"; };
+		53FC7AD917CC91030056E8DA /* owl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = owl.png; sourceTree = "<group>"; };
+		53FC7ADA17CC91030056E8DA /* anglerfish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = anglerfish.png; sourceTree = "<group>"; };
+		53FC7ADB17CC91030056E8DA /* spirogyra.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spirogyra.png; sourceTree = "<group>"; };
+		53FC7AE417CC919C0056E8DA /* avaterdata.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = avaterdata.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +150,14 @@
 		5361671517C6FE75000E9B43 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				53FC7AD417CC91030056E8DA /* angel.png */,
+				53FC7AD517CC91030056E8DA /* cockroach.png */,
+				53FC7AD617CC91030056E8DA /* lizard.png */,
+				53FC7AD717CC91030056E8DA /* pediastrum.png */,
+				53FC7AD817CC91030056E8DA /* devil.png */,
+				53FC7AD917CC91030056E8DA /* owl.png */,
+				53FC7ADA17CC91030056E8DA /* anglerfish.png */,
+				53FC7ADB17CC91030056E8DA /* spirogyra.png */,
 				5345D6A017CB57BE008D254C /* jellyfish.png */,
 				53B7F5D517C74F140002FDF1 /* ameba.png */,
 				53B7F5DD17C759440002FDF1 /* cat.png */,
@@ -158,7 +182,6 @@
 		53DA7B9717C4BE70009CD7A2 = {
 			isa = PBXGroup;
 			children = (
-				533FB14817CC660800E48EF6 /* AVFoundation.framework */,
 				53DA7BA217C4BE70009CD7A2 /* Frameworks */,
 				53DA7BA917C4BE70009CD7A2 /* joggress */,
 				53DA7BA117C4BE70009CD7A2 /* Products */,
@@ -177,6 +200,7 @@
 		53DA7BA217C4BE70009CD7A2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				533FB14817CC660800E48EF6 /* AVFoundation.framework */,
 				5345D69417CB2708008D254C /* Security.framework */,
 				537CEAA517C86C9D009CFCCC /* CoreMotion.framework */,
 				53DA7BA317C4BE70009CD7A2 /* UIKit.framework */,
@@ -213,7 +237,7 @@
 				5345D69617CB2CBF008D254C /* UIApplication+UIID.m */,
 				533FB14317CC653B00E48EF6 /* AudioPlayer.h */,
 				533FB14417CC655600E48EF6 /* AudioPlayer.m */,
-				537CEAA117C868DF009CFCCC /* avaterdata.csv */,
+				53FC7AE417CC919C0056E8DA /* avaterdata.csv */,
 				5361671517C6FE75000E9B43 /* Image */,
 				53DA7BAA17C4BE70009CD7A2 /* Supporting Files */,
 			);
@@ -297,7 +321,6 @@
 				53B7F5DE17C759440002FDF1 /* cat.png in Resources */,
 				53B7F5E017C75CEB0002FDF1 /* pig.png in Resources */,
 				53B7F5E417C767610002FDF1 /* snake.png in Resources */,
-				537CEAA217C868DF009CFCCC /* avaterdata.csv in Resources */,
 				535F87C517C8C46000E55444 /* fish.png in Resources */,
 				535F87C917C8C4CD00E55444 /* fly.png in Resources */,
 				5366CFA817C8C84200294ABE /* ghost.png in Resources */,
@@ -310,6 +333,15 @@
 				5345D69F17CB4D4E008D254C /* monkey.png in Resources */,
 				5345D6A117CB57BE008D254C /* jellyfish.png in Resources */,
 				533FB14717CC656400E48EF6 /* 01min.mp3 in Resources */,
+				53FC7ADC17CC91030056E8DA /* angel.png in Resources */,
+				53FC7ADD17CC91030056E8DA /* cockroach.png in Resources */,
+				53FC7ADE17CC91030056E8DA /* lizard.png in Resources */,
+				53FC7ADF17CC91030056E8DA /* pediastrum.png in Resources */,
+				53FC7AE017CC91030056E8DA /* devil.png in Resources */,
+				53FC7AE117CC91030056E8DA /* owl.png in Resources */,
+				53FC7AE217CC91030056E8DA /* anglerfish.png in Resources */,
+				53FC7AE317CC91030056E8DA /* spirogyra.png in Resources */,
+				53FC7AE517CC919C0056E8DA /* avaterdata.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
