@@ -8,6 +8,7 @@
 
 #import "Avater.h"
 #import "ViewController.h"
+#include <stdlib.h>
 
 @implementation Avater
 
@@ -53,10 +54,13 @@ list2:(NSMutableArray*) PL list3:(NSMutableArray*) UPL int1:(int) CVPI int2:(int
 - (int)Reincarnation:(bool) flag
 {
     int nextID=-1;
+    srand(time(nil));
+    int i = (int)rand() % (int)Point_MAX;
+    NSLog(@"overpoint %d",i);
     if(flag){//すれ違い時の処理
-        nextID = [[_EvolutionList objectAtIndex:_CivicVirtuePoint>Point_MAX/2?2:1] intValue];
-    }else{//被食時の処理
-        nextID = [[_EvolutionList objectAtIndex:_CivicVirtuePoint>Point_MAX/2?1:0] intValue];
+        nextID = [[_EvolutionList objectAtIndex:_CivicVirtuePoint>i?2:1] intValue];
+    }else{//餓死時の処理
+        nextID = [[_EvolutionList objectAtIndex:_CivicVirtuePoint>i?1:0] intValue];
     }
     return nextID;
 }

@@ -121,8 +121,7 @@ const float CallTimerSpan = 5.0;
     [savedata synchronize];
     
     
-    NSLog(@"%d,",[savedata boolForKey:OinoriKey]);
-//    AvaterName.text = [NSString stringWithFormat:@"flag %d",oinoriFlag];//debug
+//    NSLog(@"%d,",[savedata boolForKey:OinoriKey]);
 //    NSLog(@"%d",[savedata boolForKey:DeadKey]);
 //    NSLog(@"%d",[[savedata stringForKey:IDkey]intValue]);
 //    NSLog(@"%d",[[savedata stringForKey:PointKey]intValue]);
@@ -197,7 +196,6 @@ const float CallTimerSpan = 5.0;
     NSDate *Date = [NSDate date];
     NSTimeInterval tmp= [Date timeIntervalSinceDate:PrevDate];
     OinoriFlag |= [self oinoriCheck:Date];
-    NSLog(@"DDD %d",OinoriFlag);
     PrevDate = Date;
     
     // 通信が起きていた場合
@@ -339,7 +337,6 @@ const float CallTimerSpan = 5.0;
         if(prevdateComps.hour < i && i <= nowdateComps.hour ) return true;
     }
     
-    [KGStatusBar showWithStatus:@"!!!!!!!"];
     //debug用
     //for(int i=0;i<60;i+=3)if(prevdateComps.minute < i && i <= nowdateComps.minute ) return true;
     
