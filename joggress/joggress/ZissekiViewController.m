@@ -7,8 +7,8 @@
 //
 
 #import "ZissekiViewController.h"
+#import "ViewController.h"
 
-const int zisseki_NUM = 30;
 
 @implementation ZissekiViewController
 {

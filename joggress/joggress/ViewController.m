@@ -13,6 +13,7 @@
 const float Hunger_MAX = 999.0;
 const float Point_MAX = 999.0;
 const float CallTimerSpan = 5.0;
+const int zisseki_NUM = 30;
 
 @implementation ViewController
 {
@@ -37,6 +38,7 @@ const float CallTimerSpan = 5.0;
     int SPCAvaterList;
     int ogurai;
     int ninkimono;
+    int checkZisseki;
 }
 
 + (void)initialize
@@ -97,7 +99,7 @@ const float CallTimerSpan = 5.0;
     OinoriFlag = [savedata boolForKey:OinoriKey];
     
     //実績の設定
-    zissekiFlag = [[savedata stringForKey:ZissekiKey] intValue];
+    zissekiFlag = checkZisseki = [[savedata stringForKey:ZissekiKey] intValue];
     ogurai  = [[savedata stringForKey:OguraiKey] intValue];
     ninkimono  = [[savedata stringForKey:NinkimonoKey] intValue];
     
@@ -130,6 +132,26 @@ const float CallTimerSpan = 5.0;
     
     if(zissekiFlag == 1 << 29 -1) zissekiFlag |= 1 << 29;//全実績解放フラグ
     
+    @autoreleasepool {
+        if(checkZisseki != zissekiFlag){
+            int flags = zissekiFlag & ~checkZisseki;
+            // UTF8 エンコードされた CSV ファイル
+            NSString *filePath = [[NSBundle mainBundle] pathForResource:@"zisseki" ofType:@"txt"];
+            NSString *text = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+            
+            // 改行文字で区切って配列に格納する
+            NSArray *lines = [text componentsSeparatedByString:@"\n"];
+
+            NSString *string = [[NSString alloc] init];
+            for(int i=zisseki_NUM;i>=0;--i) if((flags >> i & 1) == 1){
+                string = [NSString stringWithFormat:@"実績「%@」を解放しました。\n%@",lines[i],string];
+            }
+            
+            [self showAlert:@"実績解放" Message:string];
+        }
+    }
+    
+    checkZisseki = zissekiFlag;
     NSUserDefaults *savedata = [NSUserDefaults standardUserDefaults];
     [savedata setBool:Dead forKey:DeadKey];
     [savedata setValue:[NSNumber numberWithBool:OinoriFlag] forKey:OinoriKey];
@@ -433,6 +455,26 @@ const float CallTimerSpan = 5.0;
 
     
 }
+
+//ダイアログの表示
+- (void)showAlert:(NSString*)title Message:(NSString*)message
+{
+    
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:title
+                          message:message
+                          delegate:self
+                          cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+}
+
+
+//for deligate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSLog(@"Alert clicked!!");
+}
+
 
 
 

@@ -247,17 +247,7 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="back.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="CG0-qV-pZG">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="330" id="9vG-47-kEN"/>
-                                    <constraint firstAttribute="height" constant="525" id="fvj-ox-hV5"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="実績一覧" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CYF-IS-fLV">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="jisseki_back.png" translatesAutoresizingMaskIntoConstraints="NO" id="CG0-qV-pZG"/>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tgx-LL-qAN">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="閉じる">
@@ -280,14 +270,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="owR-wQ-eTC" firstAttribute="trailing" secondItem="rq2-yK-2xY" secondAttribute="trailing" type="default" id="7KI-L8-oIe"/>
-                            <constraint firstItem="owR-wQ-eTC" firstAttribute="top" secondItem="CYF-IS-fLV" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="8ct-ip-mEZ"/>
+                            <constraint firstItem="CG0-qV-pZG" firstAttribute="leading" secondItem="rq2-yK-2xY" secondAttribute="leading" type="default" id="7TT-6p-oWn"/>
                             <constraint firstAttribute="bottom" secondItem="Tgx-LL-qAN" secondAttribute="bottom" constant="9" id="Bt8-PL-Dz7"/>
-                            <constraint firstItem="CYF-IS-fLV" firstAttribute="top" secondItem="rq2-yK-2xY" secondAttribute="top" constant="20" symbolic="YES" type="default" id="IqN-nR-8bC"/>
+                            <constraint firstItem="owR-wQ-eTC" firstAttribute="top" secondItem="rq2-yK-2xY" secondAttribute="top" constant="49" id="II9-jr-ye0"/>
+                            <constraint firstItem="CG0-qV-pZG" firstAttribute="bottom" secondItem="rq2-yK-2xY" secondAttribute="bottom" type="default" id="SEq-Fk-gl1"/>
                             <constraint firstItem="Tgx-LL-qAN" firstAttribute="centerX" secondItem="owR-wQ-eTC" secondAttribute="centerX" type="default" id="TTl-0h-tbf"/>
-                            <constraint firstItem="CYF-IS-fLV" firstAttribute="centerX" secondItem="owR-wQ-eTC" secondAttribute="centerX" type="default" id="WGe-Ov-ugN"/>
                             <constraint firstAttribute="bottom" secondItem="owR-wQ-eTC" secondAttribute="bottom" constant="71" id="WnX-7b-YBZ"/>
-                            <constraint firstItem="CG0-qV-pZG" firstAttribute="trailing" secondItem="rq2-yK-2xY" secondAttribute="trailing" type="default" id="k73-iz-iaV"/>
-                            <constraint firstItem="CG0-qV-pZG" firstAttribute="top" secondItem="rq2-yK-2xY" secondAttribute="top" type="default" id="n4J-3g-GvB"/>
+                            <constraint firstItem="CG0-qV-pZG" firstAttribute="top" secondItem="rq2-yK-2xY" secondAttribute="top" type="default" id="jIl-8K-d8B"/>
+                            <constraint firstItem="CG0-qV-pZG" firstAttribute="trailing" secondItem="rq2-yK-2xY" secondAttribute="trailing" type="default" id="xAJ-CF-bgX"/>
                             <constraint firstItem="owR-wQ-eTC" firstAttribute="leading" secondItem="rq2-yK-2xY" secondAttribute="leading" type="default" id="xHL-cw-6IC"/>
                         </constraints>
                     </view>
@@ -303,7 +293,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="back.jpg" width="640" height="827"/>
+        <image name="jisseki_back.png" width="601" height="827"/>
         <image name="sestumei.png" width="640" height="768"/>
     </resources>
     <classes>
@@ -320,9 +310,6 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/OinoriViewController.h"/>
             <relationships>
                 <relationship kind="action" name="respondToButtonClick:"/>
-                <relationship kind="outlet" name="InfoLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="ShakeCountLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="bar" candidateClass="UIProgressView"/>
             </relationships>
         </class>
         <class className="StreetPassCommunicator" superclassName="UIViewController">
@@ -339,7 +326,6 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ZissekiViewController.h"/>
             <relationships>
                 <relationship kind="action" name="respondToButtonClick:"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
             </relationships>
         </class>
     </classes>

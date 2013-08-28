@@ -12,6 +12,7 @@
 }
 
 + (void) playDummyAudioBackground;
++ (void) playAudio:(NSString*)path Type:(NSString*)type Volume:(double)vol;//音楽の再生
 
 @end
 

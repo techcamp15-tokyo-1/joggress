@@ -10,7 +10,7 @@
 		5301377A17CD963F00BDA927 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5301377917CD963F00BDA927 /* FirstViewController.m */; };
 		5301377F17CDAA3400BDA927 /* zisseki.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5301377E17CDAA3400BDA927 /* zisseki.txt */; };
 		5301378117CDC85600BDA927 /* sestumei.png in Resources */ = {isa = PBXBuildFile; fileRef = 5301378017CDC85600BDA927 /* sestumei.png */; };
-		5301378317CDC94600BDA927 /* back.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5301378217CDC94600BDA927 /* back.jpg */; };
+		5301378517CDD6C400BDA927 /* jisseki_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 5301378417CDD6C400BDA927 /* jisseki_back.png */; };
 		5316E34A17C9C86F00C54CFA /* chicken.png in Resources */ = {isa = PBXBuildFile; fileRef = 5316E34917C9C86F00C54CFA /* chicken.png */; };
 		5316E34E17C9D61A00C54CFA /* ladybug.png in Resources */ = {isa = PBXBuildFile; fileRef = 5316E34D17C9D61A00C54CFA /* ladybug.png */; };
 		5316E35017C9D72800C54CFA /* frog.png in Resources */ = {isa = PBXBuildFile; fileRef = 5316E34F17C9D72700C54CFA /* frog.png */; };
@@ -69,7 +69,7 @@
 		5301377917CD963F00BDA927 /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 		5301377E17CDAA3400BDA927 /* zisseki.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zisseki.txt; sourceTree = "<group>"; };
 		5301378017CDC85600BDA927 /* sestumei.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sestumei.png; sourceTree = "<group>"; };
-		5301378217CDC94600BDA927 /* back.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = back.jpg; sourceTree = "<group>"; };
+		5301378417CDD6C400BDA927 /* jisseki_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jisseki_back.png; sourceTree = "<group>"; };
 		5316E34917C9C86F00C54CFA /* chicken.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chicken.png; sourceTree = "<group>"; };
 		5316E34D17C9D61A00C54CFA /* ladybug.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ladybug.png; sourceTree = "<group>"; };
 		5316E34F17C9D72700C54CFA /* frog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frog.png; sourceTree = "<group>"; };
@@ -159,7 +159,7 @@
 		5361671517C6FE75000E9B43 /* Image */ = {
 			isa = PBXGroup;
 			children = (
-				5301378217CDC94600BDA927 /* back.jpg */,
+				5301378417CDD6C400BDA927 /* jisseki_back.png */,
 				5301378017CDC85600BDA927 /* sestumei.png */,
 				53FC7AD417CC91030056E8DA /* angel.png */,
 				53FC7AD517CC91030056E8DA /* cockroach.png */,
@@ -358,7 +358,7 @@
 				53FC7AE517CC919C0056E8DA /* avaterdata.csv in Resources */,
 				5301377F17CDAA3400BDA927 /* zisseki.txt in Resources */,
 				5301378117CDC85600BDA927 /* sestumei.png in Resources */,
-				5301378317CDC94600BDA927 /* back.jpg in Resources */,
+				5301378517CDD6C400BDA927 /* jisseki_back.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
