@@ -112,7 +112,7 @@
 -(void)doTimer:(NSTimer*)_timer
 {
     double time=10;
-    InfoLabel.text = @"祈れ!!!";
+    InfoLabel.text = @"振れ!!!";
     ShakeCountLabel.text = [NSString stringWithFormat:@"0"];
     [sc startForSeconds:time];
     NSLog(@"Start!");
@@ -120,7 +120,7 @@
 
 -(void)CloseTimer:(NSTimer*)_timer
 {
-    InfoLabel.text = @"終了";
+    InfoLabel.text = @"終了!！";
     ShakeCountLabel.text = [NSString stringWithFormat:@"%d",[sc getCount]];
     double point = [sc getCount]*_PointIncrement + _nowPoint;
     bar.progress = point/Point_MAX;

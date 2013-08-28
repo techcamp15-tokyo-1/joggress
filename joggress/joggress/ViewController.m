@@ -123,7 +123,7 @@ const int zisseki_NUM = 30;
     //通信設定
     SendMessage = [NSString stringWithFormat:@"%d,%d",avater.ID,avater.Hunger!=Hunger_MAX];
     [self SPCsetMyMessage:SendMessage];
-    [self SPCstart];
+    if(!Dead) [self SPCstart];
 }
 
 // save
@@ -199,7 +199,9 @@ const int zisseki_NUM = 30;
     
     OinoriFlag = false;
     zissekiFlag |= 1 << 0;//お祈り実績フラグ
+    [KGStatusBar dismiss];
     [MainTimer invalidate];//タイマー一時停止
+    [self SPCstop];
     [self performSegueWithIdentifier:@"oinoriSegue" sender:self];
 }
 
@@ -231,6 +233,7 @@ const int zisseki_NUM = 30;
     CivicVirtuePointText.text = [NSString stringWithFormat:@"%3d/999",(int)(CivicVirtuePointBar.progress*Point_MAX)];
     NSLog(@"returnValue %d" , returnValue);
     [self save];
+    [self SPCstart];
     MainTimer = [NSTimer scheduledTimerWithTimeInterval:CallTimerSpan
                                      target:self
                                    selector:@selector(doTimer:)
@@ -265,6 +268,13 @@ const int zisseki_NUM = 30;
             Dead = true;
             zissekiFlag |= 1 << 1;//死亡実績フラグ
             zissekiFlag |= 1 << 3;//餓死実績フラグ
+            
+            [self SPCstop];
+            
+            //おめでとう！！！
+            if(avater.ID == 22 || avater.ID == 23){
+                [self showAlert:@"ここまで辿り着いたアナタへ" Message:@"おめでとう 行ってらっしゃい！！"];
+            }
             
             //実績フラグ用の変数のリセット
             ogurai = 0;
@@ -311,7 +321,7 @@ const int zisseki_NUM = 30;
     // メッセージの消去判定
     if(messageCount>=0){
         messageCount++;
-        if(messageCount==4){
+        if(messageCount==2){
             [KGStatusBar dismiss];
             messageCount=-1;
         }
@@ -351,6 +361,11 @@ const int zisseki_NUM = 30;
             if(++ninkimono >= 5) {
                 zissekiFlag |= 1 << 28;//連続被食実績フラグ
                 ninkimono = 0;
+            }
+            
+            //おめでとう！！！
+            if(avater.ID == 22 || avater.ID == 23 ){
+                [self showAlert:@"ここまで辿り着いたアナタへ" Message:@"おめでとう 行ってらっしゃい！！"];
             }
             
             //実績フラグ用の変数のリセット
@@ -419,6 +434,7 @@ const int zisseki_NUM = 30;
     
     //debug用
     //for(int i=0;i<60;i+=3)if(prevdateComps.minute < i && i <= nowdateComps.minute ) return true;
+    for(int i=0;i<60;i+=10)if(prevdateComps.second < i && i <= nowdateComps.second ) return true;
 
     return false;
 }
