@@ -18,11 +18,13 @@
     NSString *uiid=[[UIApplication sharedApplication] uniqueInstallationIdentifier];
     NSLog(@"%@",uiid);
     
+    [AudioPlayer playAudio:@"01min" Type:@"mp3" Volume:0.1];
+    [AudioPlayer showAlert:@"hoge" Message:@"huga\nあｓｄｆｇｈｊｋｌ；\nあｓｄｇｈｊｋｌｓｄｆ"];
+    [AudioPlayer showAlert:@"hoge" Message:@"hugaあｓｇｈｊｋｌｓｄｆ"];
     [self SPCsetMyMessage:@"080のiPhoneだよ"];
     //[self SPCresetConnectedList];
     [self SPCstart];
     //[self SPCstop];
-    
 }
 
 - (void)didReceiveMemoryWarning{

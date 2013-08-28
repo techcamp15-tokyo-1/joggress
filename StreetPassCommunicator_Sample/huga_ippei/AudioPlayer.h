@@ -7,11 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface AudioPlayer : NSObject {
+@interface AudioPlayer : NSObject<UIAlertViewDelegate> {
 }
 
-+ (void) playDummyAudioBackground;
++ (void) playDummyAudioBackground;//ダミーオーディオの再生。バックグラウンド動作用
++ (void) playAudio:(NSString*)path Type:(NSString*)type Volume:(double)vol;//音楽の再生
++ (void) showAlert:(NSString*)title Message:(NSString*)message;//ダイアログの表示
 
 @end
 

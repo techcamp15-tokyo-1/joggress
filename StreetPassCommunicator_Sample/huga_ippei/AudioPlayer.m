@@ -40,4 +40,44 @@
     // 再生
     [player play];
 }
+
+/**
+ 音楽を鳴らす
+ @param path ファイルパス
+ @param type ファイルタイプ
+ @param vol ボリューム
+ **/
++ (void)playAudio:(NSString*)path Type:(NSString*)type Volume:(double)vol{
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:path ofType:type];
+    NSURL *fileUrl  = [NSURL fileURLWithPath:filePath];
+    NSError* error = nil;
+    AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:fileUrl error:&error];
+    if(!error) {
+        [audioPlayer prepareToPlay];
+        audioPlayer.volume = vol;
+        audioPlayer.currentTime = 0;
+        [audioPlayer play];
+    } else {
+        NSLog(@"AVAudioPlayer Error");
+    }    
+}
+
+//ダイアログの表示
++ (void)showAlert:(NSString*)title Message:(NSString*)message{
+
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:title
+                          message:message
+                          delegate:self
+                          cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+}
+
+
+//for deligate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    NSLog(@"Alert clicked!!");
+}
+
+
 @end

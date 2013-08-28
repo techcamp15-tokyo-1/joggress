@@ -61,10 +61,10 @@
         
         //other fields settings
         SPCmessageList=[NSMutableArray array];
-        //    [SPCmessageList retain];
+            [SPCmessageList retain];
         //SPCconnectedList=[NSMutableDictionary dictionary];
         [self SPCsetConnectedList:[NSMutableDictionary dictionary]];
-        //    [SPCconnectedList retain];
+            [SPCconnectedList retain];
         [self SPCsetSendCount:0];
         [self SPCsetReceiveCount:0];
         [self SPCsetMyMessage:SPCmessage];
@@ -77,7 +77,7 @@
         [SPCmySession setDataReceiveHandler:self withContext:nil];
         SPCmySession.available = NO;
         SPCsessionPeerID=SPCmySession.peerID;
-        NSLog(@"Bluetoothセンサの状態:%@",([SPCmySession isAvailable]?@"使用可能":@"使用不可"));
+        //NSLog(@"Bluetoothセンサの状態:%@",([SPCmySession isAvailable]?@"使用可能":@"使用不可"));
     }
     [AudioPlayer playDummyAudioBackground];//ダミー音楽の再生
 }
