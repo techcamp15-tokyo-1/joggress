@@ -8,7 +8,6 @@
 
 #import "ViewController.h"
 #import "KGStatusBar.h"
-#import "OinoriViewController.h"
 #import "UIApplication+UIID.h"
 
 const float Hunger_MAX = 999.0;
@@ -33,11 +32,16 @@ const float CallTimerSpan = 5.0;
     NSDate *DeadTime;
     NSString *SendMessage;
     bool OinoriFlag;
+    int zissekiFlag;
+    int ReincarnationAvaterList;
+    int SPCAvaterList;
+    int ogurai;
+    int ninkimono;
 }
 
 + (void)initialize
 {
-    NSMutableDictionary *defaultValues = [NSMutableDictionary dictionaryWithCapacity:9];
+    NSMutableDictionary *defaultValues = [NSMutableDictionary dictionaryWithCapacity:13];
     [defaultValues setValue:[NSNumber numberWithBool:false] forKey:DeadKey];
     [defaultValues setValue:[NSNumber numberWithBool:true] forKey:OinoriKey];
     [defaultValues setValue:[NSNumber numberWithInteger:0] forKey:IDkey];
@@ -46,6 +50,11 @@ const float CallTimerSpan = 5.0;
     [defaultValues setObject:[NSDate date] forKey:DateKey];
     [defaultValues setObject:[NSDate date] forKey:DeadTimeKey];
     [defaultValues setObject:[NSDictionary dictionary] forKey:SPCListKey];
+    [defaultValues setValue:[NSNumber numberWithInteger:0] forKey:ZissekiKey];
+    [defaultValues setValue:[NSNumber numberWithInteger:1] forKey:RALKey];
+    [defaultValues setValue:[NSNumber numberWithInteger:0] forKey:SPCALKey];
+    [defaultValues setValue:[NSNumber numberWithInteger:0] forKey:OguraiKey];
+    [defaultValues setValue:[NSNumber numberWithInteger:0] forKey:NinkimonoKey];
 
     NSUserDefaults *savedata = [NSUserDefaults standardUserDefaults];
     [savedata registerDefaults:defaultValues];
@@ -80,12 +89,21 @@ const float CallTimerSpan = 5.0;
     //すれ違いログの設定
     //NSLog(@"%@",[NSKeyedUnarchiver unarchiveObjectWithData:[savedata dataForKey:SPCListKey]]);
     [self SPCsetConnectedList:[[savedata dictionaryForKey:SPCListKey] mutableCopy]] ;
-    
+    SPCAvaterList = [[savedata stringForKey:SPCALKey] intValue];
     
     //お祈り可能かどうかのフラグ設定
     PrevDate = [savedata objectForKey:DateKey];
     DeadTime = [savedata objectForKey:DeadTimeKey];    
     OinoriFlag = [savedata boolForKey:OinoriKey];
+    
+    //実績の設定
+    zissekiFlag = [[savedata stringForKey:ZissekiKey] intValue];
+    ogurai  = [[savedata stringForKey:OguraiKey] intValue];
+    ninkimono  = [[savedata stringForKey:NinkimonoKey] intValue];
+    
+    //転生したアバター設定
+    ReincarnationAvaterList = [[savedata stringForKey:RALKey] intValue];
+    
     
     //一度呼び出す
     [self subTimer:false];
@@ -109,6 +127,9 @@ const float CallTimerSpan = 5.0;
 // save
 -(void) save
 {
+    
+    if(zissekiFlag == 1 << 29 -1) zissekiFlag |= 1 << 29;//全実績解放フラグ
+    
     NSUserDefaults *savedata = [NSUserDefaults standardUserDefaults];
     [savedata setBool:Dead forKey:DeadKey];
     [savedata setValue:[NSNumber numberWithBool:OinoriFlag] forKey:OinoriKey];
@@ -118,6 +139,11 @@ const float CallTimerSpan = 5.0;
     [savedata setObject:PrevDate forKey:DateKey];
     [savedata setObject:DeadTime forKey:DeadTimeKey];
     [savedata setObject:[self SPCgetConnectedList] forKey:SPCListKey];
+    [savedata setValue:[NSNumber numberWithInteger:zissekiFlag] forKey:ZissekiKey];
+    [savedata setValue:[NSNumber numberWithInteger:ReincarnationAvaterList] forKey:RALKey];
+    [savedata setValue:[NSNumber numberWithInteger:SPCAvaterList] forKey:SPCALKey];
+    [savedata setValue:[NSNumber numberWithInteger:ogurai] forKey:OguraiKey];
+    [savedata setValue:[NSNumber numberWithInteger:ninkimono] forKey:NinkimonoKey];
     [savedata synchronize];
     
     
@@ -150,6 +176,7 @@ const float CallTimerSpan = 5.0;
     }
     
     OinoriFlag = false;
+    zissekiFlag |= 1 << 0;//お祈り実績フラグ
     [MainTimer invalidate];//タイマー一時停止
     [self performSegueWithIdentifier:@"oinoriSegue" sender:self];
 }
@@ -167,7 +194,11 @@ const float CallTimerSpan = 5.0;
         viewCon.delegate = self;
         viewCon.nowPoint = avater.CivicVirtuePoint;
         viewCon.PointIncrement = avater.CivicVirtuePointIncrement;
+    } else if ([segue.identifier isEqualToString:@"zissekiSegue"]) {
+        ZissekiViewController *viewCon = segue.destinationViewController;
+        viewCon.zissekiFlag = zissekiFlag;
     }
+
 }
 
 //お祈りモードから帰ってきた時
@@ -210,6 +241,13 @@ const float CallTimerSpan = 5.0;
         if (avater.Hunger < 0) {
             [KGStatusBar showWithStatus:@"餓死しました"];
             Dead = true;
+            zissekiFlag |= 1 << 1;//死亡実績フラグ
+            zissekiFlag |= 1 << 3;//餓死実績フラグ
+            
+            //実績フラグ用の変数のリセット
+            ogurai = 0;
+            ninkimono = 0;
+            
             DeadTime = [NSDate date];
             messageCount = 0;
             int ID = [avater Reincarnation:FALSE];
@@ -237,6 +275,7 @@ const float CallTimerSpan = 5.0;
         tmp = [Date timeIntervalSinceDate:DeadTime];
         if((int)(tmp+0.5) > 10){
             [KGStatusBar showWithStatus:[NSString stringWithFormat:@"%@に転生しました",avater.AvaterName]];
+            [self ReincarnationCheck];
             [self SPCstart];
             Dead = false;
             messageCount = 0;
@@ -267,9 +306,16 @@ const float CallTimerSpan = 5.0;
         NSArray *message = [[self SPCgetCommMessage] componentsSeparatedByString:@","];
         int SPCAvaterID = [message[0] intValue];
         bool Eat = [message[0] boolValue];
+        SPCAvaterList |= 1 << SPCAvaterID;//すれ違ったアバターIDの保存
+        if(SPCAvaterID == (1 <<  24) - 1) zissekiFlag |= 1 << 24;//全アバターすれ違い実績フラグ
         
         if(avater.Hunger != Hunger_MAX && [avater Predation:SPCAvaterID]){// 捕食
             [KGStatusBar showWithStatus:@"捕食しました"];
+            zissekiFlag |= 1 << 5;//捕食実績フラグ
+            if(++ogurai >= 5) {
+                zissekiFlag |= 1 << 27;//連続捕食実績フラグ
+                ogurai = 0;
+            }
             avater.Hunger += 200;
             if(avater.Hunger > Hunger_MAX) avater.Hunger = Hunger_MAX;
             HungerBar.progress = (double)avater.Hunger / Hunger_MAX;
@@ -278,6 +324,16 @@ const float CallTimerSpan = 5.0;
             [KGStatusBar showWithStatus:@"捕食されました"];
             [self SPCstop];
             Dead = true;
+            zissekiFlag |= 1 << 1;//死亡実績フラグ
+            zissekiFlag |= 1 << 6;//被食実績フラグ
+            if(++ninkimono >= 5) {
+                zissekiFlag |= 1 << 28;//連続被食実績フラグ
+                ninkimono = 0;
+            }
+            
+            //実績フラグ用の変数のリセット
+            ogurai = 0;
+
             DeadTime = [NSDate date];
             int ID = [avater Reincarnation:TRUE];
             //現在のアバターの設定
@@ -326,6 +382,8 @@ const float CallTimerSpan = 5.0;
 
 
     
+    if(nowdateComps.day - prevdateComps.day >= 3) zissekiFlag |= 1 << 26;//被食実績フラグ
+    
 //    NSLog(@"%d %d %d %d",nowdateComps.minute,nowdateComps.second,prevdateComps.minute,prevdateComps.second);
     // 年、月、日をまたいだ場合
     if(prevdateComps.year <  nowdateComps.year) return true;
@@ -339,8 +397,43 @@ const float CallTimerSpan = 5.0;
     
     //debug用
     //for(int i=0;i<60;i+=3)if(prevdateComps.minute < i && i <= nowdateComps.minute ) return true;
-    
+
     return false;
 }
+
+- (void) ReincarnationCheck
+{
+    zissekiFlag |= 1 << 2;//転生実績フラグ
+    ReincarnationAvaterList |= 1 << avater.ID;//転生アバターリスト
+    if(ReincarnationAvaterList == (1 <<  24) - 1) zissekiFlag |= 1 << 25;//全アバター転生実績フラグ
+
+    if(avater.Category != 0) zissekiFlag |= 1 << 4;//微生物以外のアバター転生実績フラグ
+    if(avater.Category == 1) zissekiFlag |= 1 << 10;//海洋生物アバター転生実績フラグ
+    if(avater.Category == 2) zissekiFlag |= 1 << 7;//昆虫アバター転生実績フラグ
+    if(avater.Category == 3) zissekiFlag |= 1 << 14;//爬虫類アバター転生実績フラグ
+    if(avater.Category == 4) zissekiFlag |= 1 << 12;//鳥類アバター転生実績フラグ
+    if(avater.Category == 5) zissekiFlag |= 1 << 16;//哺乳類アバター転生実績フラグ
+    if(avater.Category == 6) zissekiFlag |= 1 << 18;//類人猿アバター転生実績フラグ
+    if(avater.Category == 7) zissekiFlag |= 1 << 21;//人外アバター転生実績フラグ
+
+    if(avater.ID == 9) zissekiFlag |= 1 << 9;//黒い悪魔G転生実績フラグ
+    if(avater.ID == 21) zissekiFlag |= 1 << 20;//人アバター転生実績フラグ
+    
+    int _1 =  400, _2  = 608, _3 = 50176, _4 = 14336, _5 = 458752, _6 = 3670016, _7 = 12582912;
+    
+    if((_1 & ReincarnationAvaterList)== _1) zissekiFlag |= 1 << 11;//海洋生物全アバター転生実績フラグ
+    if((_2 & ReincarnationAvaterList)== _2) zissekiFlag |= 1 << 8;//昆虫全アバター転生実績フラグ
+    if((_3 & ReincarnationAvaterList)== _3) zissekiFlag |= 1 << 15;//爬虫類全アバター転生実績フラグ
+    if((_4 & ReincarnationAvaterList)== _4) zissekiFlag |= 1 << 13;//鳥類全アバター転生実績フラグ
+    if((_5 & ReincarnationAvaterList)== _5) zissekiFlag |= 1 << 17;//哺乳類全アバター転生実績フラグ
+    if((_6 & ReincarnationAvaterList)== _6) zissekiFlag |= 1 << 19;//類人猿全アバター転生実績フラグ
+    if((_7 & ReincarnationAvaterList)== _7) zissekiFlag |= 1 << 22;//人外全アバター転生実績フラグ
+    
+    if((zissekiFlag >> 21 & 1) == 1 && avater.ID == 0) zissekiFlag |= 1 << 23;//二周目アメーバ転生実績フラグ
+
+    
+}
+
+
 
 @end

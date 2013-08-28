@@ -21,9 +21,10 @@
 @property int CivicVirtuePointIncrement;//公徳ポイント増加値
 @property int Hunger;//空腹ゲージ0〜999？
 @property int HungerDecrement;//空腹ゲージ減少量
+@property int Category;
 
 - (id)initWithAvater:(int)_ID string1:(NSString*)AName string2:(NSString*)INanme list1:(NSMutableArray*) EL
-               list2:(NSMutableArray*) PL list3:(NSMutableArray*) UPL int1:(int) CVPI int2:(int) HD;
+list2:(NSMutableArray*) PL list3:(NSMutableArray*) UPL int1:(int) CVPI int2:(int) HD int3:(int)Category;
 - (NSString *)toString;
 
 -(int)Reincarnation:(bool) flag;

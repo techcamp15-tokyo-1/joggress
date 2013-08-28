@@ -10,6 +10,7 @@
 #import "AvaterManagement.h"
 #import "Avater.h"
 #import "OinoriViewController.h"
+#import "ZissekiViewController.h"
 #import "StreetPassCommunicator.h"
 
 @interface ViewController : StreetPassCommunicator<OinoriViewDelegate>
@@ -24,6 +25,11 @@
 #define DeadTimeKey @"DeadTime"
 #define SPCListKey @"StreetPassCommunicatorKey"
 #define OinoriKey @"OinoriFlagKey"
+#define ZissekiKey @"ZissekiFlagKey"
+#define RALKey @"ReincarnationAvaterListKey"
+#define SPCALKey @"SPCAvaterListKey"
+#define OguraiKey @"OguraiKey"
+#define NinkimonoKey @"NinkimonoKey"
 
 extern const float Hunger_MAX;
 extern const float Point_MAX;

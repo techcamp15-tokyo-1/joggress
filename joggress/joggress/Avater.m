@@ -15,11 +15,11 @@
 - (id)init
 {
 	return [self initWithAvater:0 string1:@"" string2:@"" list1:[[NSMutableArray alloc]init]
-                          list2:[[NSMutableArray alloc]init] list3:[[NSMutableArray alloc]init] int1:0 int2:0];
+                          list2:[[NSMutableArray alloc]init] list3:[[NSMutableArray alloc]init] int1:0 int2:0 int3:0];
 }
 
 - (id)initWithAvater:(int)ID string1:(NSString*)AName string2:(NSString*)INanme list1:(NSMutableArray*) EL
-list2:(NSMutableArray*) PL list3:(NSMutableArray*) UPL int1:(int) CVPI int2:(int) HD
+list2:(NSMutableArray*) PL list3:(NSMutableArray*) UPL int1:(int) CVPI int2:(int) HD int3:(int) Category
 {
     _ID = ID;
     _AvaterName = AName;
@@ -29,6 +29,7 @@ list2:(NSMutableArray*) PL list3:(NSMutableArray*) UPL int1:(int) CVPI int2:(int
     _UnPredationList = UPL;
     _CivicVirtuePointIncrement = CVPI;
     _HungerDecrement = HD;
+    _Category = Category;
     _CivicVirtuePoint=0;
     _Hunger=Hunger_MAX;
 	return self;

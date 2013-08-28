@@ -26,7 +26,7 @@
         NSArray *lines = [text componentsSeparatedByString:@"\n"];
         /*
          形式
-         アバターID、アバター名、アバター画像名、進化先数i、進化先1~i、捕食対象数j、捕食対象1~j、被食対象数k、被食対象1~k、お祈りポイント増加量、空腹ゲージ減少量
+         アバターID、アバター名、アバター画像名、進化先数i、進化先1~i、捕食対象数j、捕食対象1~j、被食対象数k、被食対象1~k、お祈りポイント増加量、空腹ゲージ減少量 カテゴリー
          */
         for (NSString *row in lines) {
             // コンマで区切って配列に格納する
@@ -47,7 +47,8 @@
             while(k-- > 0) [UPL addObject:[NSNumber numberWithInteger:[items[itr++] intValue]]];
             int inc = [items[itr++] intValue];
             int dec = [items[itr++] intValue];
-            Avater *avater = [[Avater alloc ]initWithAvater:ID string1:name string2:imagename list1:EL list2:PL list3:UPL int1:inc int2:dec];
+            int cate = [items[itr++] intValue];
+            Avater *avater = [[Avater alloc ]initWithAvater:ID string1:name string2:imagename list1:EL list2:PL list3:UPL int1:inc int2:dec int3:cate];
             //NSLog(@"%@",[avater toString]);
             [AvaterList addObject:avater];
         }

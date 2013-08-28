@@ -8,9 +8,12 @@
 
 #import "ZissekiViewController.h"
 
+const int zisseki_NUM = 30;
+
 @implementation ZissekiViewController
 {
     IBOutlet UIScrollView *scrollView;
+
 }
 
 
@@ -29,12 +32,11 @@
 	// Do any additional setup after loading the view.
     
     @autoreleasepool {
-
-
         int point_x = 0;
-        int point_y = 49;
-        int width = 320 -point_x;
-        int height = 1000 - point_y;
+        int point_y = 5;
+        int width = 320;
+        int height = zisseki_NUM * 20 + 180
+        ;
         CGRect backRect = CGRectMake(point_x, point_y,width, height);//スクロールビュー内の表示画面、位置とサイズ
         self.insideView = [[UIView alloc]initWithFrame:backRect];
         [scrollView addSubview:self.insideView];//スクロールビューにセット
@@ -42,17 +44,21 @@
         scrollView.contentOffset = CGPointMake(point_x, point_y);//スクロールビューの位置
         scrollView.indicatorStyle = UIScrollViewIndicatorStyleWhite;//スクロールバーの色
         
+        // UTF8 エンコードされた CSV ファイル
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"zisseki" ofType:@"txt"];
+        NSString *text = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+
+        // 改行文字で区切って配列に格納する
+        NSArray *lines = [text componentsSeparatedByString:@"\n"];
         
-        UILabel *label1 = [[UILabel alloc]initWithFrame:CGRectMake(point_x + 5, point_y + 5, width - 5, 20)];
-        UILabel *label2 = [[UILabel alloc]initWithFrame:CGRectMake(point_x + 5, height - 100, width - 5, 20)];
-        label1.text = @"top";
-        label2.text = @"bottom";
-        label1.backgroundColor = [UIColor blackColor];
-        label2.backgroundColor = [UIColor blackColor];
-        label1.textColor = [UIColor whiteColor];
-        label2.textColor = [UIColor whiteColor];
-        [self.insideView addSubview:label1];
-        [self.insideView addSubview:label2];
+        for (int i=0;i< zisseki_NUM; ++i) {
+            UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(point_x, point_y + (i * 25), width - 5, 20)];
+            label.text = lines[i];
+            label.backgroundColor = [UIColor clearColor];
+            label.textColor = _zissekiFlag&(1<<i)?[UIColor whiteColor]:[UIColor grayColor];
+            label.textAlignment = NSTextAlignmentCenter;
+            [self.insideView addSubview:label];
+        }
     }
 }
 

@@ -13,6 +13,8 @@
 @interface ZissekiViewController : UIViewController <UIScrollViewDelegate>
 
 @property (strong, nonatomic) UIView *insideView;
+@property int zissekiFlag;
+
 
 - (IBAction)respondToButtonClick:(id)sender;
 
