@@ -111,7 +111,7 @@ const int zisseki_NUM = 30;
     
     //お祈り可能かどうかのフラグ設定
     PrevDate = [savedata objectForKey:DateKey];
-    DeadTime = [savedata objectForKey:DeadTimeKey];    
+    DeadTime = [savedata objectForKey:DeadTimeKey];
     OinoriFlag = [savedata boolForKey:OinoriKey];
     
     //実績の設定
@@ -290,7 +290,7 @@ const int zisseki_NUM = 30;
             
             //おめでとう！！！
             if(avater.ID == 22 || avater.ID == 23){
-                [self showAlert:@"ここまで辿り着いたアナタへ" Message:@"おめでとう 行ってらっしゃい！！"];
+                [self showAlert:@"ここまで辿り着いたアナタへ" Message:@"おめでとう 新たな旅立ちへ行ってらっしゃい！！"];
             }
             
             //実績フラグ用の変数のリセット
@@ -503,7 +503,7 @@ const int zisseki_NUM = 30;
 }
 
 
-//for deligate
+//アラート用デリゲード
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     NSLog(@"Alert clicked!!");

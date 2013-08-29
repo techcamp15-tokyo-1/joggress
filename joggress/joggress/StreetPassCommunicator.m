@@ -76,7 +76,8 @@
         SPCmySession.delegate = self;
         [SPCmySession setDataReceiveHandler:self withContext:nil];
         SPCmySession.available = NO;
-        SPCmySession.disconnectTimeout = TIME_OUT_MINUTES * 60;
+        //SPCmySession.disconnectTimeout = TIME_OUT_MINUTES * 60;
+        [SPCmySession disconnectFromAllPeers];
         SPCsessionPeerID=SPCmySession.peerID;
     }
     
