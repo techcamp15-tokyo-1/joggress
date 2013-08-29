@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "53DA7B9F17C4BE70009CD7A2"
-               BuildableName = "joggress.app"
+               BuildableName = "&#12473;&#12510;&#12540;&#12488;&#23447;&#25945;.app"
                BlueprintName = "joggress"
                ReferencedContainer = "container:joggress.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "53DA7B9F17C4BE70009CD7A2"
-            BuildableName = "joggress.app"
+            BuildableName = "&#12473;&#12510;&#12540;&#12488;&#23447;&#25945;.app"
             BlueprintName = "joggress"
             ReferencedContainer = "container:joggress.xcodeproj">
          </BuildableReference>
@@ -52,7 +52,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "53DA7B9F17C4BE70009CD7A2"
-            BuildableName = "joggress.app"
+            BuildableName = "&#12473;&#12510;&#12540;&#12488;&#23447;&#25945;.app"
             BlueprintName = "joggress"
             ReferencedContainer = "container:joggress.xcodeproj">
          </BuildableReference>
@@ -70,7 +70,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "53DA7B9F17C4BE70009CD7A2"
-            BuildableName = "joggress.app"
+            BuildableName = "&#12473;&#12510;&#12540;&#12488;&#23447;&#25945;.app"
             BlueprintName = "joggress"
             ReferencedContainer = "container:joggress.xcodeproj">
          </BuildableReference>

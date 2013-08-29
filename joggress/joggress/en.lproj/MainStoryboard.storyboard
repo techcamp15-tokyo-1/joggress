@@ -99,16 +99,16 @@
                         <constraints>
                             <constraint firstItem="BJ0-mc-Q9D" firstAttribute="leading" secondItem="buF-vA-8iF" secondAttribute="leading" type="default" id="3nS-Yj-dFQ"/>
                             <constraint firstItem="zwe-oH-1xB" firstAttribute="top" secondItem="W8F-2i-rXt" secondAttribute="top" type="default" id="46m-gs-Ify"/>
+                            <constraint firstAttribute="trailing" secondItem="iwD-GK-nyg" secondAttribute="trailing" constant="34" id="4gh-4T-zYJ"/>
                             <constraint firstItem="DU6-f4-na6" firstAttribute="top" secondItem="hNy-Ss-Msl" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="4iS-OP-r5A"/>
                             <constraint firstItem="29s-5u-cvJ" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="8ws-NQ-cNA"/>
-                            <constraint firstItem="iwD-GK-nyg" firstAttribute="trailing" secondItem="hNy-Ss-Msl" secondAttribute="trailing" type="default" id="AB6-7K-J1O"/>
                             <constraint firstItem="iwD-GK-nyg" firstAttribute="top" secondItem="hNy-Ss-Msl" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="AdD-HW-bnI"/>
                             <constraint firstAttribute="bottom" secondItem="PyY-gS-dw3" secondAttribute="bottom" constant="33" id="BZC-34-5vU"/>
-                            <constraint firstItem="W8F-2i-rXt" firstAttribute="leading" secondItem="DU6-f4-na6" secondAttribute="leading" type="default" id="DXr-Dn-GA8"/>
                             <constraint firstItem="hNy-Ss-Msl" firstAttribute="top" secondItem="3" secondAttribute="top" constant="59" id="Fi2-LS-dKk"/>
-                            <constraint firstAttribute="trailing" secondItem="zwe-oH-1xB" secondAttribute="trailing" constant="13" id="Ha6-36-mOs"/>
+                            <constraint firstAttribute="trailing" secondItem="p0w-0T-SRn" secondAttribute="trailing" constant="68" id="IrP-aj-yB8"/>
                             <constraint firstItem="29s-5u-cvJ" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="KWM-tM-zoI"/>
                             <constraint firstItem="29s-5u-cvJ" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="NfU-2b-ZzN"/>
+                            <constraint firstItem="hNy-Ss-Msl" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="31" id="PWO-bD-G55"/>
                             <constraint firstAttribute="bottom" secondItem="W8F-2i-rXt" secondAttribute="bottom" constant="120" id="PuR-gD-5so"/>
                             <constraint firstItem="hNy-Ss-Msl" firstAttribute="centerX" secondItem="D26-0x-aUK" secondAttribute="centerX" type="default" id="TiZ-rT-5lG"/>
                             <constraint firstItem="D26-0x-aUK" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="Tvn-xs-n8g"/>
@@ -116,14 +116,14 @@
                             <constraint firstItem="buF-vA-8iF" firstAttribute="top" secondItem="DU6-f4-na6" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="WaB-Nq-pIg"/>
                             <constraint firstItem="p0w-0T-SRn" firstAttribute="baseline" secondItem="PyY-gS-dw3" secondAttribute="baseline" type="default" id="ZtE-AK-Bx4"/>
                             <constraint firstItem="29s-5u-cvJ" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="bIB-2R-VHd"/>
+                            <constraint firstItem="DU6-f4-na6" firstAttribute="trailing" secondItem="W8F-2i-rXt" secondAttribute="trailing" type="default" id="bXQ-wH-q0X"/>
                             <constraint firstItem="hNy-Ss-Msl" firstAttribute="centerX" secondItem="buF-vA-8iF" secondAttribute="centerX" type="default" id="eah-c6-9iB"/>
+                            <constraint firstItem="DU6-f4-na6" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="38" id="h64-by-vZd"/>
                             <constraint firstItem="BJ0-mc-Q9D" firstAttribute="trailing" secondItem="buF-vA-8iF" secondAttribute="trailing" type="default" id="iWB-Io-e5D"/>
-                            <constraint firstItem="W8F-2i-rXt" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="31" id="lGQ-96-3kg"/>
-                            <constraint firstItem="hNy-Ss-Msl" firstAttribute="leading" secondItem="DU6-f4-na6" secondAttribute="leading" type="default" id="mNd-9I-gtn"/>
-                            <constraint firstItem="iwD-GK-nyg" firstAttribute="leading" secondItem="p0w-0T-SRn" secondAttribute="leading" type="default" id="rae-cG-gsN"/>
                             <constraint firstItem="PyY-gS-dw3" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="54" id="tuQ-Xy-3KE"/>
                             <constraint firstItem="iwD-GK-nyg" firstAttribute="baseline" secondItem="DU6-f4-na6" secondAttribute="baseline" type="default" id="wf3-y6-FKW"/>
                             <constraint firstItem="zwe-oH-1xB" firstAttribute="baseline" secondItem="W8F-2i-rXt" secondAttribute="baseline" type="default" id="xH4-18-Rns"/>
+                            <constraint firstAttribute="trailing" secondItem="zwe-oH-1xB" secondAttribute="trailing" constant="10" id="y7p-FL-R1b"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Noa-Rv-UEp"/>
@@ -336,53 +336,6 @@
         <image name="oinori_back.png" width="319" height="480"/>
         <image name="sestumei.png" width="640" height="768"/>
     </resources>
-    <classes>
-        <class className="FirstViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="closePush:"/>
-                <relationship kind="outlet" name="NextPage" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="OinoriViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OinoriViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="respondToButtonClick:"/>
-                <relationship kind="outlet" name="Close" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="InfoLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="ShakeCountLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="bar" candidateClass="UIProgressView"/>
-                <relationship kind="outlet" name="oinoriTitle" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="StreetPassCommunicator" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StreetPassCommunicator.h"/>
-        </class>
-        <class className="ViewController" superclassName="StreetPassCommunicator">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="oinoriPush:"/>
-                <relationship kind="action" name="zissekiPush:"/>
-                <relationship kind="outlet" name="AvaterName" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="CivicVirtuePointBar" candidateClass="UIProgressView"/>
-                <relationship kind="outlet" name="CivicVirtuePointText" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="HungerBar" candidateClass="UIProgressView"/>
-                <relationship kind="outlet" name="HungertText" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="ImageView" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="ZissekiViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ZissekiViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="respondToButtonClick:"/>
-                <relationship kind="outlet" name="Close" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -9,6 +9,8 @@
 #import "OinoriViewController.h"
 #import "ViewController.h"
 
+const double shakeTime = 5.0;
+
 @implementation OinoriViewController
 {
 //    IBOutlet UILabel *title;
@@ -19,7 +21,6 @@
     IBOutlet UIButton *Close;
     NSTimer *timer;
     NSTimer *Viewtimer;
-    bool ButtonFlag;
     ShakeCounter *sc;
     int Count;
 }
@@ -40,12 +41,13 @@
     ShakeCountLabel.font = [UIFont fontWithName:@"MisakiGothic" size:40.0];
     InfoLabel.font = [UIFont fontWithName:@"MisakiGothic" size:40.0];
     [Close.titleLabel setFont:[UIFont fontWithName:@"MisakiGothic" size:20.0]];
+    [Close.titleLabel setTextColor:[UIColor grayColor]];
+    Close.enabled = false;
     
     
 	// Do any additional setup after loading the view.
     double point = (_ShakeCount = _nowPoint);
     bar.progress = point/Point_MAX;
-    ButtonFlag = false;
     sc=[ShakeCounter everySeconds:0.1];
     ShakeCountLabel.text = [NSString stringWithFormat:@""];
     ShakeCountLabel.textAlignment = NSTextAlignmentCenter;//中央揃え
@@ -79,7 +81,7 @@
     
     
     //お祈り終了用タイマー
-    NSTimer *timerB = [NSTimer scheduledTimerWithTimeInterval:17.0f
+    NSTimer *timerB = [NSTimer scheduledTimerWithTimeInterval:6.0f + shakeTime
                                                        target:self
                                                      selector:@selector(CloseTimer:)
                                                      userInfo:nil
@@ -97,7 +99,7 @@
 
 - (IBAction)respondToButtonClick:(id)sender
 {
-    if(!ButtonFlag) return;
+    //if(!ButtonFlag) return;
     _ShakeCount = [sc getCount] * _PointIncrement + _nowPoint;
     [timer invalidate];
     [Viewtimer invalidate];
@@ -121,10 +123,9 @@
 
 -(void)doTimer:(NSTimer*)_timer
 {
-    double time=10;
     InfoLabel.text = @"振れ!!!";
     ShakeCountLabel.text = [NSString stringWithFormat:@"0"];
-    [sc startForSeconds:time];
+    [sc startForSeconds:shakeTime];
     NSLog(@"Start!");
 }
 
@@ -137,7 +138,8 @@
     bar.progress = point/Point_MAX;
     NSLog(@"mag:%3d",[sc getCount]);
     [sc stop];
-    ButtonFlag = true;
+    [Close.titleLabel setTextColor:[UIColor blackColor]];
+    Close.enabled = true;
 }
 
 -(void)ViewTimer:(NSTimer*)_timer

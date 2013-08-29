@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "KGStatusBar.h"
 #import "UIApplication+UIID.h"
+#import "StreetPassCommunicator.h"
 
 const float Hunger_MAX = 99999.0;
 const float Point_MAX = 999.0;
@@ -69,6 +70,7 @@ const int zisseki_NUM = 30;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self SPCsetRejectTimeForMinutes:3];//Debug
     
     // フォント設定
     AvaterName.font = [UIFont fontWithName:@"MisakiGothic" size:20.0];
@@ -452,7 +454,7 @@ const int zisseki_NUM = 30;
     
     //debug用
     //for(int i=0;i<60;i+=3)if(prevdateComps.minute < i && i <= nowdateComps.minute ) return true;
-    for(int i=0;i<60;i+=10)if(prevdateComps.second < i && i <= nowdateComps.second ) return true;
+    //for(int i=0;i<60;i+=10)if(prevdateComps.second < i && i <= nowdateComps.second ) return true;
 
     return false;
 }

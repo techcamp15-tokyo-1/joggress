@@ -245,7 +245,6 @@
 				53DA7BA217C4BE70009CD7A2 /* Frameworks */,
 				53DA7BA917C4BE70009CD7A2 /* joggress */,
 				53DA7BA117C4BE70009CD7A2 /* Products */,
-				537CEAA717C86FC6009CFCCC /* SenTestingKit.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -260,6 +259,7 @@
 		53DA7BA217C4BE70009CD7A2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				537CEAA717C86FC6009CFCCC /* SenTestingKit.framework */,
 				534D1EAF17CEFE36007F501F /* AudioToolbox.framework */,
 				533FB14817CC660800E48EF6 /* AVFoundation.framework */,
 				5345D69417CB2708008D254C /* Security.framework */,
