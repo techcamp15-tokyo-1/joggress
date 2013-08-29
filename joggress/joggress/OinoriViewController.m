@@ -131,6 +131,7 @@
 -(void)CloseTimer:(NSTimer*)_timer
 {
     InfoLabel.text = @"終了!！";
+    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
     ShakeCountLabel.text = [NSString stringWithFormat:@"%d",[sc getCount]];
     double point = [sc getCount]*_PointIncrement + _nowPoint;
     bar.progress = point/Point_MAX;

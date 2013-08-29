@@ -10,6 +10,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ShakeCounter.h"
+#import <AudioToolbox/AudioToolbox.h>
 
 @protocol OinoriViewDelegate
 - (void)finishView:(int)returnValue;

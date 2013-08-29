@@ -38,6 +38,7 @@
 		534D1EAC17CEEEB2007F501F /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 534D1EA217CEEEB2007F501F /* Icon@2x.png */; };
 		534D1EAD17CEEEB2007F501F /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 534D1EA317CEEEB2007F501F /* iTunesArtwork.png */; };
 		534D1EAE17CEEEB2007F501F /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 534D1EA417CEEEB2007F501F /* iTunesArtwork@2x.png */; };
+		534D1EB017CEFE36007F501F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 534D1EAF17CEFE36007F501F /* AudioToolbox.framework */; };
 		535F87C517C8C46000E55444 /* fish.png in Resources */ = {isa = PBXBuildFile; fileRef = 535F87C417C8C46000E55444 /* fish.png */; };
 		535F87C917C8C4CD00E55444 /* fly.png in Resources */ = {isa = PBXBuildFile; fileRef = 535F87C817C8C4CD00E55444 /* fly.png */; };
 		5361671817C70195000E9B43 /* AvaterManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = 5361671717C70195000E9B43 /* AvaterManagement.m */; };
@@ -114,6 +115,7 @@
 		534D1EA217CEEEB2007F501F /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		534D1EA317CEEEB2007F501F /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
 		534D1EA417CEEEB2007F501F /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
+		534D1EAF17CEFE36007F501F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		535F87C417C8C46000E55444 /* fish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fish.png; sourceTree = "<group>"; };
 		535F87C817C8C4CD00E55444 /* fly.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fly.png; sourceTree = "<group>"; };
 		5361671617C70194000E9B43 /* AvaterManagement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvaterManagement.h; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				534D1EB017CEFE36007F501F /* AudioToolbox.framework in Frameworks */,
 				533FB14917CC660800E48EF6 /* AVFoundation.framework in Frameworks */,
 				5345D69517CB2708008D254C /* Security.framework in Frameworks */,
 				537CEAA617C86C9E009CFCCC /* CoreMotion.framework in Frameworks */,
@@ -257,6 +260,7 @@
 		53DA7BA217C4BE70009CD7A2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				534D1EAF17CEFE36007F501F /* AudioToolbox.framework */,
 				533FB14817CC660800E48EF6 /* AVFoundation.framework */,
 				5345D69417CB2708008D254C /* Security.framework */,
 				537CEAA517C86C9D009CFCCC /* CoreMotion.framework */,
