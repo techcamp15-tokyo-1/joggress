@@ -8,11 +8,10 @@
 
 #import "FirstViewController.h"
 
-@interface FirstViewController ()
-
-@end
-
 @implementation FirstViewController
+{
+    IBOutlet UIButton *NextPage;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,6 +27,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    //フォント設定
+    [NextPage.titleLabel setFont:[UIFont fontWithName:@"MisakiGothic" size:22.0]];
     
 //    [NSTimer scheduledTimerWithTimeInterval:5.0f
 //                                     target:self

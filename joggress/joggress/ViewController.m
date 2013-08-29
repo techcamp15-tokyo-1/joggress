@@ -10,7 +10,7 @@
 #import "KGStatusBar.h"
 #import "UIApplication+UIID.h"
 
-const float Hunger_MAX = 999.0;
+const float Hunger_MAX = 99999.0;
 const float Point_MAX = 999.0;
 const float CallTimerSpan = 5.0;
 const int zisseki_NUM = 30;
@@ -18,13 +18,17 @@ const int zisseki_NUM = 30;
 @implementation ViewController
 {
     IBOutlet UILabel *AvaterName;//アバター名
+    IBOutlet UILabel *PText;
     IBOutlet UIProgressView *CivicVirtuePointBar;//公徳ポイントポイントバー
     IBOutlet UILabel *CivicVirtuePointText;
+    IBOutlet UILabel *HText;
     IBOutlet UIProgressView *HungerBar;//空腹ゲージ
     IBOutlet UILabel *HungertText;
+    IBOutlet UIImageView *ImageView;//アバター画像表示
+    IBOutlet UIButton *oinoriButton;
+    IBOutlet UIButton *zissekiButton;
     int messageCount;
     NSDate *PrevDate;
-    IBOutlet UIImageView *ImageView;//アバター画像表示
     NSString *ImagePath;
     AvaterManagement *AM;
     Avater *avater;
@@ -65,6 +69,18 @@ const int zisseki_NUM = 30;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // フォント設定
+    AvaterName.font = [UIFont fontWithName:@"MisakiGothic" size:20.0];
+    PText.font = [UIFont fontWithName:@"MisakiGothic" size:19.0];
+    CivicVirtuePointText.font = [UIFont fontWithName:@"MisakiGothic" size:19.0];
+    HText.font = [UIFont fontWithName:@"MisakiGothic" size:19.0];
+    HungertText.font = [UIFont fontWithName:@"MisakiGothic" size:19.0];
+    [oinoriButton.titleLabel setFont:[UIFont fontWithName:@"MisakiGothic" size:18.0]];
+    [zissekiButton.titleLabel setFont:[UIFont fontWithName:@"MisakiGothic" size:18.0]];
+    
+    
+    
 	// 全アバター設定
     AM = [[AvaterManagement alloc] init];
     
@@ -112,7 +128,7 @@ const int zisseki_NUM = 30;
 
     // タイマーを生成（CallTimerSpan秒おきにdoTimer:メソッドを呼び出す）
     CivicVirtuePointText.text = [NSString stringWithFormat:@"%3d/999",(int)(CivicVirtuePointBar.progress*Point_MAX)];
-    HungertText.text = [NSString stringWithFormat:@"%3d/999",(int)(HungerBar.progress*Hunger_MAX)];
+    HungertText.text = [NSString stringWithFormat:@"%5d/99999",(int)(HungerBar.progress*Hunger_MAX)];
     messageCount = -1;
     MainTimer = [NSTimer scheduledTimerWithTimeInterval:CallTimerSpan
                                      target:self
@@ -234,6 +250,7 @@ const int zisseki_NUM = 30;
     NSLog(@"returnValue %d" , returnValue);
     [self save];
     [self SPCstart];
+    [self subTimer:true];
     MainTimer = [NSTimer scheduledTimerWithTimeInterval:CallTimerSpan
                                      target:self
                                    selector:@selector(doTimer:)
@@ -291,7 +308,7 @@ const int zisseki_NUM = 30;
             CivicVirtuePointBar.progress = 0;
             HungerBar.progress = Hunger_MAX;
             CivicVirtuePointText.text = [NSString stringWithFormat:@"%3d/999",(int)(CivicVirtuePointBar.progress*Point_MAX)];
-            HungertText.text = [NSString stringWithFormat:@"%3d/999",(int)(HungerBar.progress*Hunger_MAX)];
+            HungertText.text = [NSString stringWithFormat:@"%5d/99999",(int)(HungerBar.progress*Hunger_MAX)];
         } else {
             if(flag) avater.Hunger-=(int)(tmp+0.5)/CallTimerSpan * avater.HungerDecrement;
             SendMessage = [NSString stringWithFormat:@"%d,%d",avater.ID,avater.Hunger!=Hunger_MAX];
@@ -301,11 +318,12 @@ const int zisseki_NUM = 30;
         
         // バーの処理
         HungerBar.progress = (double)avater.Hunger / Hunger_MAX;
-        HungertText.text = [NSString stringWithFormat:@"%3d/999",(int)(HungerBar.progress*Hunger_MAX)];
+        HungertText.text = [NSString stringWithFormat:@"%5d/99999",(int)(HungerBar.progress*Hunger_MAX)];
     } else {//死んでいる場合
         //NSLog(@"case2");
         tmp = [Date timeIntervalSinceDate:DeadTime];
-        if((int)(tmp+0.5) > 10){
+//        if((int)(tmp+0.5) >= 600){
+        if((int)(tmp+0.5) >= 10){//debug
             [KGStatusBar showWithStatus:[NSString stringWithFormat:@"%@に転生しました",avater.AvaterName]];
             [self ReincarnationCheck];
             [self SPCstart];
@@ -351,7 +369,7 @@ const int zisseki_NUM = 30;
             avater.Hunger += 200;
             if(avater.Hunger > Hunger_MAX) avater.Hunger = Hunger_MAX;
             HungerBar.progress = (double)avater.Hunger / Hunger_MAX;
-            HungertText.text = [NSString stringWithFormat:@"%3d/999",(int)(HungerBar.progress*Hunger_MAX)];
+            HungertText.text = [NSString stringWithFormat:@"%5d/99999",(int)(HungerBar.progress*Hunger_MAX)];
         } else if(Eat && [avater UnPredation:SPCAvaterID]){// 被食
             [KGStatusBar showWithStatus:@"捕食されました"];
             [self SPCstop];
@@ -381,7 +399,7 @@ const int zisseki_NUM = 30;
             CivicVirtuePointBar.progress = 0;
             HungerBar.progress = Hunger_MAX;
             CivicVirtuePointText.text = [NSString stringWithFormat:@"%3d/999",(int)(CivicVirtuePointBar.progress*Point_MAX)];
-            HungertText.text = [NSString stringWithFormat:@"%3d/999",(int)(HungerBar.progress*Hunger_MAX)];
+            HungertText.text = [NSString stringWithFormat:@"%5d/99999",(int)(HungerBar.progress*Hunger_MAX)];
         } else {// その他
             [KGStatusBar showWithStatus:@"すれ違い 公徳ポイントゲット"];
             avater.CivicVirtuePoint += 100;

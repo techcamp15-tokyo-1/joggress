@@ -10,6 +10,7 @@
 
 #define GKSessionIDName @"joggress_Fermentation"
 #define defaultRejectTime 60
+#define TIME_OUT_MINUTES 10
 
 @implementation StreetPassCommunicator
 
@@ -75,6 +76,7 @@
         SPCmySession.delegate = self;
         [SPCmySession setDataReceiveHandler:self withContext:nil];
         SPCmySession.available = NO;
+        SPCmySession.disconnectTimeout = TIME_OUT_MINUTES * 60;
         SPCsessionPeerID=SPCmySession.peerID;
     }
     

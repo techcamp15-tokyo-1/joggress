@@ -11,9 +11,12 @@
 
 @implementation OinoriViewController
 {
+//    IBOutlet UILabel *title;
     IBOutlet UIProgressView * bar;
     IBOutlet UILabel *ShakeCountLabel;
     IBOutlet UILabel *InfoLabel;
+    IBOutlet UILabel *oinoriTitle;
+    IBOutlet UIButton *Close;
     NSTimer *timer;
     NSTimer *Viewtimer;
     bool ButtonFlag;
@@ -32,6 +35,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    // フォント設定
+    oinoriTitle.font = [UIFont fontWithName:@"MisakiGothic" size:30.0];
+    ShakeCountLabel.font = [UIFont fontWithName:@"MisakiGothic" size:40.0];
+    InfoLabel.font = [UIFont fontWithName:@"MisakiGothic" size:40.0];
+    [Close.titleLabel setFont:[UIFont fontWithName:@"MisakiGothic" size:20.0]];
+    
+    
 	// Do any additional setup after loading the view.
     double point = (_ShakeCount = _nowPoint);
     bar.progress = point/Point_MAX;

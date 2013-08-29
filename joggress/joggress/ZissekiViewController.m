@@ -13,6 +13,7 @@
 @implementation ZissekiViewController
 {
     IBOutlet UIScrollView *scrollView;
+    IBOutlet UIButton *Close;
 
 }
 
@@ -32,10 +33,13 @@
 	// Do any additional setup after loading the view.
     
     @autoreleasepool {
+        // フォント設定
+        [Close.titleLabel setFont:[UIFont fontWithName:@"MisakiGothic" size:20.0]];
+        
         int point_x = 0;
         int point_y = 5;
         int width = 320;
-        int height = zisseki_NUM * 20 + 180
+        int height = zisseki_NUM * 20 + 170
         ;
         CGRect backRect = CGRectMake(point_x, point_y,width, height);//スクロールビュー内の表示画面、位置とサイズ
         self.insideView = [[UIView alloc]initWithFrame:backRect];
@@ -57,6 +61,7 @@
             label.backgroundColor = [UIColor clearColor];
             label.textColor = _zissekiFlag&(1<<i)?[UIColor whiteColor]:[UIColor grayColor];
             label.textAlignment = NSTextAlignmentCenter;
+            label.font = [UIFont fontWithName:@"MisakiGothic" size:17.0];
             [self.insideView addSubview:label];
         }
     }
