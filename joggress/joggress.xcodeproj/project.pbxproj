@@ -20,6 +20,7 @@
 		533FB14517CC655600E48EF6 /* AudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 533FB14417CC655600E48EF6 /* AudioPlayer.m */; };
 		533FB14717CC656400E48EF6 /* 01min.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 533FB14617CC656400E48EF6 /* 01min.mp3 */; };
 		533FB14917CC660800E48EF6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 533FB14817CC660800E48EF6 /* AVFoundation.framework */; };
+		5344E17717CF4033006158DE /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5344E17617CF4033006158DE /* HelpViewController.m */; };
 		5345D69117CB2536008D254C /* StreetPassCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5345D69017CB2536008D254C /* StreetPassCommunicator.m */; };
 		5345D69517CB2708008D254C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5345D69417CB2708008D254C /* Security.framework */; };
 		5345D69717CB2CBF008D254C /* UIApplication+UIID.m in Sources */ = {isa = PBXBuildFile; fileRef = 5345D69617CB2CBF008D254C /* UIApplication+UIID.m */; };
@@ -95,6 +96,8 @@
 		533FB14417CC655600E48EF6 /* AudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayer.m; sourceTree = "<group>"; };
 		533FB14617CC656400E48EF6 /* 01min.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 01min.mp3; sourceTree = "<group>"; };
 		533FB14817CC660800E48EF6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		5344E17517CF4033006158DE /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
+		5344E17617CF4033006158DE /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
 		5345D68F17CB2536008D254C /* StreetPassCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreetPassCommunicator.h; sourceTree = "<group>"; };
 		5345D69017CB2536008D254C /* StreetPassCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreetPassCommunicator.m; sourceTree = "<group>"; };
 		5345D69217CB253F008D254C /* UIApplication+UIID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIApplication+UIID.h"; sourceTree = "<group>"; };
@@ -294,6 +297,8 @@
 				53DA7BBF17C4BE70009CD7A2 /* ViewController.m */,
 				5345D68F17CB2536008D254C /* StreetPassCommunicator.h */,
 				5345D69017CB2536008D254C /* StreetPassCommunicator.m */,
+				5344E17517CF4033006158DE /* HelpViewController.h */,
+				5344E17617CF4033006158DE /* HelpViewController.m */,
 				5345D69217CB253F008D254C /* UIApplication+UIID.h */,
 				5345D69617CB2CBF008D254C /* UIApplication+UIID.m */,
 				533FB14317CC653B00E48EF6 /* AudioPlayer.h */,
@@ -446,6 +451,7 @@
 				5345D69717CB2CBF008D254C /* UIApplication+UIID.m in Sources */,
 				533FB14517CC655600E48EF6 /* AudioPlayer.m in Sources */,
 				5301377A17CD963F00BDA927 /* FirstViewController.m in Sources */,
+				5344E17717CF4033006158DE /* HelpViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

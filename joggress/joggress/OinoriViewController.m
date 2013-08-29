@@ -41,7 +41,6 @@ const double shakeTime = 5.0;
     ShakeCountLabel.font = [UIFont fontWithName:@"MisakiGothic" size:40.0];
     InfoLabel.font = [UIFont fontWithName:@"MisakiGothic" size:40.0];
     [Close.titleLabel setFont:[UIFont fontWithName:@"MisakiGothic" size:20.0]];
-    [Close.titleLabel setTextColor:[UIColor grayColor]];
     Close.enabled = false;
     
     
@@ -138,7 +137,6 @@ const double shakeTime = 5.0;
     bar.progress = point/Point_MAX;
     NSLog(@"mag:%3d",[sc getCount]);
     [sc stop];
-    [Close.titleLabel setTextColor:[UIColor blackColor]];
     Close.enabled = true;
 }
 

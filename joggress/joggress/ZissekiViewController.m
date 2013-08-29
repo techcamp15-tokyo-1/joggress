@@ -39,8 +39,7 @@
         int point_x = 0;
         int point_y = 5;
         int width = 320;
-        int height = zisseki_NUM * 20 + 170
-        ;
+        int height = zisseki_NUM * 20 + 170;
         CGRect backRect = CGRectMake(point_x, point_y,width, height);//スクロールビュー内の表示画面、位置とサイズ
         self.insideView = [[UIView alloc]initWithFrame:backRect];
         [scrollView addSubview:self.insideView];//スクロールビューにセット
