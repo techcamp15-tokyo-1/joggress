@@ -233,7 +233,7 @@
 転生を繰り返してヒトを目指してください。
 
 ・転生ってどうやるの？
-空腹ゲージが時間で減ってゼロになるか、すれ違いで他のプレイヤーに捕食されると、あなたの来世アバターが死亡します。死亡すると一定時間のユウレイ状態を経て、貯めた公徳ポイントに応じて確率的に他のアバターに転生します。
+空腹ゲージが時間で減ってゼロになるか、すれ違いで他のプレイヤーに捕食されると、あなたのアバターが死亡します。死亡すると一定時間のユウレイ状態を経て、貯めた公徳ポイントに応じて確率的に他のアバターに転生します。
 
 ・捕食するとどうなるの？
 空腹ゲージは時間で減っていくので、そのまま放っておくと餓死してしまいます。
@@ -241,7 +241,7 @@
 つまり、捕食を繰り返すことで延命でき、公徳ポイントを貯める時間をつくることができます。
 
 ・公徳ポイントはどうやって貯めるの？
-お祈りボタンを押して、お祈り（iPhoneを振る)ことによってポイントが貯まります。
+お祈りボタンを押して、お祈り（iPhoneを振る)することによってポイントが貯まります。
 振った回数に応じて貯まるポイントの量が変化します。
 ０時から３時間間隔で一回ずつお祈りできます。こまめにアプリを確認してね！</mutableString>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -432,7 +432,6 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstViewController.h"/>
             <relationships>
                 <relationship kind="action" name="closePush:"/>
-                <relationship kind="outlet" name="NextPage" candidateClass="UIButton"/>
             </relationships>
         </class>
         <class className="HelpViewController" superclassName="UIViewController">
@@ -458,16 +457,6 @@
             <relationships>
                 <relationship kind="action" name="oinoriPush:"/>
                 <relationship kind="action" name="zissekiPush:"/>
-                <relationship kind="outlet" name="AvaterName" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="CivicVirtuePointBar" candidateClass="UIProgressView"/>
-                <relationship kind="outlet" name="CivicVirtuePointText" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="HText" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="HungerBar" candidateClass="UIProgressView"/>
-                <relationship kind="outlet" name="HungertText" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="ImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="PText" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="oinoriButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="zissekiButton" candidateClass="UIButton"/>
             </relationships>
         </class>
         <class className="ZissekiViewController" superclassName="UIViewController">

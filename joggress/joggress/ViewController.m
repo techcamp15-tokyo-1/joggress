@@ -70,7 +70,7 @@ const int zisseki_NUM = 30;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self SPCsetRejectTimeForMinutes:3];//Debug
+    //[self SPCsetRejectTimeForMinutes:3];//Debug
     
     // フォント設定
     AvaterName.font = [UIFont fontWithName:@"MisakiGothic" size:20.0];
@@ -123,7 +123,6 @@ const int zisseki_NUM = 30;
     
     //転生したアバター設定
     ReincarnationAvaterList = [[savedata stringForKey:RALKey] intValue];
-    
     
     //一度呼び出す
     [self subTimer:false];
@@ -209,8 +208,14 @@ const int zisseki_NUM = 30;
 {
     NSLog(@"flag %d %d",Dead,OinoriFlag);
     
-    if(Dead || !OinoriFlag){
-        [KGStatusBar showWithStatus:@"現在お祈り出来ません"];
+    if(Dead){
+        [KGStatusBar showWithStatus:@"死んでいるためお祈り出来ません"];
+        messageCount = 0;
+        return;
+    }
+    
+    if (!OinoriFlag) {
+        [KGStatusBar showWithStatus:[NSString stringWithFormat:@"お祈り出来ません 次のお祈り時間は%@です",[self oinoriTimeString]]];
         messageCount = 0;
         return;
     }
@@ -312,6 +317,7 @@ const int zisseki_NUM = 30;
             CivicVirtuePointText.text = [NSString stringWithFormat:@"%3d/999",(int)(CivicVirtuePointBar.progress*Point_MAX)];
             HungertText.text = [NSString stringWithFormat:@"%5d/99999",(int)(HungerBar.progress*Hunger_MAX)];
         } else {
+            if (tmp < 0) tmp*=-1;
             if(flag) avater.Hunger-=(int)(tmp+0.5)/CallTimerSpan * avater.HungerDecrement;
             SendMessage = [NSString stringWithFormat:@"%d,%d",avater.ID,avater.Hunger!=Hunger_MAX];
             [self SPCsetMyMessage:SendMessage];
@@ -325,7 +331,7 @@ const int zisseki_NUM = 30;
         //NSLog(@"case2");
         tmp = [Date timeIntervalSinceDate:DeadTime];
 //        if((int)(tmp+0.5) >= 600){
-        if((int)(tmp+0.5) >= 10){//debug
+        if((int)(tmp+0.5) >= 10 || tmp < 0){//debug
             [KGStatusBar showWithStatus:[NSString stringWithFormat:@"%@に転生しました",avater.AvaterName]];
             [self ReincarnationCheck];
             [self SPCstart];
@@ -353,6 +359,7 @@ const int zisseki_NUM = 30;
 
 - (void) ReceiveMessage
 {
+    int count[3] = {0};//何回すれ違ったか判定
     while ([self SPCgetCommListSize] > 0 && !Dead) {// メッセージが空になるまで かつ 生きている間
         // メッセージをCSVで受理 配列に格納
         NSArray *message = [[self SPCgetCommMessage] componentsSeparatedByString:@","];
@@ -360,9 +367,10 @@ const int zisseki_NUM = 30;
         bool Eat = [message[0] boolValue];
         SPCAvaterList |= 1 << SPCAvaterID;//すれ違ったアバターIDの保存
         if(SPCAvaterID == (1 <<  24) - 1) zissekiFlag |= 1 << 24;//全アバターすれ違い実績フラグ
-        
+
         if(avater.Hunger != Hunger_MAX && [avater Predation:SPCAvaterID]){// 捕食
-            [KGStatusBar showWithStatus:@"捕食しました"];
+            //[KGStatusBar showWithStatus:@"捕食しました"];
+            count[0]++;
             zissekiFlag |= 1 << 5;//捕食実績フラグ
             if(++ogurai >= 5) {
                 zissekiFlag |= 1 << 27;//連続捕食実績フラグ
@@ -373,7 +381,8 @@ const int zisseki_NUM = 30;
             HungerBar.progress = (double)avater.Hunger / Hunger_MAX;
             HungertText.text = [NSString stringWithFormat:@"%5d/99999",(int)(HungerBar.progress*Hunger_MAX)];
         } else if(Eat && [avater UnPredation:SPCAvaterID]){// 被食
-            [KGStatusBar showWithStatus:@"捕食されました"];
+            //[KGStatusBar showWithStatus:@"捕食されました"];
+            count[1]++;
             [self SPCstop];
             Dead = true;
             zissekiFlag |= 1 << 1;//死亡実績フラグ
@@ -403,13 +412,27 @@ const int zisseki_NUM = 30;
             CivicVirtuePointText.text = [NSString stringWithFormat:@"%3d/999",(int)(CivicVirtuePointBar.progress*Point_MAX)];
             HungertText.text = [NSString stringWithFormat:@"%5d/99999",(int)(HungerBar.progress*Hunger_MAX)];
         } else {// その他
-            [KGStatusBar showWithStatus:@"すれ違い 公徳ポイントゲット"];
-            avater.CivicVirtuePoint += 100;
+            //[KGStatusBar showWithStatus:@"すれ違い 公徳ポイントゲット"];
+            count[2]++;
+            avater.CivicVirtuePoint += 15;
             if(avater.CivicVirtuePoint>Point_MAX) avater.CivicVirtuePoint = Point_MAX;
             CivicVirtuePointBar.progress = (double)avater.CivicVirtuePoint/Point_MAX;
             CivicVirtuePointText.text = [NSString stringWithFormat:@"%3d/999",(int)(CivicVirtuePointBar.progress*Point_MAX)];
         }
     }
+    
+    NSString *mess = @"";
+    if(count[0]+count[1]+count[2]==1){
+        if(count[0]==1) mess = @"捕食しました";
+        else if(count[1]==1) mess = @"捕食されました";
+        else mess = @"すれ違い 公徳ポイントゲット";
+    } else {
+        if (count[0]>=1) mess = [NSString stringWithFormat:@"捕食×%d",count[0]];
+        if (count[2]>=1) mess = [NSString stringWithFormat:@"%@ Pゲット×%d",mess,count[2]];
+        if (count[1]>=1) mess = [NSString stringWithFormat:@"%@ 被食",mess];
+    }
+    
+    [KGStatusBar showWithStatus:mess];
     
     while ([self SPCgetCommListSize] > 0) [self SPCgetCommMessage];
     messageCount = 0;
@@ -439,10 +462,11 @@ const int zisseki_NUM = 30;
 
 
     
-    if(nowdateComps.day - prevdateComps.day >= 3) zissekiFlag |= 1 << 26;//被食実績フラグ
+    if(nowdateComps.day - prevdateComps.day >= 3) zissekiFlag |= 1 << 26;//実績フラグ
     
 //    NSLog(@"%d %d %d %d",nowdateComps.minute,nowdateComps.second,prevdateComps.minute,prevdateComps.second);
     // 年、月、日をまたいだ場合
+    
     if(prevdateComps.year <  nowdateComps.year) return true;
     if(prevdateComps.month < nowdateComps.month) return true;
     if (prevdateComps.day < nowdateComps.day) return true;
@@ -457,6 +481,26 @@ const int zisseki_NUM = 30;
     //for(int i=0;i<60;i+=10)if(prevdateComps.second < i && i <= nowdateComps.second ) return true;
 
     return false;
+}
+
+
+- (NSString*) oinoriTimeString
+{
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *prevdateComps = [calendar components:NSYearCalendarUnit |
+                                       NSMonthCalendarUnit  |
+                                       NSDayCalendarUnit    |
+                                       NSHourCalendarUnit   |
+                                       NSMinuteCalendarUnit |
+                                       NSSecondCalendarUnit
+                                                  fromDate:PrevDate];
+    //一日内の処理
+    for(int i=0;i<24;i+=3){
+        if(prevdateComps.hour < i) return [NSString stringWithFormat:@"%02d:00",i];
+    }
+
+
+    return @"00:00";
 }
 
 - (void) ReincarnationCheck
