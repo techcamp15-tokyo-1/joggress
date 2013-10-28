@@ -147,7 +147,7 @@ const int zisseki_NUM = 30;
 -(void) save
 {
     
-    if(zissekiFlag == 1 << 29 -1) zissekiFlag |= 1 << 29;//全実績解放フラグ
+    if(zissekiFlag == (1 << 29) -1) zissekiFlag |= 1 << 29;//全実績解放フラグ
     
     @autoreleasepool {
         if(checkZisseki != zissekiFlag){
